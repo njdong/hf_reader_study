@@ -1,7 +1,7 @@
 // Study settings. Edit, commit, push; GitHub Pages updates in about a minute.
 window.STUDY_CONFIG = {
   // Apps Script web app URL (ends in /exec). Leave "" for demo mode: answers stay in the browser.
-  endpoint: "",
+  endpoint: "https://script.google.com/macros/s/AKfycbz3uAwZ1q6jucrAF1BK3SSDZwFqXS1NpJ9WEuj2RCUHkavGeFte-SMrM2hdjAJ0a7afiA/exec",
 
   title: "HF Plan Comparison",
 
@@ -16,5 +16,5 @@ window.STUDY_CONFIG = {
     </ul>`,
 
   // Shown on the last screen, e.g. "Questions: jane@upenn.edu".
-  contact: ""
+  contact: "Contact: njdong@engineering.upenn.edu"
 };
