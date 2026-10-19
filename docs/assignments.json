@@ -1,116 +1,24 @@
 {
-  "study": "hf-reader-study",
+  "study": "hf_reader_study",
   "items_version": "2026-10-19",
-  "generated": "2026-10-19T10:35:41",
-  "base_url": "https://YOUR-USERNAME.github.io/hf-reader-study/",
+  "generated": "2026-10-19T13:39:14",
+  "base_url": "https://njdong.github.io/hf_reader_study",
   "evaluators": {
-    "R01-R6U6": [
-      {
-        "item": "C01-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C01-causes",
-        "left": "A"
-      },
-      {
-        "item": "C03-acute",
-        "left": "A"
-      },
-      {
-        "item": "C03-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C03-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C01-acute",
-        "left": "A"
-      }
-    ],
-    "R02-WA3R": [
+    "R01-SWQQ": [
       {
         "item": "C01-dispo",
         "left": "A"
-      },
-      {
-        "item": "C01-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C01-dx",
-        "left": "A"
-      },
-      {
-        "item": "C03-dispo",
-        "left": "B"
       },
       {
         "item": "C03-causes",
         "left": "A"
       },
       {
-        "item": "C03-dx",
-        "left": "B"
-      }
-    ],
-    "R03-PC9A": [
-      {
-        "item": "C03-causes",
-        "left": "B"
-      },
-      {
-        "item": "C03-dx",
-        "left": "A"
-      },
-      {
-        "item": "C03-monitor",
-        "left": "B"
-      },
-      {
         "item": "C01-acute",
         "left": "B"
       },
       {
-        "item": "C01-causes",
-        "left": "B"
-      },
-      {
-        "item": "C03-dispo",
-        "left": "A"
-      }
-    ],
-    "R04-HZDA": [
-      {
-        "item": "C03-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C01-monitor",
-        "left": "B"
-      },
-      {
         "item": "C01-dx",
-        "left": "B"
-      },
-      {
-        "item": "C03-acute",
-        "left": "B"
-      },
-      {
-        "item": "C01-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C01-dispo",
-        "left": "B"
-      }
-    ],
-    "R05-FP6W": [
-      {
-        "item": "C03-acute",
         "left": "A"
       },
       {
@@ -120,21 +28,65 @@
       {
         "item": "C01-gdmt",
         "left": "A"
+      }
+    ],
+    "R02-JRCW": [
+      {
+        "item": "C01-causes",
+        "left": "A"
+      },
+      {
+        "item": "C03-acute",
+        "left": "B"
       },
       {
         "item": "C01-monitor",
         "left": "B"
       },
       {
-        "item": "C01-causes",
+        "item": "C03-dx",
+        "left": "B"
+      },
+      {
+        "item": "C03-dispo",
+        "left": "B"
+      },
+      {
+        "item": "C03-monitor",
         "left": "A"
+      }
+    ],
+    "R03-9ZKM": [
+      {
+        "item": "C03-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C01-causes",
+        "left": "B"
       },
       {
         "item": "C03-dispo",
         "left": "A"
+      },
+      {
+        "item": "C03-dx",
+        "left": "A"
+      },
+      {
+        "item": "C01-acute",
+        "left": "A"
+      },
+      {
+        "item": "C03-causes",
+        "left": "B"
       }
     ],
-    "R06-K8H5": [
+    "R04-MWUD": [
+      {
+        "item": "C01-monitor",
+        "left": "A"
+      },
       {
         "item": "C03-monitor",
         "left": "B"
@@ -144,20 +96,16 @@
         "left": "B"
       },
       {
+        "item": "C03-acute",
+        "left": "A"
+      },
+      {
         "item": "C01-dx",
-        "left": "A"
+        "left": "B"
       },
       {
-        "item": "C03-causes",
-        "left": "A"
-      },
-      {
-        "item": "C01-acute",
-        "left": "A"
-      },
-      {
-        "item": "C03-dx",
-        "left": "A"
+        "item": "C01-gdmt",
+        "left": "B"
       }
     ]
   }
