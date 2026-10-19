@@ -1,0 +1,254 @@
+{
+  "study": "hf_reader_study",
+  "version": "2026-10-19",
+  "systems": {
+    "A": "multi-agent system",
+    "B": "baseline (PLACEHOLDER text, replace with real single-prompt output)"
+  },
+  "items": [
+    {
+      "id": "C01-dx",
+      "case": "C01",
+      "domain": "dx",
+      "domain_label": "Diagnosis and HF characterization",
+      "lead": "85M · HTN, paroxysmal AF · transferred to CCU",
+      "facts": [
+        ["Course", "AF with RVR → new hypoxia, wheezing, confusion"],
+        ["Vitals", "HR 100–140 · BP 138/96"],
+        ["Labs", "{{BNP 24,117}} · {{troponin 0.02}}"],
+        ["Echo", "{{EF 30% (new)}} · {{mod–sev AS}} · mod–sev MR/TR · mod pulm HTN"]
+      ],
+      "q": "Which best characterizes this patient's heart failure?",
+      "rows": [
+        ["Diagnosis", "[[Acute on chronic]] systolic HF", "[[Acute decompensated]] HF, [[new]] low EF"],
+        ["Phenotype / EF", "HFrEF, EF 30%", "="],
+        ["Hemodynamic profile", null, "[[Warm and wet]]"]
+      ]
+    },
+    {
+      "id": "C01-causes",
+      "case": "C01",
+      "domain": "causes",
+      "domain_label": "Decompensation causes and other active problems",
+      "lead": "85M · HTN, paroxysmal AF · warfarin stopped after INR 18",
+      "facts": [
+        ["Course", "Dry mouth after new BPH med → ED: AF with RVR 130–140, IV/PO diltiazem, 2 L NS → floor: hypoxia, wheezing, confusion; little response to IV furosemide → CCU"],
+        ["Vitals", "HR 100–140 · BP 138/96"],
+        ["Labs", "{{Cr 1.9}} · {{K 5.6}} · {{BNP 24,117}} · {{troponin 0.02}}"],
+        ["Echo", "{{EF 30% (new)}} · {{mod–sev AS}} (0.9 cm²) · mod–sev MR/TR · mod pulm HTN · small–mod effusion"],
+        ["Imaging", "CXR: congestion, small effusions, possible LLL consolidation · RUQ US: GB wall thickening"]
+      ],
+      "q": "Which problem list is more complete and accurate?",
+      "rows": [
+        ["Precipitant", "AF with RVR", "AF with RVR; [[2 L NS; IV diltiazem with low EF]]"],
+        ["Structural", "AS, MR/TR, pulm HTN", "="],
+        ["Complications", "AKI, hyperkalemia, [[congestive hepatopathy]]", "AKI, hyperkalemia, [[delirium]]"],
+        ["Comorbidities", "HTN", "="],
+        ["Other", null, "[[Anticholinergic effect of BPH med; possible LLL pneumonia]]"]
+      ]
+    },
+    {
+      "id": "C01-acute",
+      "case": "C01",
+      "domain": "acute",
+      "domain_label": "Acute treatment and decongestion",
+      "lead": "85M · new HFrEF, {{EF 30%}} · {{mod–sev AS}} · CCU for AF with RVR and worsening HF",
+      "facts": [
+        ["Given", "IV/PO nodal agents · 2 L NS · furosemide 40 IV ×2, minimal response"],
+        ["Vitals", "HR 100–140 · BP 138/96 · CXR congestion"],
+        ["Labs", "{{Cr 1.9}} · {{K 5.6}}"],
+        ["Home meds", "Metoprolol tartrate, diltiazem, furosemide, aspirin"]
+      ],
+      "q": "Which is the most appropriate acute management?",
+      "rows": [
+        ["Diuretic", "[[Up-titrate]] furosemide", "Furosemide [[80 mg IV BID, goal net −1 to −2 L/day]]"],
+        ["Rate control", "[[Continue metoprolol tartrate]]", "[[Stop diltiazem; IV amiodarone]]"],
+        ["Potassium", "Zirconium cyclosilicate, recheck K", "[[Stop K supplements;]] zirconium cyclosilicate, recheck K [[in 6 h]]"],
+        ["Fluids", null, "[[Stop IV fluids; restrict to 1.5 L/day]]"]
+      ]
+    },
+    {
+      "id": "C01-gdmt",
+      "case": "C01",
+      "domain": "gdmt",
+      "domain_label": "Ongoing medication / GDMT decisions",
+      "lead": "85M · new HFrEF, {{EF 30%}} · paroxysmal AF with RVR · {{mod–sev AS}} (0.9 cm²)",
+      "facts": [
+        ["Vitals", "HR 100–140 · BP 138/96"],
+        ["Labs", "{{Cr 1.9}} · {{K 5.6}} · {{QTc 467}}"],
+        ["History", "Warfarin stopped after INR 18"],
+        ["Home meds", "Metoprolol tartrate, diltiazem, furosemide, aspirin"]
+      ],
+      "q": "Which is the most appropriate ongoing pharmacotherapy?",
+      "rows": [
+        ["Rate / rhythm", "Amiodarone; metoprolol succinate; stop diltiazem[[, digoxin]]", "Amiodarone; metoprolol succinate [[once euvolemic]]; stop diltiazem"],
+        ["ARNI / ACEi / ARB", "[[Start sacubitril-valsartan]]", "[[Hold until Cr, K improve]]"],
+        ["MRA", "[[Start spironolactone]]", "[[Hold while K high]]"],
+        ["SGLT2i", "Start dapagliflozin", "Start dapagliflozin [[once renal function stable]]"],
+        ["Anticoagulation", "Apixaban; stop aspirin", "[[Heparin, then]] apixaban [[2.5 mg BID]]; stop aspirin"],
+        ["Potassium", "Stop KCl", "="],
+        ["Other", "[[Stop fludrocortisone, tolterodine; continue citalopram]]", "[[Stop BPH anticholinergic]]"]
+      ]
+    },
+    {
+      "id": "C01-monitor",
+      "case": "C01",
+      "domain": "monitor",
+      "domain_label": "Monitoring and further workup",
+      "lead": "85M in CCU · AF · new HFrEF, {{EF 30%}}",
+      "facts": [
+        ["Echo", "Mod symmetric LVH · {{mod–sev AS}} · small–mod effusion, no tamponade"],
+        ["Labs", "{{Cr 1.9}} · {{K 5.6}} · {{QTc 467}}"]
+      ],
+      "q": "Which is the most appropriate monitoring and further evaluation?",
+      "rows": [
+        ["ECG", "[[Every 3 days]] for QTc", "[[Telemetry; daily]] ECG for QTc"],
+        ["Labs", "[[Renal function every 3 days]]", "[[BMP + Mg BID; TSH, LFTs]]"],
+        ["Volume status", null, "[[Daily weights; strict I/O]]"],
+        ["Workup", "PYP scan; [[dobutamine stress echo; SPEP/UPEP + FLC]]", "PYP scan; [[structural heart consult]]"],
+        ["Med safety", "[[Limit citalopram; heparin → apixaban with ≥ 6 h gap]]", "[[Avoid other QT-prolonging drugs]]"],
+        ["Procedures", null, "[[TEE before any cardioversion]]"]
+      ]
+    },
+    {
+      "id": "C01-dispo",
+      "case": "C01",
+      "domain": "dispo",
+      "domain_label": "Disposition and follow-up",
+      "lead": "85M · CCU transfer for AF with RVR and worsening HF despite IV nodal agents and IV furosemide",
+      "facts": [
+        ["Status", "HR 100–140 · BP 138/96 · new hypoxia, confusion"],
+        ["Echo", "{{EF 30% (new)}} · {{mod–sev AS}} · mod–sev MR/TR"]
+      ],
+      "q": "Which is the most appropriate level of care and follow-up?",
+      "rows": [
+        ["Level of care", null, "[[CCU until rate controlled, off IV diuretics and O₂]]"],
+        ["Discharge criteria", null, "[[Euvolemic; HR < 110; stable Cr, K]]"],
+        ["Follow-up", "[[Echo in 3–6 months]]", "[[HF clinic within 7 days; structural heart evaluation]]"]
+      ]
+    },
+
+    {
+      "id": "C03-dx",
+      "case": "C03",
+      "domain": "dx",
+      "domain_label": "Diagnosis and HF characterization",
+      "lead": "75F · NSCLC s/p chemoradiation, COPD, HTN · admitted to floor",
+      "facts": [
+        ["Course", "3rd episode of dyspnea and hemoptysis; worse dyspnea 1 day after discharge for COPD exacerbation and CAP"],
+        ["Vitals", "HR 117 · BP 135/64 → 108/56 · SpO₂ 93% on 4 L"],
+        ["Labs", "{{BNP 3,309}} (prior 2,522) · {{troponin 0.14}} → 0.10"],
+        ["Echo", "Not available"],
+        ["Imaging", "CXR: asymmetric pulmonary edema · CTA: no PE; worsening upper-lobe GGO and septal thickening; small bilateral effusions; small pericardial effusion, unchanged"]
+      ],
+      "q": "Which best characterizes this patient's heart failure?",
+      "rows": [
+        ["Diagnosis", "Acute decompensated HF", "Acute decompensated HF [[with concurrent COPD exacerbation]]"],
+        ["Etiology", "[[Likely radiation-induced cardiomyopathy or pericardial disease]]", "[[Not yet determined; echo needed]]"],
+        ["Phenotype / EF", "[[EF indeterminate (HFpEF noted)]]", "[[Likely HFpEF; EF not yet measured]]"],
+        ["Hemodynamic profile", null, "[[Warm and wet]]"]
+      ]
+    },
+    {
+      "id": "C03-causes",
+      "case": "C03",
+      "domain": "causes",
+      "domain_label": "Decompensation causes and other active problems",
+      "lead": "75F · NSCLC s/p chemoradiation (LLL mass), COPD, HTN",
+      "facts": [
+        ["Course", "Discharged 1 day earlier after COPD exacerbation and CAP → dyspnea after exertion, large meal that evening, intermittent rusty sputum; recent ankle pain treated with an unspecified “arthritis pill”"],
+        ["Vitals", "HR 117 · BP 108/56 · SpO₂ 99% on 3 L"],
+        ["Labs", "{{BNP 3,309}} · {{troponin 0.14}} · {{Cr 1.7}} (1.3 at discharge) · {{K 3.8}} · {{Hb 8.4}} · WBC 15,000, left shift"],
+        ["Imaging", "CTA: no PE; worsening GGO and septal thickening (edema vs hemorrhage vs infection vs lymphangitic spread); new right effusion; small pericardial effusion, unchanged · LE US: no DVT"],
+        ["Home meds", "Furosemide, atorvastatin, metoprolol tartrate, heparin"]
+      ],
+      "q": "Which problem list is more complete and accurate?",
+      "rows": [
+        ["Precipitant", "COPD exacerbation; [[lobar pneumonia; hemopericardium / pericardial effusion]]", "COPD exacerbation; [[possible pneumonia; high-sodium meal; NSAID use]]"],
+        ["Complications", "[[Type 2 NSTEMI]]; AKI", "[[Demand-related troponin rise]]; AKI [[on CKD; anemia]]"],
+        ["Comorbidities", "Lung cancer, [[anemia, stage 3 CKD]], HTN", "Lung cancer, [[COPD]], HTN"],
+        ["Other", null, "[[Hemoptysis: hemorrhage vs tumor progression; review home heparin]]"]
+      ]
+    },
+    {
+      "id": "C03-acute",
+      "case": "C03",
+      "domain": "acute",
+      "domain_label": "Acute treatment and decongestion",
+      "lead": "75F · NSCLC, COPD, HTN · admitted with dyspnea, hemoptysis, pulmonary edema on imaging",
+      "facts": [
+        ["Given (ED)", "Bronchodilators · methylprednisolone · vancomycin, piperacillin-tazobactam · aspirin · IV fluids before CTA"],
+        ["Vitals", "HR 117 · BP 108/56 · SpO₂ 99% on 3 L · diffuse wheezes and crackles"],
+        ["Labs", "{{Cr 1.7}} · {{K 3.8}} · {{Hb 8.4}} · WBC 15,000"],
+        ["Home meds", "Furosemide, atorvastatin, metoprolol tartrate, heparin"]
+      ],
+      "q": "Which is the most appropriate acute management?",
+      "rows": [
+        ["Diuretic", "Start IV furosemide", "IV furosemide [[40 mg BID]]"],
+        ["Fluids", "Stop IV fluids", "="],
+        ["Respiratory", "Nebulized ipratropium-albuterol; [[continue methylprednisolone]]", "Nebulized ipratropium-albuterol; [[switch to prednisone 40 mg × 5 days]]"],
+        ["Antibiotics", "Continue vancomycin + piperacillin-tazobactam", "Continue vancomycin + piperacillin-tazobactam[[; de-escalate at 48 h with cultures]]"],
+        ["Rate control", null, "[[Hold metoprolol while BP 108/56]]"]
+      ]
+    },
+    {
+      "id": "C03-gdmt",
+      "case": "C03",
+      "domain": "gdmt",
+      "domain_label": "Ongoing medication / GDMT decisions",
+      "lead": "75F · acute HF, EF not yet measured · NSCLC, COPD, HTN · hemoptysis",
+      "facts": [
+        ["Vitals", "HR 117 · BP 108/56"],
+        ["Labs", "{{Cr 1.7}} (1.3 at discharge) · {{K 3.8}} · {{Hb 8.4}}"],
+        ["Home meds", "Furosemide, atorvastatin, metoprolol tartrate, heparin"]
+      ],
+      "q": "Which is the most appropriate ongoing pharmacotherapy?",
+      "rows": [
+        ["Beta-blocker", "[[Down-titrate]] metoprolol tartrate", "[[Resume]] metoprolol tartrate [[at lower dose when BP allows]]"],
+        ["ARNI / ACEi / ARB", "[[Start lisinopril; stop valsartan]]", "[[Hold while Cr and BP recover]]"],
+        ["MRA", "[[Start spironolactone]]", "[[Defer]]"],
+        ["SGLT2i", "Start dapagliflozin", "Start dapagliflozin [[once Cr stable]]"],
+        ["Anticoagulation", "[[Continue heparin for VTE prophylaxis]]", "[[Hold heparin given hemoptysis; mechanical VTE prophylaxis]]"],
+        ["Potassium", "[[Stop KCl]]", "[[No supplement; recheck with diuresis]]"],
+        ["Other", "Continue atorvastatin[[, ferrous sulfate; hold temazepam]]", "Continue atorvastatin[[; stop NSAID; IV iron if iron deficient]]"]
+      ]
+    },
+    {
+      "id": "C03-monitor",
+      "case": "C03",
+      "domain": "monitor",
+      "domain_label": "Monitoring and further workup",
+      "lead": "75F · acute HF, EF not yet measured · NSCLC with LLL mass, COPD",
+      "facts": [
+        ["Imaging", "CTA: worsening GGO and septal thickening · small bilateral effusions, larger on left · small pericardial effusion, unchanged"],
+        ["Labs", "{{BNP 3,309}} · {{troponin 0.14}} → 0.10 · {{Cr 1.7}} · {{Hb 8.4}}"],
+        ["New meds", "IV diuretic and GDMT being started; home heparin"]
+      ],
+      "q": "Which is the most appropriate monitoring and further evaluation?",
+      "rows": [
+        ["Labs", "[[BMP every 3 days]]", "[[BMP and CBC daily; trend troponin]]"],
+        ["Volume status", null, "[[Daily weights; strict I/O]]"],
+        ["Imaging", "[[Urgent]] TTE with Doppler[[; cardiac MRI with LGE and T1 mapping]]", "TTE [[within 24 h]]"],
+        ["Workup", "Iron studies; [[cardio-oncology consult]]; diagnostic thoracentesis", "Iron studies; [[sputum culture]]; diagnostic thoracentesis [[if effusion grows]]"],
+        ["Med safety", "[[Avoid lisinopril + valsartan; watch K; caution with morphine; nebulize, not IV, bronchodilators]]", "[[Avoid NSAIDs; hold anticoagulation while hemoptysis persists]]"]
+      ]
+    },
+    {
+      "id": "C03-dispo",
+      "case": "C03",
+      "domain": "dispo",
+      "domain_label": "Disposition and follow-up",
+      "lead": "75F · admitted to floor for acute HF with COPD exacerbation · 3rd admission for dyspnea and hemoptysis",
+      "facts": [
+        ["Status", "HR 117 · BP 108/56 · SpO₂ 99% on 3 L · mild distress"],
+        ["Labs", "{{Cr 1.7}} · {{Hb 8.4}}"]
+      ],
+      "q": "Which is the most appropriate level of care and follow-up?",
+      "rows": [
+        ["Level of care", null, "[[Floor with telemetry]]"],
+        ["Discharge criteria", null, "[[Back to baseline O₂; euvolemic; stable Cr and Hb]]"],
+        ["Follow-up", "[[Counsel on deprescribing temazepam]]", "[[HF clinic within 7 days; oncology and pulmonology follow-up]]"]
+      ]
+    }
+  ]
+}
