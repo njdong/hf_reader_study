@@ -47,7 +47,7 @@ STEM_FIELDS = {
     "causes": "Course (history, timeline, treatments already given) · Vitals · Labs · Echo · Imaging · Home meds",
     "acute": "Given (treatments already given) · Vitals (with congestion signs) · Labs (Cr, K, Hb) · Home meds",
     "gdmt": "Vitals · Labs (Cr, K, QTc, Hb) · History (bleeding, anticoagulation, intolerances) · Home meds",
-    "monitor": "Echo or Imaging (structural findings) · Labs (Cr, K, QTc, troponin, Hb) · New meds",
+    "monitor": "Echo or Imaging (structural findings) · Labs (Cr, K, QTc, troponin, Hb) · Other orders (medications ordered this admission)",
     "dispo": "Status (current vitals, oxygen, mental status) · Echo (EF, valves) · Labs",
 }
 

@@ -16,16 +16,18 @@ STEM RULES (lead + facts)
 3. Report findings, not interpretations (write "GB wall thickening", not "congestive hepatopathy").
 4. Compact style: separate facts with " · ", use arrows for sequences, drop units for common labs (Cr 1.9, K 5.6), at most about 60 words across all facts.
 5. Wrap these key values in {{{{ }}}} every time they appear, and nothing else: EF, significant valve disease, BNP, troponin, Cr, K, Hb, QTc.
+6. When the template includes "Home meds", list every medication from the case's first-12 h order list except fluids, flushes, bowel regimen, vitamins, analgesics and topical agents; generic names, no doses. This row is how readers verify the comorbidities a plan lists, so it is exempt from the word cap. Do not use the "Patient home medications" summary line instead of the order list.
 
 OPTION RULES (rows)
-6. Use these slot names when they apply: {core_slots}. Add a case-specific slot only when content fits none of them.
-7. Each cell is a short phrase, ideally 12 words or fewer. Use the same verbs in both columns (Start / Stop / Continue / Hold).
-8. Remove meta text and source artifacts from both plans: "not documented", "source truncated", "recorded diagnosis", rationale sentences, field labels like GIVEN or NEWLY PRESCRIBED.
-9. Remove routine non-cardiac medications from both plans (PPIs, bowel regimen, eye drops, topical agents). Keep everything else, including content you think is wrong.
-10. Never add anything a plan did not say. If a plan says nothing for a slot, use null. Drop a slot only if both plans are null.
-11. If both plans say the same thing for a slot, put the text in column A and the string "=" in column B.
-12. Mark with [[ ]] only the parts that differ between the two plans, at phrase level. Text shared by both stays unmarked.
-13. Never use {{{{ }}}} inside rows.
+7. Use these slot names when they apply: {core_slots}. Add a case-specific slot only when content fits none of them.
+8. Each cell is a short phrase, ideally 12 words or fewer. Use the same verbs in both columns (Start / Stop / Continue / Hold).
+   Keep the plan's tense: if a plan labels something GIVEN, PERFORMED, COMPLETED or DOCUMENTED, keep "given" / "performed" / "done" in the cell so it does not read as a recommendation. Keep the conditions attached to an action ("start once K <5.0", "consider", "hold the wean if…"); never turn a conditional into an unconditional instruction, or an overlap into a switch.
+9. Remove meta text and source artifacts from both plans: "not documented", "source truncated", "recorded diagnosis", rationale sentences, field labels like GIVEN or NEWLY PRESCRIBED.
+10. Remove routine non-cardiac medications from both plans (PPIs, bowel regimen, eye drops, topical agents). Keep everything else, including content you think is wrong.
+11. Never add anything a plan did not say. If a plan says nothing for a slot, use null. Drop a slot only if both plans are null.
+12. If both plans say the same thing for a slot, put the text in column A and the string "=" in column B.
+13. Mark with [[ ]] only the parts that differ between the two plans, at phrase level. Text shared by both stays unmarked.
+14. Never use {{{{ }}}} inside rows.
 
 FORMAT EXAMPLE (a different case and domain):
 {example}

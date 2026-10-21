@@ -17,7 +17,7 @@ Output: data/mas_outputs.json
       }, ...
     }
   }
-Narrative chart text (HPI, exam, raw echo/imaging reports) is not copied; the markdown stays the source for it.
+chart.narrative holds the verbatim HPI, physical exam, echo report, ECG and imaging text the system received.
 
 Examples
   python tools/parse_mas.py
@@ -102,6 +102,23 @@ def parse_chart(lines):
         b = re.match(r"^- \*\*([^*]+):\*\* (.+)$", line)
         if b:
             chart["snapshot"][b.group(1)] = b.group(2).strip()
+    # Narrative blocks: a bold label followed by one or more fenced code blocks
+    chart["narrative"] = {}
+    labels = {"Chief complaint / HPI": "hpi", "Physical exam": "exam", "Echo raw report": "echo_report",
+              "ECG findings": "ecg", "Imaging": "imaging"}
+    key, buf, in_code = None, [], False
+    for line in lines + ["**end**"]:
+        m = re.match(r"^\*\*([^*]+?)(?: \(\d+ studies\))?:?\*\*\s*$", line)
+        if m and not in_code:
+            if key:
+                chart["narrative"][key] = "\n".join(buf).strip()
+            key, buf = labels.get(m.group(1)), []
+            continue
+        if line.startswith("```"):
+            in_code = not in_code
+            continue
+        if key and not line.startswith("- **"):
+            buf.append(line)
     # Home medications table = orders started in the first 12 h, i.e. what the MAS was given
     try:
         start = next(i for i, l in enumerate(lines) if l.startswith("**Home medications"))

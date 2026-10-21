@@ -228,7 +228,7 @@ def main():
             "blinding": {"option_1": k["Option 1"], "option_2": k["Option 2"]},
             "vignette": {x: y for x, y in v.items() if x not in ("pid", "hadm", "age_sex", "inclusion_reason")},
             "table_docx": {"ai": ai, "physician": physician},
-            "mas_current": {"input_meds": c["chart"]["input_meds"], **c["mas"]},
+            "mas_current": {"input_meds": c["chart"]["input_meds"], "chart_narrative": c["chart"].get("narrative", {}), **c["mas"]},
             "mas_current_by_domain": by_domain(c),
             "drift": drift(case, ai, physician, c),
         }

@@ -7,7 +7,9 @@ Output: data/cases/C<case>.json   one per case, the format make_items.py reads:
                                   6-domain table per case with MAS and physician side by side
 
 What goes where
-  case_text  the vignette from "Case Formatting (1).pdf", verbatim, in the PDF's section order
+  case_text  the vignette from "Case Formatting (1).pdf", verbatim, in the PDF's section order, followed by
+             the admission note (HPI) verbatim and the complete first-12 h medication order list, both exactly
+             as the systems received them (IV fluids, flushes and vaccines left out of the list)
   system_a   the current MAS output, one line per fact (every prescription keeps dose, route,
              frequency, indication and contingency; every safety action and test keeps its rationale)
   system_b   the physician/reference column of the docx, verbatim
@@ -26,6 +28,7 @@ Examples
 import argparse
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -46,8 +49,26 @@ VIGNETTE_ORDER = [
     ("imaging", "Imaging"),
     ("cath_procedure", "Cardiac catheterization / procedure"),
 ]
+FLUID_RE = re.compile(r"flush|dextrose|d5w|\bns\b|\b1/2 ns\b|sodium chloride 0\.9|0\.9% sodium|0\.45% sodium|saline|vaccine|"
+                      r"glucagon|glucose gel|\bbag\b|syringe|\bwater\b|\bsw\b|iso-osmotic|mini bag|magnesium sulfate", re.I)
 ROLE_LABEL = {"contributing": "CONTRIBUTORS", "complication": "COMPLICATIONS", "comorbidity": "COMORBIDITIES",
               "history": "HISTORY", "secondary": "SECONDARY"}
+
+
+def chart_text(mas):
+    """HPI verbatim plus the first-12 h order list: the common ground both plans were built on."""
+    parts = []
+    hpi = (mas.get("chart_narrative") or {}).get("hpi")
+    if hpi:
+        parts.append("Admission note (HPI), verbatim as given to both systems:\n" + hpi)
+    meds = [m for m in mas["input_meds"] if not FLUID_RE.search(m["medication"])]
+    if meds:
+        rows = []
+        for m in meds:
+            rows.append("- " + " ".join(x for x in (m["medication"], m["dose"], m["route"], m["frequency"]) if x))
+        parts.append("Medication orders in the first 12 h, as given to both systems (IV fluids, flushes and vaccines omitted):\n"
+                     + "\n".join(rows))
+    return "\n\n".join(parts)
 
 
 def vignette_text(v):
@@ -133,7 +154,7 @@ def main():
         case_id = f"C{case}"
         rec = {
             "case_id": case_id,
-            "case_text": vignette_text(c["vignette"]),
+            "case_text": vignette_text(c["vignette"]) + "\n\n" + chart_text(c["mas_current"]),
             "system_a": mas_text(c["mas_current_by_domain"], c["mas_current"]),
             "system_b": physician_text(c["table_docx"]["physician"]),
             "meta": {
