@@ -1,110 +1,414 @@
 {
   "study": "hf_reader_study",
-  "items_version": "2026-10-19",
-  "generated": "2026-10-19T13:39:14",
-  "base_url": "https://njdong.github.io/hf_reader_study",
+  "items_version": "2026-10-21",
+  "generated": "2026-10-21T06:00:38",
+  "base_url": "https://njdong.github.io/hf_reader_study/",
   "evaluators": {
-    "R01-SWQQ": [
+    "R01-DRQC": [
       {
-        "item": "C01-dispo",
-        "left": "A"
-      },
-      {
-        "item": "C03-causes",
-        "left": "A"
-      },
-      {
-        "item": "C01-acute",
+        "item": "C013-dx",
         "left": "B"
       },
       {
-        "item": "C01-dx",
-        "left": "A"
-      },
-      {
-        "item": "C03-gdmt",
+        "item": "C013-causes",
         "left": "B"
       },
       {
-        "item": "C01-gdmt",
+        "item": "C013-acute",
+        "left": "A"
+      },
+      {
+        "item": "C013-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C013-monitor",
+        "left": "A"
+      },
+      {
+        "item": "C087-dx",
+        "left": "B"
+      },
+      {
+        "item": "C087-causes",
+        "left": "A"
+      },
+      {
+        "item": "C087-acute",
+        "left": "B"
+      },
+      {
+        "item": "C087-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C087-monitor",
+        "left": "A"
+      },
+      {
+        "item": "C078-dx",
+        "left": "B"
+      },
+      {
+        "item": "C078-causes",
+        "left": "A"
+      },
+      {
+        "item": "C078-acute",
+        "left": "B"
+      },
+      {
+        "item": "C078-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C078-monitor",
+        "left": "B"
+      },
+      {
+        "item": "C058-dx",
+        "left": "B"
+      },
+      {
+        "item": "C058-causes",
+        "left": "B"
+      },
+      {
+        "item": "C058-acute",
+        "left": "B"
+      },
+      {
+        "item": "C058-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C058-monitor",
+        "left": "A"
+      },
+      {
+        "item": "C037-dx",
+        "left": "B"
+      },
+      {
+        "item": "C037-causes",
+        "left": "A"
+      },
+      {
+        "item": "C037-acute",
+        "left": "B"
+      },
+      {
+        "item": "C037-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C037-monitor",
+        "left": "B"
+      }
+    ],
+    "R02-VPXD": [
+      {
+        "item": "C021-dx",
+        "left": "B"
+      },
+      {
+        "item": "C021-causes",
+        "left": "A"
+      },
+      {
+        "item": "C021-acute",
+        "left": "A"
+      },
+      {
+        "item": "C021-gdmt",
+        "left": "B"
+      },
+      {
+        "item": "C021-monitor",
+        "left": "B"
+      },
+      {
+        "item": "C006-dx",
+        "left": "B"
+      },
+      {
+        "item": "C006-causes",
+        "left": "A"
+      },
+      {
+        "item": "C006-acute",
+        "left": "B"
+      },
+      {
+        "item": "C006-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C006-monitor",
+        "left": "A"
+      },
+      {
+        "item": "C093-dx",
+        "left": "A"
+      },
+      {
+        "item": "C093-causes",
+        "left": "B"
+      },
+      {
+        "item": "C093-acute",
+        "left": "A"
+      },
+      {
+        "item": "C093-gdmt",
+        "left": "B"
+      },
+      {
+        "item": "C093-monitor",
+        "left": "A"
+      },
+      {
+        "item": "C063-dx",
+        "left": "B"
+      },
+      {
+        "item": "C063-causes",
+        "left": "B"
+      },
+      {
+        "item": "C063-acute",
+        "left": "A"
+      },
+      {
+        "item": "C063-gdmt",
+        "left": "B"
+      },
+      {
+        "item": "C063-monitor",
+        "left": "A"
+      },
+      {
+        "item": "C042-dx",
+        "left": "B"
+      },
+      {
+        "item": "C042-causes",
+        "left": "B"
+      },
+      {
+        "item": "C042-acute",
+        "left": "B"
+      },
+      {
+        "item": "C042-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C042-monitor",
         "left": "A"
       }
     ],
-    "R02-JRCW": [
+    "R03-WZUG": [
       {
-        "item": "C01-causes",
+        "item": "C041-dx",
+        "left": "B"
+      },
+      {
+        "item": "C041-causes",
         "left": "A"
       },
       {
-        "item": "C03-acute",
+        "item": "C041-acute",
+        "left": "A"
+      },
+      {
+        "item": "C041-gdmt",
         "left": "B"
       },
       {
-        "item": "C01-monitor",
+        "item": "C041-monitor",
         "left": "B"
       },
       {
-        "item": "C03-dx",
+        "item": "C036-dx",
         "left": "B"
       },
       {
-        "item": "C03-dispo",
+        "item": "C036-causes",
+        "left": "A"
+      },
+      {
+        "item": "C036-acute",
+        "left": "A"
+      },
+      {
+        "item": "C036-gdmt",
         "left": "B"
       },
       {
-        "item": "C03-monitor",
+        "item": "C036-monitor",
+        "left": "B"
+      },
+      {
+        "item": "C016-dx",
+        "left": "B"
+      },
+      {
+        "item": "C016-causes",
+        "left": "B"
+      },
+      {
+        "item": "C016-acute",
+        "left": "A"
+      },
+      {
+        "item": "C016-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C016-monitor",
+        "left": "B"
+      },
+      {
+        "item": "C095-dx",
+        "left": "A"
+      },
+      {
+        "item": "C095-causes",
+        "left": "B"
+      },
+      {
+        "item": "C095-acute",
+        "left": "A"
+      },
+      {
+        "item": "C095-gdmt",
+        "left": "B"
+      },
+      {
+        "item": "C095-monitor",
+        "left": "B"
+      },
+      {
+        "item": "C080-dx",
+        "left": "A"
+      },
+      {
+        "item": "C080-causes",
+        "left": "B"
+      },
+      {
+        "item": "C080-acute",
+        "left": "B"
+      },
+      {
+        "item": "C080-gdmt",
+        "left": "B"
+      },
+      {
+        "item": "C080-monitor",
         "left": "A"
       }
     ],
-    "R03-9ZKM": [
+    "R04-3JKE": [
       {
-        "item": "C03-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C01-causes",
+        "item": "C068-dx",
         "left": "B"
       },
       {
-        "item": "C03-dispo",
+        "item": "C068-causes",
         "left": "A"
       },
       {
-        "item": "C03-dx",
-        "left": "A"
-      },
-      {
-        "item": "C01-acute",
-        "left": "A"
-      },
-      {
-        "item": "C03-causes",
-        "left": "B"
-      }
-    ],
-    "R04-MWUD": [
-      {
-        "item": "C01-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C03-monitor",
+        "item": "C068-acute",
         "left": "B"
       },
       {
-        "item": "C01-dispo",
-        "left": "B"
-      },
-      {
-        "item": "C03-acute",
+        "item": "C068-gdmt",
         "left": "A"
       },
       {
-        "item": "C01-dx",
+        "item": "C068-monitor",
         "left": "B"
       },
       {
-        "item": "C01-gdmt",
+        "item": "C043-dx",
+        "left": "A"
+      },
+      {
+        "item": "C043-causes",
+        "left": "A"
+      },
+      {
+        "item": "C043-acute",
+        "left": "B"
+      },
+      {
+        "item": "C043-gdmt",
+        "left": "B"
+      },
+      {
+        "item": "C043-monitor",
+        "left": "B"
+      },
+      {
+        "item": "C029-dx",
+        "left": "B"
+      },
+      {
+        "item": "C029-causes",
+        "left": "A"
+      },
+      {
+        "item": "C029-acute",
+        "left": "B"
+      },
+      {
+        "item": "C029-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C029-monitor",
+        "left": "A"
+      },
+      {
+        "item": "C018-dx",
+        "left": "A"
+      },
+      {
+        "item": "C018-causes",
+        "left": "B"
+      },
+      {
+        "item": "C018-acute",
+        "left": "A"
+      },
+      {
+        "item": "C018-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C018-monitor",
+        "left": "B"
+      },
+      {
+        "item": "C084-dx",
+        "left": "A"
+      },
+      {
+        "item": "C084-causes",
+        "left": "A"
+      },
+      {
+        "item": "C084-acute",
+        "left": "B"
+      },
+      {
+        "item": "C084-gdmt",
+        "left": "A"
+      },
+      {
+        "item": "C084-monitor",
         "left": "B"
       }
     ]

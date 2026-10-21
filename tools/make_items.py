@@ -16,21 +16,25 @@ vLLM on PARCC, ...). Set:
   LLM_BASE_URL   e.g. https://api.openai.com/v1  or  http://localhost:8000/v1
   LLM_API_KEY
   LLM_MODEL
-Or replace call_llm() below with your own client.
+Or the Claude Code CLI, which needs no API key: set CLAUDE_BIN to the `claude` binary (and LLM_MODEL,
+default claude-opus-5-5). Or replace call_llm() below with your own client.
 
 Examples
   python tools/make_items.py data/cases/C01.json                 # one case
   python tools/make_items.py data/cases/*.json                   # all cases
   python tools/make_items.py data/cases/C01.json --dry-run       # write prompts to out/prompts/, no LLM call
   python tools/make_items.py data/cases/C01.json --domains gdmt acute
+  CLAUDE_BIN=~/.claude/local/claude python tools/make_items.py data/cases/C0*.json --jobs 6
 """
 
 import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, os.path.dirname(__file__))
 import itemlib  # noqa: E402
@@ -52,8 +56,16 @@ def call_llm(prompt):
     base = os.environ.get("LLM_BASE_URL", "").rstrip("/")
     key = os.environ.get("LLM_API_KEY", "")
     model = os.environ.get("LLM_MODEL", "")
+    if os.environ.get("CLAUDE_BIN"):
+        r = subprocess.run(
+            [os.environ["CLAUDE_BIN"], "-p", "--model", model or "claude-opus-5-5", "--output-format", "text"],
+            input=prompt, capture_output=True, text=True, timeout=600,
+        )
+        if r.returncode != 0:
+            raise ValueError(f"claude exited {r.returncode}: {r.stderr.strip()[:300]}")
+        return r.stdout
     if not (base and model):
-        sys.exit("Set LLM_BASE_URL, LLM_API_KEY and LLM_MODEL, or use --dry-run.")
+        sys.exit("Set LLM_BASE_URL, LLM_API_KEY and LLM_MODEL (or CLAUDE_BIN), or use --dry-run.")
     body = json.dumps({
         "model": model,
         "temperature": 0,
@@ -103,12 +115,14 @@ def main():
     ap.add_argument("--domains", nargs="*", default=list(itemlib.DOMAINS))
     ap.add_argument("--dry-run", action="store_true", help="write prompts to out/prompts/ only")
     ap.add_argument("--retries", type=int, default=1, help="re-ask with the validation errors this many times")
+    ap.add_argument("--jobs", type=int, default=1, help="LLM calls to run in parallel")
     args = ap.parse_args()
 
     doc = itemlib.load(args.items)
     by_id = {it["id"]: it for it in doc["items"]}
     failed = []
 
+    jobs = []                             # (item id, prompt)
     for path in args.cases:
         case = itemlib.load(path)
         for domain in args.domains:
@@ -122,24 +136,34 @@ def main():
                     f.write(prompt)
                 print(f"{iid}: prompt written")
                 continue
+            jobs.append((iid, prompt))
 
-            ask = prompt
-            for attempt in range(args.retries + 1):
-                try:
-                    item = parse_json(call_llm(ask))
-                except (ValueError, KeyError) as e:
-                    errs = [f"{iid}: response was not valid JSON ({e})"]
-                else:
-                    errs = []
-                    itemlib.validate_item(item, errs)
-                if not errs:
-                    by_id[iid] = item
-                    print(f"{iid}: ok")
-                    break
-                ask = prompt + "\n\nYour previous answer had these problems; return corrected JSON only:\n" + "\n".join(errs)
+    def make(job):
+        iid, prompt = job
+        ask = prompt
+        for attempt in range(args.retries + 1):
+            try:
+                item = parse_json(call_llm(ask))
+            except (ValueError, KeyError, subprocess.TimeoutExpired) as e:
+                errs = [f"{iid}: response was not valid JSON ({e})"]
+            else:
+                errs = []
+                itemlib.validate_item(item, errs)
+                if not errs and item["id"] != iid:
+                    errs = [f"{iid}: returned id {item['id']!r}"]
+            if not errs:
+                return iid, item, []
+            ask = prompt + "\n\nYour previous answer had these problems; return corrected JSON only:\n" + "\n".join(errs)
+        return iid, None, errs
+
+    with ThreadPoolExecutor(max_workers=max(1, args.jobs)) as pool:
+        for iid, item, errs in pool.map(make, jobs):
+            if item:
+                by_id[iid] = item
+                print(f"{iid}: ok", flush=True)
             else:
                 failed.append(iid)
-                print(f"{iid}: FAILED\n  " + "\n  ".join(errs))
+                print(f"{iid}: FAILED\n  " + "\n  ".join(errs), flush=True)
 
     if not args.dry_run:
         order = {d: i for i, d in enumerate(itemlib.DOMAINS)}

@@ -24,6 +24,10 @@ data/cases/*.json ──make_items.py (LLM)──▶ docs/items.json ──make_
 | `tools/itemlib.py` | Item schema and validator (`python tools/itemlib.py`) |
 | `prompts/item_prompt.md` | The LLM prompt (stem template, condensing and highlighting rules) |
 | `data/cases/C01.json` | Example of the case input format |
+| `tools/parse_mas.py` | MAS review markdown (`data/cases_mas_review_100.md`) → `data/mas_outputs.json`, one structured record per case |
+| `tools/build_batch.py` | Joins the batch-20 key, docx tables, vignettes and MAS output → `data/batch20_cases.json`, and reports where the docx AI column has drifted from the MAS output |
+| `tools/build_cases.py` | `batch20_cases.json` → `data/cases/C<case>.json` (pipeline input, full text) and `data/batch20_raw.md` (readable stems + tables) |
+| `data/batch20_ai_update_report.md` | Findings from the 2026-10-21 drift check |
 
 Run all commands from the repo root.
 

@@ -9,6 +9,7 @@ half of its ratings. Writes:
 Examples
   python tools/make_assignments.py --evaluators 12 --per 10 --base-url https://USER.github.io/hf-reader-study/
   python tools/make_assignments.py --add 3 --per 10      # add 3 evaluators, keep existing assignments
+  python tools/make_assignments.py --evaluators 4 --by-case 5   # whole cases, one per cohort per evaluator
 """
 
 import argparse
@@ -26,6 +27,29 @@ import itemlib  # noqa: E402
 
 ALPHABET = "".join(c for c in string.ascii_uppercase + string.digits if c not in "O0I1L")
 DOMAIN_ORDER = list(itemlib.DOMAINS)
+CASES_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "cases")
+
+
+def case_cohort(case_id):
+    """meta.cohort from data/cases/<case>.json, or "" when the file has none."""
+    try:
+        return itemlib.load(os.path.join(CASES_DIR, f"{case_id}.json")).get("meta", {}).get("cohort", "")
+    except (OSError, ValueError):
+        return ""
+
+
+def case_deck(cases, rng):
+    """Cases interleaved by cohort (c1 of each cohort, then c2 of each, ...), shuffled within cohort.
+    Dealing this deck round-robin gives each evaluator a spread of cohorts."""
+    by_cohort = defaultdict(list)
+    for c in cases:
+        by_cohort[case_cohort(c)].append(c)
+    for group in by_cohort.values():
+        rng.shuffle(group)
+    deck = []
+    for i in range(max(len(g) for g in by_cohort.values())):
+        deck += [g[i] for g in by_cohort.values() if i < len(g)]
+    return deck
 
 
 def new_code(index, rng, taken):
@@ -44,6 +68,8 @@ def main():
     ap.add_argument("--add", type=int, default=0, help="add this many evaluators to an existing assignments file")
     ap.add_argument("--per", type=int, default=10, help="items per evaluator")
     ap.add_argument("--max-per-case", type=int, default=0, help="cap items from one case per evaluator (0 = no cap)")
+    ap.add_argument("--by-case", type=int, default=0,
+                    help="give each evaluator this many whole cases (all their items, grouped) instead of --per items")
     ap.add_argument("--order", choices=["random", "case"], default="random",
                     help="random: shuffle each queue; case: group an evaluator's items by case")
     ap.add_argument("--seed", type=int, default=None)
@@ -87,6 +113,30 @@ def main():
         per = len(items)
 
     start = len(evaluators) + 1
+    if args.by_case:
+        # Deal whole cases round-robin from a cohort-interleaved deck. Within each case, Option 1 is A for
+        # half the items and B for the other half, in shuffled order, so no left/right pattern is visible.
+        by_case = defaultdict(list)
+        for iid, it in items.items():
+            by_case[it["case"]].append(iid)
+        deck = case_deck(sorted(by_case), rng)
+        if args.by_case * n_new > len(deck):
+            print(f"warning: {n_new} x {args.by_case} cases requested but only {len(deck)} cases; some repeat")
+        for k, idx in enumerate(range(start, start + n_new)):
+            code = new_code(idx, rng, evaluators)
+            cases = [deck[(k + j * n_new) % len(deck)] for j in range(args.by_case)]
+            queue = []
+            for case in cases:
+                iids = sorted(by_case[case], key=lambda i: DOMAIN_ORDER.index(items[i]["domain"]))
+                sides = ["A", "B"] * (len(iids) // 2) + ([rng.choice("AB")] if len(iids) % 2 else [])
+                rng.shuffle(sides)
+                for iid, side in zip(iids, sides):
+                    left[iid][side] += 1
+                    count[iid] += 1
+                    queue.append({"item": iid, "left": side})
+            evaluators[code] = queue
+        per = len(next(iter(evaluators.values())))
+        n_new = 0                          # skip the per-item picker below
     for idx in range(start, start + n_new):
         code = new_code(idx, rng, evaluators)
         ranked = sorted(items, key=lambda i: (count[i], rng.random()))
@@ -133,9 +183,22 @@ def main():
         for code, queue in evaluators.items():
             w.writerow([code, len(queue), f"{base}?r={code}" if base else f"?r={code}"])
 
+    key_path = os.path.join(os.path.dirname(args.csv) or ".", "randomization_key.csv")
+    with open(key_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["evaluator", "position", "item_id", "case", "domain", "option_1", "option_2", "left_system"])
+        names = doc.get("systems", {})
+        for code, queue in evaluators.items():
+            for pos, e in enumerate(queue, 1):
+                it = items.get(e["item"], {})
+                o1, o2 = (("A", "B") if e["left"] == "A" else ("B", "A"))
+                w.writerow([code, pos, e["item"], it.get("case", ""), it.get("domain", ""),
+                            names.get(o1, o1), names.get(o2, o2), e["left"]])
+    print(f"wrote {key_path}")
+
     counts = [count[i] for i in items]
     imbalance = max(abs(left[i]["A"] - left[i]["B"]) for i in items)
-    print(f"{len(evaluators)} evaluators ({n_new} new), {per} items each")
+    print(f"{len(evaluators)} evaluators, {per} items each")
     print(f"ratings per item: min {min(counts)}, max {max(counts)}, total {sum(counts)}")
     print(f"max |A-left minus B-left| for any item: {imbalance}")
     print(f"wrote {args.out} and {args.csv}")
