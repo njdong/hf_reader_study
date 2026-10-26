@@ -1,6 +1,6 @@
 {
  "study": "hf_reader_study",
- "version": "2026-10-26d",
+ "version": "2026-10-26e",
  "mode": "case",
  "systems": {
   "A": "multi-agent system (current run, first-12 h chart)",
@@ -1079,56 +1079,6 @@
    "A": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Atrial flutter (recorded diagnosis); rapid ventricular rate on presentation."
-     },
-     {
-      "text": "HF CHARACTERIZATION: No HF diagnosis recorded."
-     }
-    ],
-    "causes": [
-     {
-      "text": "ACTIVE PROBLEMS: Palpitations and presyncope; recent URI symptoms and increased albuterol use during an asthma flare."
-     },
-     {
-      "text": "HISTORY: Seizure disorder and asthma."
-     }
-    ],
-    "acute": [
-     {
-      "text": "GIVEN: IV diltiazem twice, followed by oral diltiazem; converted to sinus rhythm."
-     },
-     {
-      "text": "GIVEN: IV fluids and aspirin in the ED."
-     }
-    ],
-    "gdmt": [
-     {
-      "text": "No new prescriptions recorded in the supplied newly prescribed medication extract."
-     },
-     {
-      "text": "START: Oral diltiazem after conversion to sinus rhythm, documented in the clinical narrative."
-     }
-    ],
-    "monitor": [
-     {
-      "text": "COMPLETED: ECG, chest radiograph and echocardiogram; no acute cardiopulmonary abnormality on chest radiograph."
-     },
-     {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
-     }
-    ],
-    "dispo": [
-     {
-      "text": "ADMITTED: Hospital floor after ED treatment; comfortable and without complaints on arrival."
-     },
-     {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
-     }
-    ]
-   },
-   "B": {
-    "dx": [
-     {
       "text": "DIAGNOSIS: New-onset typical atrial flutter with rapid ventricular response."
      },
      {
@@ -1173,6 +1123,56 @@
      },
      {
       "text": "LEVEL OF CARE / DISCHARGE CRITERIA: Not documented in the supplied output."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Atrial flutter (recorded diagnosis); rapid ventricular rate on presentation."
+     },
+     {
+      "text": "HF CHARACTERIZATION: No HF diagnosis recorded."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Palpitations and presyncope; recent URI symptoms and increased albuterol use during an asthma flare."
+     },
+     {
+      "text": "HISTORY: Seizure disorder and asthma."
+     }
+    ],
+    "acute": [
+     {
+      "text": "GIVEN: IV diltiazem twice, followed by oral diltiazem; converted to sinus rhythm."
+     },
+     {
+      "text": "GIVEN: IV fluids and aspirin in the ED."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "No new prescriptions recorded in the supplied newly prescribed medication extract."
+     },
+     {
+      "text": "START: Oral diltiazem after conversion to sinus rhythm, documented in the clinical narrative."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "COMPLETED: ECG, chest radiograph and echocardiogram; no acute cardiopulmonary abnormality on chest radiograph."
+     },
+     {
+      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMITTED: Hospital floor after ED treatment; comfortable and without complaints on arrival."
+     },
+     {
+      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
      }
     ]
    },
