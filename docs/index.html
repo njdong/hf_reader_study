@@ -36,6 +36,7 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); fon
 [hidden] { display: none !important; }
 
 .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--surface); border-bottom: 1px solid var(--line); }
+.help { font-size: 14px; color: var(--muted); text-decoration: underline; }
 .bar-in { max-width: 1100px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; justify-content: space-between; }
 .brand { font-weight: 700; font-size: 14.5px; }
 .prog { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -56,6 +57,7 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); fon
 
 .stem { background: var(--stem); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; font-size: 14.5px; }
 .stem p { margin: 0; }
+.card > h3 { margin: 0 0 -10px; font-size: 15px; }
 .stem h3 { margin: 6px 0 0; font-size: 13.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
 .stem ul { margin: 0; padding-left: 20px; }
 .stem b { font-weight: 600; }
@@ -114,6 +116,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
 <header class="bar">
   <div class="bar-in">
     <span class="brand" id="brand">HF Plan Comparison</span>
+    <a href="#" class="help" id="helpLink" hidden>Instructions</a>
     <span class="prog" id="prog" hidden><span id="progText"></span><span class="track"><span class="fill" id="progFill"></span></span></span>
   </div>
 </header>
@@ -132,6 +135,8 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
                 ["slight_2", "Slightly prefer", "Option 2"], ["strong_2", "Strongly prefer", "Option 2"]];
   const $ = id => document.getElementById(id);
   const app = $("app");
+  const INTRO_VER = CFG.introVersion || "1";
+  $("helpLink").addEventListener("click", e => { e.preventDefault(); if (S.queue.length) intro(); });
   const store = {
     get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
@@ -198,7 +203,8 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     $("prog").hidden = false;
     progress();
     if (allDone()) return finish();
-    if (!S.done.size && !store.get(key("introSeen"), false)) return intro();
+    $("helpLink").hidden = false;
+    if (store.get(key("introSeen"), "") !== INTRO_VER) return intro();
     show(nextUndone(-1));
   }
 
@@ -219,10 +225,13 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     });
   }
   function intro() {
+    stopClock();
+    const back = S.idx >= 0 ? S.idx : nextUndone(-1);
     app.innerHTML = `<section class="card"><h1>Before you start</h1>${CFG.intro}
-      <p class="muted">${S.queue.length} cases · about ${S.queue.length * 8} minutes · you can stop and come back with the same link</p>
-      <div class="actions"><button class="btn primary" id="go" type="button">Start</button></div></section>`;
-    $("go").addEventListener("click", () => { store.set(key("introSeen"), true); show(nextUndone(-1)); });
+      <p class="muted">${S.queue.length} cases · about ${S.queue.length * 12} minutes · you can stop and come back with the same link</p>
+      <div class="actions"><button class="btn primary" id="go" type="button">${S.idx >= 0 ? "Back to the case" : "Start"}</button></div></section>`;
+    $("go").addEventListener("click", () => { store.set(key("introSeen"), INTRO_VER); allDone() && S.idx < 0 ? finish() : show(back); });
+    window.scrollTo(0, 0);
   }
   function finish() {
     stopClock(); S.idx = -1;
