@@ -1,6 +1,39 @@
 # HF reader study
 
-Evaluators open a personal link, see their assigned items one at a time, and every answer goes straight to a Google Sheet. The question bank, the assignments and the page are all generated from files, so nothing is built by hand.
+Evaluators open a personal link, see their assigned cases one at a time, and every answer goes straight to a Google Sheet. The cases, the assignments and the page are all generated from files, so nothing is built by hand.
+
+**Current mode: whole-case comparison** (since 2026-10-26). Each screen shows one case: the chart as of the first 12 h of admission (stem), then a 6-domain table comparing the multi-agent system's plan with the clinical note (the hospital record), then a preference per domain, a 0–4 safety rating per option, and a comment. Option order is randomized per case per evaluator.
+
+```
+data/cases_mas_review_100.md ──parse_mas.py──▶ data/mas_outputs.json
+        │                                              │
+        └── CHART + MAS ──build_fullcase.py (LLM stem)─▶ data/fullcases/C*.json ──build_study.py──▶ docs/cases.json + docs/assignments.json
+                                                                                                          │
+                                                                                 docs/index.html ◀────────┘ ──▶ Apps Script ──▶ Google Sheet
+```
+
+| Path | What it is |
+|---|---|
+| `tools/build_fullcase.py` | First-12 h chart → stem (LLM, chart blocks only), MAS column (mechanical), clinical-note column (parsed record) |
+| `tools/build_study.py` | `data/fullcases/` → `docs/cases.json`; case-level assignments with balanced coverage and MAS side; key CSV |
+| `data/case_selection.csv` | The 30 study cases: 10 "preferred", 20 "backup" |
+| `docs/legacy_items.html` | The earlier per-domain item page (kept for reference; uses `items.json`) |
+
+Rebuild everything:
+```bash
+python tools/parse_mas.py
+CLAUDE_BIN=~/.claude/local/claude python tools/build_fullcase.py          # preferred cases (LLM stems)
+CLAUDE_BIN=~/.claude/local/claude python tools/build_fullcase.py --cases 006 013 ...   # any others
+python tools/build_fullcase.py --render-only                               # recompute MAS/reference without the LLM
+python tools/build_study.py --evaluators 25 --per 6 --base-url https://USERNAME.github.io/hf_reader_study/
+```
+Then paste `out/evaluators.csv` codes into the sheet's `evaluators` tab and push `docs/`.
+
+**Response rows (case mode).** One row per domain per case, with `safety_1`/`safety_2` (as shown) and `safety_A`/`safety_B` (A = MAS) repeated on each row. `Code.gs` must be redeployed (Manage deployments → Edit → New version) after updating it, so the new columns are written.
+
+---
+
+## Earlier per-domain item mode (reference)
 
 ```
 data/cases/*.json ──make_items.py (LLM)──▶ docs/items.json ──make_assignments.py──▶ docs/assignments.json

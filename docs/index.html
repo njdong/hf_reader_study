@@ -9,20 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: sticky progress bar, then one narrow column with one item card at a time */
+/* Case mode: one whole case per screen (stem, 6-domain table, preferences, safety, comment) */
 :root {
-  --bg: #f4f6f7;
-  --surface: #ffffff;
-  --fg: #1a2127;
-  --muted: #5a6670;
-  --line: #d9dfe3;
-  --accent: #1d5a85;
-  --accent-soft: #e3edf5;
-  --on-accent: #ffffff;
-  --warn: #9a3b2a;
-  --ok: #2f6b45;
-  --hl-key: #fbf0c4;
-  --hl-diff: #e9e2f8;
+  --bg: #f4f6f7; --surface: #ffffff; --fg: #1a2127; --muted: #5a6670; --line: #d9dfe3;
+  --accent: #1d5a85; --accent-soft: #e3edf5; --on-accent: #ffffff; --warn: #9a3b2a; --ok: #2f6b45;
+  --stem: #eef3f8; --head: #dfe8f3; --lab: #f4f7fa;
   --font-ui: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   color-scheme: light;
@@ -31,15 +22,13 @@
   :root:not([data-theme="light"]) {
     --bg: #111518; --surface: #191e22; --fg: #e3e8eb; --muted: #95a1aa; --line: #2a3238;
     --accent: #79afdb; --accent-soft: #1c2934; --on-accent: #0f1a22; --warn: #e08a76; --ok: #7cc496;
-    --hl-key: #4a4120; --hl-diff: #3a3152;
-    color-scheme: dark;
+    --stem: #1c2329; --head: #22303b; --lab: #1e252b; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #111518; --surface: #191e22; --fg: #e3e8eb; --muted: #95a1aa; --line: #2a3238;
   --accent: #79afdb; --accent-soft: #1c2934; --on-accent: #0f1a22; --warn: #e08a76; --ok: #7cc496;
-  --hl-key: #4a4120; --hl-diff: #3a3152;
-  color-scheme: dark;
+  --stem: #1c2329; --head: #22303b; --lab: #1e252b; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
@@ -47,95 +36,72 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); fon
 [hidden] { display: none !important; }
 
 .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--surface); border-bottom: 1px solid var(--line); }
-.bar-in { max-width: 800px; margin: 0 auto; padding-inline: 16px; padding-block: 10px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; justify-content: space-between; }
+.bar-in { max-width: 1100px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; justify-content: space-between; }
 .brand { font-weight: 700; font-size: 14.5px; }
 .prog { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .track { width: 120px; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
 .fill { display: block; height: 100%; width: 0; background: var(--accent); }
-.demo { max-width: 800px; margin: 12px auto 0; padding-inline: 16px; font-size: 13px; color: var(--warn); }
+.demo { max-width: 1100px; margin: 12px auto 0; padding-inline: 16px; font-size: 13px; color: var(--warn); }
 
-.wrap { max-width: 800px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 56px; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 20px 16px 56px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px 20px; display: grid; gap: 18px; min-width: 0; }
 .card h1 { margin: 0; font-size: 22px; text-wrap: balance; }
-.card p { margin: 0; max-width: 66ch; }
-.card ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 66ch; }
+.card h2 { margin: 0; font-size: 17px; }
+.card p { margin: 0; }
+.card ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
 .muted { color: var(--muted); }
-
 .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; font-size: 13px; color: var(--muted); }
 .pos { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
 .badge { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--ok); }
 
-mark { color: inherit; border-radius: 3px; padding: 0 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-mark.k { background: var(--hl-key); }
-mark.d { background: var(--hl-diff); }
+.stem { background: var(--stem); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; font-size: 14.5px; }
+.stem p { margin: 0; }
+.stem h3 { margin: 6px 0 0; font-size: 13.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.stem ul { margin: 0; padding-left: 20px; }
+.stem b { font-weight: 600; }
 
-.case { display: grid; gap: 8px; }
-.lead { margin: 0; font-weight: 600; font-size: 15.5px; }
-.facts { margin: 0; display: grid; grid-template-columns: 5.5rem 1fr; gap: 5px 12px; font-size: 14.5px; }
-.facts dt { font-size: 12.5px; font-weight: 600; color: var(--muted); padding-top: 1px; }
-.facts dd { margin: 0; min-width: 0; }
-.q { margin: 0; font-size: 16px; font-weight: 600; text-wrap: balance; }
+.cmp { width: 100%; border-collapse: collapse; font-size: 14px; }
+.cmp th, .cmp td { border: 1px solid var(--line); padding: 8px 10px; vertical-align: top; text-align: left; }
+.cmp th { background: var(--head); font-weight: 600; }
+.cmp td.lab { width: 15%; background: var(--lab); font-weight: 600; font-size: 13.5px; }
+.cmp td div { margin: 2px 0; }
+.cmp details { margin: 2px 0 6px; }
+.cmp summary { cursor: pointer; color: var(--muted); font-size: 12.5px; }
+.cmp details pre { white-space: pre-wrap; font: 12px/1.35 var(--font-mono); background: var(--bg); padding: 6px 8px; margin: 2px 0; border-radius: 4px; }
+.tablewrap { overflow-x: auto; }
 
-.cmpwrap { display: grid; gap: 6px; min-width: 0; }
-.cmp { display: grid; grid-template-columns: minmax(6.5rem, 8.5rem) 1fr 1fr; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; font-size: 14.5px; }
-.cmp > div { padding: 8px 12px; border-top: 1px solid var(--line); min-width: 0; }
-.cmp .c1, .cmp .c2, .cmp .both { border-left: 1px solid var(--line); }
-.cmp .both { grid-column: span 2; }
-.cmp .hd { border-top: 0; font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--bg); }
-.cmp .lab { font-size: 13px; font-weight: 600; color: var(--muted); }
-.cmp .none { color: var(--muted); }
-.pill { display: inline-block; font-family: var(--font-mono); font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; margin-left: 6px; vertical-align: 1px; }
-.legend { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--muted); align-items: center; }
-.legend .pill { margin-left: 0; margin-right: 4px; }
-
-form { display: grid; gap: 18px; }
-.item form { border-top: 1px solid var(--line); padding-top: 18px; }
+form { display: grid; gap: 20px; border-top: 1px solid var(--line); padding-top: 18px; }
 fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width: 0; }
-legend { padding: 0; font-weight: 600; font-size: 14.5px; margin-bottom: 8px; }
-.scale { display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-.scale input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.scale label { display: grid; place-items: center; text-align: center; padding: 9px 4px; min-height: 52px; cursor: pointer; font-size: 13px; line-height: 1.25; border-left: 1px solid var(--line); background: var(--surface); }
-.scale label:first-of-type { border-left: 0; }
-.scale label span { display: block; color: var(--muted); font-size: 12px; }
-.scale label:hover { background: var(--accent-soft); }
-.scale input:checked + label { background: var(--accent); color: var(--on-accent); }
-.scale input:checked + label span { color: var(--on-accent); }
-.scale input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: -3px; }
-
+legend { padding: 0; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+.dgrid { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.dgrid th, .dgrid td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: center; }
+.dgrid th { font-weight: 600; font-size: 12.5px; color: var(--muted); }
+.dgrid th:first-child, .dgrid td:first-child { text-align: left; font-weight: 600; width: 30%; }
+.dgrid input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+.dgrid tr.missing td:first-child { color: var(--warn); }
+.saf { display: grid; grid-template-columns: 9rem repeat(5, auto) 1fr; gap: 6px 14px; align-items: center; font-size: 14px; }
+.saf label { display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
+.saf input { width: 17px; height: 17px; accent-color: var(--accent); }
+.saf .who { font-weight: 600; }
 .field { display: grid; gap: 6px; font-weight: 600; font-size: 14.5px; }
 .field span { font-weight: 400; color: var(--muted); font-size: 13px; }
 textarea, input[type="text"] { font: inherit; font-size: 14.5px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; width: 100%; }
-textarea { min-height: 64px; resize: vertical; }
+textarea { min-height: 72px; resize: vertical; }
 input[type="text"] { max-width: 16rem; font-family: var(--font-mono); letter-spacing: .04em; }
-
 .actions { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
 .btn { font: inherit; font-weight: 600; font-size: 14px; padding: 9px 18px; border-radius: 6px; cursor: pointer; border: 1px solid var(--accent); }
 .btn.primary { background: var(--accent); color: var(--on-accent); }
 .btn.ghost { background: transparent; color: var(--accent); }
 .btn[disabled] { opacity: .55; cursor: progress; }
-.btn:focus-visible, textarea:focus-visible, input[type="text"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .status { margin: 0; font-size: 13.5px; color: var(--muted); }
 .status.err { color: var(--warn); }
 .status.ok { color: var(--ok); }
-.hint { font-size: 12.5px; color: var(--muted); }
 pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font-mono); font-size: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
-
-@media (max-width: 600px) {
-  .card { padding: 18px 14px; }
-  .facts { grid-template-columns: 4.6rem 1fr; }
-  .cmp { grid-template-columns: 1fr 1fr; font-size: 14px; }
-  .cmp .hd.lab { display: none; }
-  .cmp .lab { grid-column: 1 / -1; padding-bottom: 2px; }
-  .cmp .c1, .cmp .c2, .cmp .both { border-top: 0; padding-top: 2px; }
-  .cmp .hd.c1, .cmp .hd.c2 { padding-top: 8px; }
-  .cmp .c1, .cmp .both { border-left: 0; }
-  .cmp .both { grid-column: 1 / -1; }
+@media (max-width: 700px) {
+  .card { padding: 16px 12px; }
+  .cmp { font-size: 13px; min-width: 640px; }
+  .saf { grid-template-columns: 1fr; }
   .track { width: 80px; }
-  .hint.keys { display: none; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .scale label { transition: background-color .12s ease; }
-  .fill { transition: width .25s ease; }
 }
 </style>
 </head>
@@ -154,46 +120,32 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
 <script>
 (() => {
   "use strict";
-  const PAGE_VERSION = "2026-10-19";
+  const PAGE_VERSION = "2026-10-26-case";
   const CFG = Object.assign({ endpoint: "", title: "HF Plan Comparison", intro: "", contact: "" }, window.STUDY_CONFIG || {});
   const DEMO = !CFG.endpoint;
-  const PREF = [
-    ["strong_1", "Strongly", "Option 1"],
-    ["slight_1", "Slightly", "Option 1"],
-    ["neutral", "Neutral", ""],
-    ["slight_2", "Slightly", "Option 2"],
-    ["strong_2", "Strongly", "Option 2"]
-  ];
+  const PREF = [["strong_1", "Strongly prefer", "Option 1"], ["slight_1", "Slightly prefer", "Option 1"], ["neutral", "Neutral", ""],
+                ["slight_2", "Slightly prefer", "Option 2"], ["strong_2", "Strongly prefer", "Option 2"]];
   const $ = id => document.getElementById(id);
   const app = $("app");
-
   const store = {
     get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
   };
-  const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  const fmt = s => esc(s)
-    .replace(/\{\{(.+?)\}\}/g, '<mark class="k">$1</mark>')
-    .replace(/\[\[(.+?)\]\]/g, '<mark class="d">$1</mark>');
+  const esc = s => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-  const S = {
-    study: "", version: "", items: {}, assign: { evaluators: {} },
-    code: "", queue: [], idx: -1, done: new Set(), answers: {}, sent: [],
-    acc: {}, t0: 0
-  };
+  const S = { study: "", version: "", domains: [], cases: {}, assign: { evaluators: {} },
+              code: "", queue: [], idx: -1, done: new Set(), answers: {}, sent: [], acc: {}, t0: 0 };
   const key = k => `hfrs:${S.study}:${S.code}:${k}`;
+  const caseDone = cid => S.done.has(`${cid}-${S.domains[0][0]}`);
 
-  // ---------- timing (seconds the item was visible) ----------
+  // ---------- timing ----------
   function stopClock() {
     const e = S.queue[S.idx];
-    if (e && S.t0) S.acc[e.item] = (S.acc[e.item] || 0) + (performance.now() - S.t0) / 1000;
+    if (e && S.t0) S.acc[e.case] = (S.acc[e.case] || 0) + (performance.now() - S.t0) / 1000;
     S.t0 = 0;
   }
   function startClock() { S.t0 = S.idx >= 0 ? performance.now() : 0; }
-  document.addEventListener("visibilitychange", () => {
-    if (!$("itemForm")) return;
-    document.hidden ? stopClock() : startClock();
-  });
+  document.addEventListener("visibilitychange", () => { if ($("caseForm")) document.hidden ? stopClock() : startClock(); });
 
   // ---------- boot ----------
   async function getJSON(url) {
@@ -201,46 +153,33 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     if (!r.ok) throw new Error(url + " " + r.status);
     return r.json();
   }
-
   async function boot() {
     $("brand").textContent = CFG.title;
     $("demo").hidden = !DEMO;
-    let itemsDoc;
+    let doc;
     try {
-      [itemsDoc, S.assign] = await Promise.all([
-        getJSON("items.json"),
-        getJSON("assignments.json").catch(() => ({ evaluators: {} }))
-      ]);
+      [doc, S.assign] = await Promise.all([getJSON("cases.json"), getJSON("assignments.json").catch(() => ({ evaluators: {} }))]);
     } catch (e) {
       return message("Couldn't load the study", "The study files didn't load. Reload the page to try again.");
     }
-    S.study = itemsDoc.study || "study";
-    S.version = itemsDoc.version || "";
-    itemsDoc.items.forEach(it => { S.items[it.id] = it; });
-
+    S.study = doc.study || "study"; S.version = doc.version || ""; S.domains = doc.domains; S.cases = doc.cases;
     const q = new URLSearchParams(location.search).get("r");
     const h = decodeURIComponent(location.hash.replace(/^#/, ""));
     const code = (q || h || store.get("hfrs:lastCode", "") || (DEMO ? "DEMO" : "")).trim();
     code ? start(code) : askCode();
   }
-
   function queueFor(code) {
-    if (DEMO && code === "DEMO") {
-      return Object.keys(S.items).map((id, i) => ({ item: id, left: i % 2 ? "B" : "A" }));
-    }
+    if (DEMO && code === "DEMO") return Object.keys(S.cases).map((cid, i) => ({ case: cid, left: i % 2 ? "B" : "A" }));
     const q = (S.assign.evaluators || {})[code];
-    return q ? q.filter(e => S.items[e.item]) : null;
+    return q ? q.filter(e => S.cases[e.case]) : null;
   }
-
   async function start(code) {
     const queue = queueFor(code);
     if (!queue || !queue.length) return askCode(code ? "That code isn't part of this study. Check your link." : "");
-    S.code = code;
-    S.queue = queue;
+    S.code = code; S.queue = queue;
     store.set("hfrs:lastCode", code);
     S.answers = store.get(key("answers"), {});
     S.done = new Set(store.get(key("done"), []));
-
     if (!DEMO) {
       try {
         const r = await getJSON(CFG.endpoint + (CFG.endpoint.includes("?") ? "&" : "?") + "r=" + encodeURIComponent(code));
@@ -249,7 +188,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
         }
         (r.done || []).forEach(id => S.done.add(id));
         persist();
-      } catch (e) { /* offline or blocked: continue with what this browser remembers */ }
+      } catch (e) { /* offline: continue with what this browser remembers */ }
     }
     $("prog").hidden = false;
     progress();
@@ -259,237 +198,157 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
   }
 
   // ---------- screens ----------
-  function message(title, text) {
-    app.innerHTML = `<section class="card"><h1>${esc(title)}</h1><p>${esc(text)}</p></section>`;
-  }
-
+  function message(title, text) { app.innerHTML = `<section class="card"><h1>${esc(title)}</h1><p>${esc(text)}</p></section>`; }
   function askCode(err) {
     $("prog").hidden = true;
-    app.innerHTML = `
-      <section class="card">
-        <h1>${esc(CFG.title)}</h1>
-        <p>Enter the evaluator code from your invitation link.</p>
-        <form id="codeForm" novalidate>
-          <label class="field" for="codeInput">Evaluator code
-            <input type="text" id="codeInput" autocomplete="off" spellcheck="false" placeholder="R01-ABCD">
-          </label>
-          <div class="actions"><button class="btn primary" type="submit">Start</button>
-          <p class="status err" role="status">${err ? esc(err) : ""}</p></div>
-        </form>
-      </section>`;
+    app.innerHTML = `<section class="card"><h1>${esc(CFG.title)}</h1><p>Enter the evaluator code from your invitation link.</p>
+      <form id="codeForm" novalidate><label class="field" for="codeInput">Evaluator code
+        <input type="text" id="codeInput" autocomplete="off" spellcheck="false" placeholder="R01-ABCD"></label>
+        <div class="actions"><button class="btn primary" type="submit">Start</button><p class="status err" role="status">${err ? esc(err) : ""}</p></div></form></section>`;
     $("codeForm").addEventListener("submit", e => {
       e.preventDefault();
       const code = $("codeInput").value.trim().toUpperCase();
       if (!code) return;
-      try { history.replaceState(null, "", "?r=" + encodeURIComponent(code)); } catch (er) { /* not allowed here */ }
+      try { history.replaceState(null, "", "?r=" + encodeURIComponent(code)); } catch (er) { /* ignore */ }
       start(code);
     });
   }
-
   function intro() {
-    app.innerHTML = `
-      <section class="card">
-        <h1>Before you start</h1>
-        ${CFG.intro}
-        <p class="muted">${S.queue.length} items · about ${S.queue.length} minutes</p>
-        <div class="actions"><button class="btn primary" id="go" type="button">Start</button></div>
-      </section>`;
+    app.innerHTML = `<section class="card"><h1>Before you start</h1>${CFG.intro}
+      <p class="muted">${S.queue.length} cases · about ${S.queue.length * 8} minutes · you can stop and come back with the same link</p>
+      <div class="actions"><button class="btn primary" id="go" type="button">Start</button></div></section>`;
     $("go").addEventListener("click", () => { store.set(key("introSeen"), true); show(nextUndone(-1)); });
   }
-
   function finish() {
-    stopClock();
-    S.idx = -1;
+    stopClock(); S.idx = -1;
     const contact = CFG.contact ? `<p class="muted">${esc(CFG.contact)}</p>` : "";
-    const demo = DEMO && S.sent.length
-      ? `<p class="muted">Demo mode. These rows would be sent to the Google Sheet:</p><pre class="sent">${esc(S.sent.map(r => JSON.stringify(r)).join("\n"))}</pre>`
-      : "";
-    app.innerHTML = `
-      <section class="card">
-        <h1>All ${S.queue.length} items are submitted</h1>
-        <p>Thank you. You can close this page.</p>
-        ${contact}${demo}
-        <div class="actions"><button class="btn ghost" id="review" type="button">Review your answers</button></div>
-      </section>`;
+    const demo = DEMO && S.sent.length ? `<p class="muted">Demo mode. These payloads would be sent to the Google Sheet:</p><pre class="sent">${esc(S.sent.map(r => JSON.stringify(r)).join("\n"))}</pre>` : "";
+    app.innerHTML = `<section class="card"><h1>All ${S.queue.length} cases are submitted</h1><p>Thank you. You can close this page.</p>${contact}${demo}
+      <div class="actions"><button class="btn ghost" id="review" type="button">Review your answers</button></div></section>`;
     $("review").addEventListener("click", () => show(0));
     window.scrollTo(0, 0);
   }
 
-  // ---------- item ----------
-  function caseBlock(it) {
-    const dl = it.facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${fmt(v)}</dd>`).join("");
-    return `<div class="case"><p class="lead">${fmt(it.lead)}</p><dl class="facts">${dl}</dl></div>`;
-  }
-
-  function grid(it, left) {
-    const cell = (v, cls) => v === null || v === undefined
-      ? `<div class="${cls} none">—</div>`
-      : `<div class="${cls}">${fmt(v)}</div>`;
-    const rows = it.rows.map(([slot, a, b]) => {
-      const lab = `<div class="lab">${esc(slot)}</div>`;
-      if (b === "=") return `${lab}<div class="both">${fmt(a)}<span class="pill">both</span></div>`;
-      const [o1, o2] = left === "A" ? [a, b] : [b, a];
-      return lab + cell(o1, "c1") + cell(o2, "c2");
-    }).join("");
-    return `<div class="cmpwrap">
-      <div class="cmp" role="table" aria-label="Plan comparison">
-        <div class="hd lab"></div><div class="hd c1">Option 1</div><div class="hd c2">Option 2</div>${rows}
-      </div>
-      <p class="legend"><span><mark class="d">Highlighted</mark> differs between options</span><span><span class="pill">both</span>same in both</span><span>— not addressed</span></p>
+  // ---------- case ----------
+  function stemBlock(s) {
+    const meds = String(s.home_meds || "");
+    const fromOrders = /^From first-12 h orders:\s*/i.test(meds);
+    const medsLabel = fromOrders ? "Medication orders in the first 12 h" : "Patient home medications";
+    const list = (title, arr) => arr && arr.length ? `<h3>${esc(title)}</h3><ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+    return `<div class="stem">
+      <p>${esc(s.presentation)}</p>
+      <p><b>${medsLabel}:</b> ${esc(meds.replace(/^From first-12 h orders:\s*/i, ""))}</p>
+      <p><b>Vitals:</b> ${esc(s.vitals)}</p>
+      <p><b>Labs:</b> ${esc(s.labs)}</p>
+      ${list("Physical exam", s.exam)}${list("Echo", s.echo)}${list("ECG", s.ecg)}${list("Imaging", s.imaging)}${list("Cardiac catheterization / procedure", s.cath)}
     </div>`;
   }
-
+  function cell(entries) {
+    if (!entries || !entries.length) return "<div class=\"muted\">—</div>";
+    return entries.map(x => `<div>• ${esc(x.text)}</div>` + (x.detail ? `<details><summary>details</summary><pre>${esc(x.detail)}</pre></details>` : "")).join("");
+  }
+  function table(c, left) {
+    const [o1, o2] = left === "A" ? [c.A, c.B] : [c.B, c.A];
+    const rows = S.domains.map(([k, label]) => `<tr><td class="lab">${esc(label)}</td><td>${cell(o1[k])}</td><td>${cell(o2[k])}</td></tr>`).join("");
+    return `<div class="tablewrap"><table class="cmp" aria-label="Plan comparison"><tr><th style="width:15%">Domain</th><th>Option 1</th><th>Option 2</th></tr>${rows}</table></div>`;
+  }
   function show(i) {
-    stopClock();
-    S.idx = i;
-    const e = S.queue[i];
-    const it = S.items[e.item];
-    const prev = S.answers[e.item] || {};
-    const done = S.done.has(e.item);
-    const scale = PREF.map(([v, a, b], n) => {
-      const id = `pref-${v}`;
-      return `<input type="radio" id="${id}" name="pref" value="${v}"${prev.choice === v ? " checked" : ""}>` +
-        `<label for="${id}" aria-label="${b ? `${a} prefer ${b}` : a}" title="Key ${n + 1}">${a}${b ? `<span>${b}</span>` : ""}</label>`;
-    }).join("");
-
+    stopClock(); S.idx = i;
+    const e = S.queue[i], c = S.cases[e.case];
+    const prev = S.answers[e.case] || { answers: {} };
+    const done = caseDone(e.case);
+    const grid = S.domains.map(([k, label]) => `<tr data-dom="${k}"><td>${esc(label)}</td>` +
+      PREF.map(([v]) => `<td><input type="radio" name="pref-${k}" value="${v}" aria-label="${esc(label)}: ${v}"${prev.answers && prev.answers[k] === v ? " checked" : ""}></td>`).join("") + "</tr>").join("");
+    const saf = who => [0, 1, 2, 3, 4].map(n => `<label><input type="radio" name="saf-${who}" value="${n}"${prev["safety_" + who] === n ? " checked" : ""}>${n}</label>`).join("");
     app.innerHTML = `
-      <section class="card item" aria-labelledby="qText">
-        <div class="meta"><span class="pos">Item ${i + 1} of ${S.queue.length}</span><span>${esc(it.domain_label || it.domain)}</span>${done ? '<span class="badge">Submitted</span>' : ""}</div>
-        ${caseBlock(it)}
-        <h2 class="q" id="qText">${esc(it.q)}</h2>
-        ${grid(it, e.left)}
-        <form id="itemForm" novalidate>
-          <fieldset>
-            <legend>Preference for this domain</legend>
-            <div class="scale">${scale}</div>
-            <span class="hint keys">Keys 1–5 also select a preference.</span>
+      <section class="card">
+        <div class="meta"><span class="pos">Case ${i + 1} of ${S.queue.length}</span><span>${esc(c.cohort.replace(/_/g, " "))}</span>${done ? '<span class="badge">Submitted</span>' : ""}</div>
+        ${stemBlock(c.stem)}
+        <h2>Two management plans for this patient</h2>
+        ${table(c, e.left)}
+        <form id="caseForm" novalidate>
+          <fieldset><legend>Select your preference for Option 1 or Option 2 for each category.</legend>
+            <table class="dgrid"><tr><th></th>${PREF.map(([v, a, b]) => `<th>${a}${b ? "<br>" + b : ""}</th>`).join("")}</tr>${grid}</table>
           </fieldset>
-          <label class="field" for="comment">Comments <span>Optional. Safety concern, unsupported fact, or missed opportunity.</span>
-            <textarea id="comment" name="comment">${esc(prev.comment || "")}</textarea>
-          </label>
+          <fieldset><legend>Were there any safety concerns in each option's recommendations? 0 = no safety concern, 4 = very dangerous safety concern</legend>
+            <div class="saf"><span class="who">Option 1</span>${saf(1)}<span></span><span class="who">Option 2</span>${saf(2)}<span></span></div>
+          </fieldset>
+          <label class="field" for="comment">Comments <span>Optional. Explain any safety concern, unsupported fact, or missed opportunity.</span>
+            <textarea id="comment" name="comment">${esc(prev.comment || "")}</textarea></label>
           <div class="actions">
             ${i > 0 ? '<button class="btn ghost" id="prevBtn" type="button">Previous</button>' : ""}
-            <button class="btn primary" id="submitBtn" type="submit">${done ? "Update answer" : "Submit"}</button>
+            <button class="btn primary" id="submitBtn" type="submit">${done ? "Update answers" : "Submit this case"}</button>
             ${i < S.queue.length - 1 ? `<button class="btn ghost" id="nextBtn" type="button">${done ? "Next" : "Skip for now"}</button>` : ""}
             <p class="status" id="status" role="status"></p>
           </div>
         </form>
       </section>`;
-
-    $("itemForm").addEventListener("submit", submit);
+    $("caseForm").addEventListener("submit", submit);
     if ($("prevBtn")) $("prevBtn").addEventListener("click", () => show(i - 1));
     if ($("nextBtn")) $("nextBtn").addEventListener("click", () => show(i + 1));
-    progress();
-    window.scrollTo(0, 0);
-    startClock();
+    progress(); window.scrollTo(0, 0); startClock();
   }
 
   async function submit(ev) {
     ev.preventDefault();
-    const e = S.queue[S.idx];
-    const it = S.items[e.item];
-    const status = $("status");
-    const btn = $("submitBtn");
-    const picked = document.querySelector('input[name="pref"]:checked');
-    if (!picked) {
+    const e = S.queue[S.idx], c = S.cases[e.case];
+    const status = $("status"), btn = $("submitBtn");
+    const answers = {}, missing = [];
+    S.domains.forEach(([k, label]) => {
+      const p = document.querySelector(`input[name="pref-${k}"]:checked`);
+      const tr = document.querySelector(`tr[data-dom="${k}"]`);
+      if (p) { answers[k] = p.value; tr.classList.remove("missing"); } else { missing.push(label); tr.classList.add("missing"); }
+    });
+    const s1 = document.querySelector('input[name="saf-1"]:checked'), s2 = document.querySelector('input[name="saf-2"]:checked');
+    if (missing.length || !s1 || !s2) {
       status.className = "status err";
-      status.textContent = "Choose a preference to submit.";
+      status.textContent = missing.length ? `Choose a preference for every category (${missing.length} left).` : "Rate the safety concern for both options.";
       return;
     }
     stopClock();
     const payload = {
-      study: S.study,
-      items_version: S.version,
-      evaluator: S.code,
-      item_id: e.item,
-      case_id: it.case,
-      domain: it.domain,
-      position: S.idx + 1,
-      left_system: e.left,
-      choice: picked.value,
-      comment: $("comment").value.trim(),
-      seconds: Math.round(S.acc[e.item] || 0),
-      submitted_at: new Date().toISOString(),
-      page_version: PAGE_VERSION,
-      user_agent: navigator.userAgent
+      study: S.study, items_version: S.version, evaluator: S.code, case_id: e.case, position: S.idx + 1, left_system: e.left,
+      answers, safety_1: Number(s1.value), safety_2: Number(s2.value), comment: $("comment").value.trim(),
+      seconds: Math.round(S.acc[e.case] || 0), submitted_at: new Date().toISOString(), page_version: PAGE_VERSION, user_agent: navigator.userAgent
     };
-    btn.disabled = true;
-    status.className = "status";
-    status.textContent = "Saving…";
-
+    btn.disabled = true; status.className = "status"; status.textContent = "Saving…";
     let err = "";
-    if (DEMO) {
-      S.sent.push(payload);
-    } else {
+    if (DEMO) S.sent.push(payload);
+    else {
       try {
-        const r = await fetch(CFG.endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },  // simple request: no CORS preflight
-          body: JSON.stringify(payload)
-        });
+        const r = await fetch(CFG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
         const res = await r.json();
         if (!res.ok) err = res.error || "unknown";
-      } catch (x) {
-        err = "network";
-      }
+      } catch (x) { err = "network"; }
     }
     if (err) {
-      btn.disabled = false;
-      startClock();
-      status.className = "status err";
-      status.textContent = err === "network"
-        ? "Couldn't reach the server. Check your connection and press Submit again."
-        : err === "unknown_evaluator"
-          ? "Your code isn't registered with the study, so this answer wasn't saved. Contact the study team."
-          : `Couldn't save (${err}). Press Submit again.`;
+      btn.disabled = false; startClock(); status.className = "status err";
+      status.textContent = err === "network" ? "Couldn't reach the server. Check your connection and press Submit again."
+        : err === "unknown_evaluator" ? "Your code isn't registered with the study, so this answer wasn't saved. Contact the study team."
+        : `Couldn't save (${err}). Press Submit again.`;
       return;
     }
-
-    S.acc[e.item] = 0;
-    S.done.add(e.item);
-    S.answers[e.item] = { choice: payload.choice, comment: payload.comment };
-    persist();
-    progress();
-    status.className = "status ok";
-    status.textContent = "Saved";
-    setTimeout(() => {
-      if (S.queue[S.idx] !== e) return;          // reader already moved on
-      allDone() ? finish() : show(nextUndone(S.idx));
-    }, 450);
+    S.acc[e.case] = 0;
+    S.domains.forEach(([k]) => S.done.add(`${e.case}-${k}`));
+    S.answers[e.case] = { answers, safety_1: payload.safety_1, safety_2: payload.safety_2, comment: payload.comment };
+    persist(); progress();
+    status.className = "status ok"; status.textContent = "Saved";
+    setTimeout(() => { if (S.queue[S.idx] !== e) return; allDone() ? finish() : show(nextUndone(S.idx)); }, 450);
   }
 
   // ---------- helpers ----------
   function nextUndone(from) {
     const n = S.queue.length;
-    for (let k = 1; k <= n; k++) {
-      const j = (from + k + n) % n;
-      if (!S.done.has(S.queue[j].item)) return j;
-    }
+    for (let k = 1; k <= n; k++) { const j = (from + k + n) % n; if (!caseDone(S.queue[j].case)) return j; }
     return 0;
   }
-  function allDone() { return S.queue.every(e => S.done.has(e.item)); }
-  function persist() {
-    store.set(key("done"), [...S.done]);
-    store.set(key("answers"), S.answers);
-  }
+  function allDone() { return S.queue.every(e => caseDone(e.case)); }
+  function persist() { store.set(key("done"), [...S.done]); store.set(key("answers"), S.answers); }
   function progress() {
-    const n = S.queue.length;
-    const d = S.queue.filter(e => S.done.has(e.item)).length;
-    $("progText").textContent = `${d} of ${n} submitted`;
+    const n = S.queue.length, d = S.queue.filter(e => caseDone(e.case)).length;
+    $("progText").textContent = `${d} of ${n} cases submitted`;
     $("progFill").style.width = n ? (100 * d / n) + "%" : "0";
   }
-
-  document.addEventListener("keydown", ev => {
-    if (!$("itemForm") || ev.metaKey || ev.ctrlKey || ev.altKey) return;
-    if (/^(TEXTAREA|INPUT)$/.test(ev.target.tagName) && ev.target.type !== "radio") return;
-    const n = Number(ev.key);
-    if (n >= 1 && n <= 5) {
-      const r = document.getElementById("pref-" + PREF[n - 1][0]);
-      r.checked = true;
-      r.focus();
-    }
-  });
-
   boot();
 })();
 </script>

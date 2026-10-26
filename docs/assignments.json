@@ -1,416 +1,659 @@
 {
-  "study": "hf_reader_study",
-  "items_version": "2026-10-21",
-  "generated": "2026-10-21T06:00:38",
-  "base_url": "https://njdong.github.io/hf_reader_study/",
-  "evaluators": {
-    "R01-DRQC": [
-      {
-        "item": "C013-dx",
-        "left": "B"
-      },
-      {
-        "item": "C013-causes",
-        "left": "B"
-      },
-      {
-        "item": "C013-acute",
-        "left": "A"
-      },
-      {
-        "item": "C013-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C013-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C087-dx",
-        "left": "B"
-      },
-      {
-        "item": "C087-causes",
-        "left": "A"
-      },
-      {
-        "item": "C087-acute",
-        "left": "B"
-      },
-      {
-        "item": "C087-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C087-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C078-dx",
-        "left": "B"
-      },
-      {
-        "item": "C078-causes",
-        "left": "A"
-      },
-      {
-        "item": "C078-acute",
-        "left": "B"
-      },
-      {
-        "item": "C078-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C078-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C058-dx",
-        "left": "B"
-      },
-      {
-        "item": "C058-causes",
-        "left": "B"
-      },
-      {
-        "item": "C058-acute",
-        "left": "B"
-      },
-      {
-        "item": "C058-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C058-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C037-dx",
-        "left": "B"
-      },
-      {
-        "item": "C037-causes",
-        "left": "A"
-      },
-      {
-        "item": "C037-acute",
-        "left": "B"
-      },
-      {
-        "item": "C037-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C037-monitor",
-        "left": "B"
-      }
-    ],
-    "R02-VPXD": [
-      {
-        "item": "C021-dx",
-        "left": "B"
-      },
-      {
-        "item": "C021-causes",
-        "left": "A"
-      },
-      {
-        "item": "C021-acute",
-        "left": "A"
-      },
-      {
-        "item": "C021-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C021-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C006-dx",
-        "left": "B"
-      },
-      {
-        "item": "C006-causes",
-        "left": "A"
-      },
-      {
-        "item": "C006-acute",
-        "left": "B"
-      },
-      {
-        "item": "C006-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C006-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C093-dx",
-        "left": "A"
-      },
-      {
-        "item": "C093-causes",
-        "left": "B"
-      },
-      {
-        "item": "C093-acute",
-        "left": "A"
-      },
-      {
-        "item": "C093-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C093-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C063-dx",
-        "left": "B"
-      },
-      {
-        "item": "C063-causes",
-        "left": "B"
-      },
-      {
-        "item": "C063-acute",
-        "left": "A"
-      },
-      {
-        "item": "C063-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C063-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C042-dx",
-        "left": "B"
-      },
-      {
-        "item": "C042-causes",
-        "left": "B"
-      },
-      {
-        "item": "C042-acute",
-        "left": "B"
-      },
-      {
-        "item": "C042-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C042-monitor",
-        "left": "A"
-      }
-    ],
-    "R03-WZUG": [
-      {
-        "item": "C041-dx",
-        "left": "B"
-      },
-      {
-        "item": "C041-causes",
-        "left": "A"
-      },
-      {
-        "item": "C041-acute",
-        "left": "A"
-      },
-      {
-        "item": "C041-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C041-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C036-dx",
-        "left": "B"
-      },
-      {
-        "item": "C036-causes",
-        "left": "A"
-      },
-      {
-        "item": "C036-acute",
-        "left": "A"
-      },
-      {
-        "item": "C036-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C036-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C016-dx",
-        "left": "B"
-      },
-      {
-        "item": "C016-causes",
-        "left": "B"
-      },
-      {
-        "item": "C016-acute",
-        "left": "A"
-      },
-      {
-        "item": "C016-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C016-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C095-dx",
-        "left": "A"
-      },
-      {
-        "item": "C095-causes",
-        "left": "B"
-      },
-      {
-        "item": "C095-acute",
-        "left": "A"
-      },
-      {
-        "item": "C095-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C095-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C080-dx",
-        "left": "A"
-      },
-      {
-        "item": "C080-causes",
-        "left": "B"
-      },
-      {
-        "item": "C080-acute",
-        "left": "B"
-      },
-      {
-        "item": "C080-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C080-monitor",
-        "left": "A"
-      }
-    ],
-    "R04-3JKE": [
-      {
-        "item": "C068-dx",
-        "left": "B"
-      },
-      {
-        "item": "C068-causes",
-        "left": "A"
-      },
-      {
-        "item": "C068-acute",
-        "left": "B"
-      },
-      {
-        "item": "C068-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C068-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C043-dx",
-        "left": "A"
-      },
-      {
-        "item": "C043-causes",
-        "left": "A"
-      },
-      {
-        "item": "C043-acute",
-        "left": "B"
-      },
-      {
-        "item": "C043-gdmt",
-        "left": "B"
-      },
-      {
-        "item": "C043-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C029-dx",
-        "left": "B"
-      },
-      {
-        "item": "C029-causes",
-        "left": "A"
-      },
-      {
-        "item": "C029-acute",
-        "left": "B"
-      },
-      {
-        "item": "C029-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C029-monitor",
-        "left": "A"
-      },
-      {
-        "item": "C018-dx",
-        "left": "A"
-      },
-      {
-        "item": "C018-causes",
-        "left": "B"
-      },
-      {
-        "item": "C018-acute",
-        "left": "A"
-      },
-      {
-        "item": "C018-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C018-monitor",
-        "left": "B"
-      },
-      {
-        "item": "C084-dx",
-        "left": "A"
-      },
-      {
-        "item": "C084-causes",
-        "left": "A"
-      },
-      {
-        "item": "C084-acute",
-        "left": "B"
-      },
-      {
-        "item": "C084-gdmt",
-        "left": "A"
-      },
-      {
-        "item": "C084-monitor",
-        "left": "B"
-      }
-    ]
-  }
+ "study": "hf_reader_study",
+ "items_version": "2026-10-26",
+ "mode": "case",
+ "generated": "2026-10-26T09:04:41",
+ "base_url": "https://njdong.github.io/hf_reader_study/",
+ "evaluators": {
+  "R01-3PQ7": [
+   {
+    "case": "C083",
+    "left": "A"
+   },
+   {
+    "case": "C042",
+    "left": "B"
+   },
+   {
+    "case": "C016",
+    "left": "B"
+   },
+   {
+    "case": "C018",
+    "left": "A"
+   },
+   {
+    "case": "C099",
+    "left": "B"
+   },
+   {
+    "case": "C098",
+    "left": "A"
+   }
+  ],
+  "R02-VZJK": [
+   {
+    "case": "C001",
+    "left": "A"
+   },
+   {
+    "case": "C013",
+    "left": "A"
+   },
+   {
+    "case": "C078",
+    "left": "B"
+   },
+   {
+    "case": "C031",
+    "left": "B"
+   },
+   {
+    "case": "C043",
+    "left": "A"
+   },
+   {
+    "case": "C036",
+    "left": "A"
+   }
+  ],
+  "R03-S359": [
+   {
+    "case": "C092",
+    "left": "A"
+   },
+   {
+    "case": "C061",
+    "left": "A"
+   },
+   {
+    "case": "C063",
+    "left": "A"
+   },
+   {
+    "case": "C087",
+    "left": "B"
+   },
+   {
+    "case": "C037",
+    "left": "B"
+   },
+   {
+    "case": "C058",
+    "left": "A"
+   }
+  ],
+  "R04-YE39": [
+   {
+    "case": "C081",
+    "left": "A"
+   },
+   {
+    "case": "C041",
+    "left": "A"
+   },
+   {
+    "case": "C029",
+    "left": "A"
+   },
+   {
+    "case": "C068",
+    "left": "A"
+   },
+   {
+    "case": "C080",
+    "left": "A"
+   },
+   {
+    "case": "C093",
+    "left": "B"
+   }
+  ],
+  "R05-3VW5": [
+   {
+    "case": "C095",
+    "left": "A"
+   },
+   {
+    "case": "C006",
+    "left": "A"
+   },
+   {
+    "case": "C082",
+    "left": "B"
+   },
+   {
+    "case": "C100",
+    "left": "B"
+   },
+   {
+    "case": "C084",
+    "left": "B"
+   },
+   {
+    "case": "C021",
+    "left": "A"
+   }
+  ],
+  "R06-R2W4": [
+   {
+    "case": "C083",
+    "left": "B"
+   },
+   {
+    "case": "C018",
+    "left": "B"
+   },
+   {
+    "case": "C058",
+    "left": "B"
+   },
+   {
+    "case": "C041",
+    "left": "B"
+   },
+   {
+    "case": "C082",
+    "left": "A"
+   },
+   {
+    "case": "C080",
+    "left": "B"
+   }
+  ],
+  "R07-QE2W": [
+   {
+    "case": "C068",
+    "left": "B"
+   },
+   {
+    "case": "C021",
+    "left": "B"
+   },
+   {
+    "case": "C098",
+    "left": "B"
+   },
+   {
+    "case": "C036",
+    "left": "B"
+   },
+   {
+    "case": "C078",
+    "left": "A"
+   },
+   {
+    "case": "C037",
+    "left": "A"
+   }
+  ],
+  "R08-PZ28": [
+   {
+    "case": "C081",
+    "left": "B"
+   },
+   {
+    "case": "C006",
+    "left": "B"
+   },
+   {
+    "case": "C016",
+    "left": "A"
+   },
+   {
+    "case": "C029",
+    "left": "B"
+   },
+   {
+    "case": "C084",
+    "left": "A"
+   },
+   {
+    "case": "C093",
+    "left": "A"
+   }
+  ],
+  "R09-MC6N": [
+   {
+    "case": "C087",
+    "left": "A"
+   },
+   {
+    "case": "C001",
+    "left": "B"
+   },
+   {
+    "case": "C100",
+    "left": "A"
+   },
+   {
+    "case": "C013",
+    "left": "B"
+   },
+   {
+    "case": "C095",
+    "left": "B"
+   },
+   {
+    "case": "C043",
+    "left": "B"
+   }
+  ],
+  "R10-P2TN": [
+   {
+    "case": "C063",
+    "left": "B"
+   },
+   {
+    "case": "C092",
+    "left": "B"
+   },
+   {
+    "case": "C099",
+    "left": "A"
+   },
+   {
+    "case": "C061",
+    "left": "B"
+   },
+   {
+    "case": "C042",
+    "left": "A"
+   },
+   {
+    "case": "C031",
+    "left": "A"
+   }
+  ],
+  "R11-HNKC": [
+   {
+    "case": "C068",
+    "left": "B"
+   },
+   {
+    "case": "C043",
+    "left": "A"
+   },
+   {
+    "case": "C029",
+    "left": "A"
+   },
+   {
+    "case": "C080",
+    "left": "B"
+   },
+   {
+    "case": "C021",
+    "left": "B"
+   },
+   {
+    "case": "C058",
+    "left": "A"
+   }
+  ],
+  "R12-7ANC": [
+   {
+    "case": "C078",
+    "left": "A"
+   },
+   {
+    "case": "C006",
+    "left": "A"
+   },
+   {
+    "case": "C081",
+    "left": "B"
+   },
+   {
+    "case": "C031",
+    "left": "B"
+   },
+   {
+    "case": "C093",
+    "left": "A"
+   },
+   {
+    "case": "C001",
+    "left": "A"
+   }
+  ],
+  "R13-PQYQ": [
+   {
+    "case": "C042",
+    "left": "A"
+   },
+   {
+    "case": "C082",
+    "left": "B"
+   },
+   {
+    "case": "C095",
+    "left": "B"
+   },
+   {
+    "case": "C037",
+    "left": "A"
+   },
+   {
+    "case": "C016",
+    "left": "B"
+   },
+   {
+    "case": "C100",
+    "left": "B"
+   }
+  ],
+  "R14-3V4D": [
+   {
+    "case": "C061",
+    "left": "A"
+   },
+   {
+    "case": "C036",
+    "left": "A"
+   },
+   {
+    "case": "C041",
+    "left": "A"
+   },
+   {
+    "case": "C018",
+    "left": "A"
+   },
+   {
+    "case": "C099",
+    "left": "B"
+   },
+   {
+    "case": "C013",
+    "left": "B"
+   }
+  ],
+  "R15-FCR5": [
+   {
+    "case": "C092",
+    "left": "A"
+   },
+   {
+    "case": "C098",
+    "left": "B"
+   },
+   {
+    "case": "C063",
+    "left": "B"
+   },
+   {
+    "case": "C084",
+    "left": "B"
+   },
+   {
+    "case": "C087",
+    "left": "A"
+   },
+   {
+    "case": "C083",
+    "left": "B"
+   }
+  ],
+  "R16-HTY6": [
+   {
+    "case": "C081",
+    "left": "A"
+   },
+   {
+    "case": "C082",
+    "left": "A"
+   },
+   {
+    "case": "C013",
+    "left": "A"
+   },
+   {
+    "case": "C092",
+    "left": "B"
+   },
+   {
+    "case": "C068",
+    "left": "A"
+   },
+   {
+    "case": "C100",
+    "left": "A"
+   }
+  ],
+  "R17-729U": [
+   {
+    "case": "C031",
+    "left": "A"
+   },
+   {
+    "case": "C061",
+    "left": "B"
+   },
+   {
+    "case": "C063",
+    "left": "A"
+   },
+   {
+    "case": "C018",
+    "left": "B"
+   },
+   {
+    "case": "C083",
+    "left": "A"
+   },
+   {
+    "case": "C087",
+    "left": "B"
+   }
+  ],
+  "R18-UUX5": [
+   {
+    "case": "C098",
+    "left": "A"
+   },
+   {
+    "case": "C041",
+    "left": "B"
+   },
+   {
+    "case": "C099",
+    "left": "A"
+   },
+   {
+    "case": "C037",
+    "left": "B"
+   },
+   {
+    "case": "C078",
+    "left": "B"
+   },
+   {
+    "case": "C093",
+    "left": "B"
+   }
+  ],
+  "R19-8KSV": [
+   {
+    "case": "C001",
+    "left": "B"
+   },
+   {
+    "case": "C036",
+    "left": "B"
+   },
+   {
+    "case": "C006",
+    "left": "B"
+   },
+   {
+    "case": "C095",
+    "left": "A"
+   },
+   {
+    "case": "C058",
+    "left": "B"
+   },
+   {
+    "case": "C043",
+    "left": "B"
+   }
+  ],
+  "R20-9D9W": [
+   {
+    "case": "C084",
+    "left": "A"
+   },
+   {
+    "case": "C029",
+    "left": "B"
+   },
+   {
+    "case": "C016",
+    "left": "A"
+   },
+   {
+    "case": "C021",
+    "left": "A"
+   },
+   {
+    "case": "C042",
+    "left": "B"
+   },
+   {
+    "case": "C080",
+    "left": "A"
+   }
+  ],
+  "R21-CDR3": [
+   {
+    "case": "C029",
+    "left": "A"
+   },
+   {
+    "case": "C001",
+    "left": "B"
+   },
+   {
+    "case": "C100",
+    "left": "A"
+   },
+   {
+    "case": "C042",
+    "left": "A"
+   },
+   {
+    "case": "C041",
+    "left": "B"
+   },
+   {
+    "case": "C061",
+    "left": "A"
+   }
+  ],
+  "R22-VS86": [
+   {
+    "case": "C081",
+    "left": "A"
+   },
+   {
+    "case": "C016",
+    "left": "B"
+   },
+   {
+    "case": "C093",
+    "left": "A"
+   },
+   {
+    "case": "C006",
+    "left": "A"
+   },
+   {
+    "case": "C084",
+    "left": "B"
+   },
+   {
+    "case": "C036",
+    "left": "A"
+   }
+  ],
+  "R23-YDC8": [
+   {
+    "case": "C037",
+    "left": "B"
+   },
+   {
+    "case": "C063",
+    "left": "B"
+   },
+   {
+    "case": "C095",
+    "left": "B"
+   },
+   {
+    "case": "C021",
+    "left": "A"
+   },
+   {
+    "case": "C013",
+    "left": "A"
+   },
+   {
+    "case": "C058",
+    "left": "B"
+   }
+  ],
+  "R24-67MU": [
+   {
+    "case": "C083",
+    "left": "B"
+   },
+   {
+    "case": "C099",
+    "left": "A"
+   },
+   {
+    "case": "C080",
+    "left": "B"
+   },
+   {
+    "case": "C068",
+    "left": "A"
+   },
+   {
+    "case": "C031",
+    "left": "B"
+   },
+   {
+    "case": "C098",
+    "left": "B"
+   }
+  ],
+  "R25-9UFX": [
+   {
+    "case": "C087",
+    "left": "B"
+   },
+   {
+    "case": "C043",
+    "left": "B"
+   },
+   {
+    "case": "C018",
+    "left": "A"
+   },
+   {
+    "case": "C078",
+    "left": "B"
+   },
+   {
+    "case": "C092",
+    "left": "A"
+   },
+   {
+    "case": "C082",
+    "left": "A"
+   }
+  ]
+ }
 }
