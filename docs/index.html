@@ -69,16 +69,21 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); fon
 .cmp summary { cursor: pointer; color: var(--muted); font-size: 12.5px; }
 .cmp details pre { white-space: pre-wrap; font: 12px/1.35 var(--font-mono); background: var(--bg); padding: 6px 8px; margin: 2px 0; border-radius: 4px; }
 .tablewrap { overflow-x: auto; }
+.cmp td.pref { width: 13rem; background: var(--lab); vertical-align: middle; }
+.cmp th.prefh { width: 13rem; }
+.cmp .keys { font-weight: 400; font-size: 11px; color: var(--muted); }
+.sc { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+.sc label { display: grid; justify-items: center; gap: 2px; cursor: pointer; font-size: 11px; color: var(--muted); font-family: var(--font-mono); }
+.sc input { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
+.sc label:nth-child(1) span::before { content: "◀◀"; } .sc label:nth-child(2) span::before { content: "◀"; }
+.sc label:nth-child(3) span::before { content: "="; } .sc label:nth-child(4) span::before { content: "▶"; } .sc label:nth-child(5) span::before { content: "▶▶"; }
+.sc label span { font-size: 0; } .sc label span::before { font-size: 11px; }
+tr.missing td.pref { outline: 2px solid var(--warn); outline-offset: -2px; }
+tr.missing td.lab { color: var(--warn); }
 
-form { display: grid; gap: 20px; border-top: 1px solid var(--line); padding-top: 18px; }
+form { display: grid; gap: 20px; }
 fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width: 0; }
 legend { padding: 0; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
-.dgrid { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-.dgrid th, .dgrid td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: center; }
-.dgrid th { font-weight: 600; font-size: 12.5px; color: var(--muted); }
-.dgrid th:first-child, .dgrid td:first-child { text-align: left; font-weight: 600; width: 30%; }
-.dgrid input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
-.dgrid tr.missing td:first-child { color: var(--warn); }
 .saf { display: grid; grid-template-columns: 9rem repeat(5, auto) 1fr; gap: 6px 14px; align-items: center; font-size: 14px; }
 .saf label { display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
 .saf input { width: 17px; height: 17px; accent-color: var(--accent); }
@@ -99,7 +104,7 @@ input[type="text"] { max-width: 16rem; font-family: var(--font-mono); letter-spa
 pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font-mono); font-size: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
 @media (max-width: 700px) {
   .card { padding: 16px 12px; }
-  .cmp { font-size: 13px; min-width: 640px; }
+  .cmp { font-size: 13px; min-width: 820px; }
   .saf { grid-template-columns: 1fr; }
   .track { width: 80px; }
 }
@@ -247,29 +252,29 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     if (!entries || !entries.length) return "<div class=\"muted\">—</div>";
     return entries.map(x => `<div>• ${esc(x.text)}</div>` + (x.detail ? `<details><summary>details</summary><pre>${esc(x.detail)}</pre></details>` : "")).join("");
   }
-  function table(c, left) {
+  function scale(k, label, prevChoice) {
+    return `<div class="sc" role="radiogroup" aria-label="Preference: ${esc(label)}">` + PREF.map(([v, a, b]) =>
+      `<label title="${a}${b ? " " + b : ""}"><input type="radio" name="pref-${k}" value="${v}"${prevChoice === v ? " checked" : ""}><span>${b ? b.replace("Option ", "") : "="}</span></label>`).join("") + `</div>`;
+  }
+  function table(c, left, prev) {
     const [o1, o2] = left === "A" ? [c.A, c.B] : [c.B, c.A];
-    const rows = S.domains.map(([k, label]) => `<tr><td class="lab">${esc(label)}</td><td>${cell(o1[k])}</td><td>${cell(o2[k])}</td></tr>`).join("");
-    return `<div class="tablewrap"><table class="cmp" aria-label="Plan comparison"><tr><th style="width:15%">Domain</th><th>Option 1</th><th>Option 2</th></tr>${rows}</table></div>`;
+    const rows = S.domains.map(([k, label]) => `<tr data-dom="${k}"><td class="lab">${esc(label)}</td><td>${cell(o1[k])}</td><td>${cell(o2[k])}</td><td class="pref">${scale(k, label, prev.answers && prev.answers[k])}</td></tr>`).join("");
+    return `<div class="tablewrap"><table class="cmp" aria-label="Plan comparison">
+      <tr><th style="width:13%">Domain</th><th>Option 1</th><th>Option 2</th><th class="prefh">Your preference<br><span class="keys">◀◀ strongly 1 · ◀ slightly 1 · = neutral · ▶ slightly 2 · ▶▶ strongly 2</span></th></tr>${rows}</table></div>`;
   }
   function show(i) {
     stopClock(); S.idx = i;
     const e = S.queue[i], c = S.cases[e.case];
     const prev = S.answers[e.case] || { answers: {} };
     const done = caseDone(e.case);
-    const grid = S.domains.map(([k, label]) => `<tr data-dom="${k}"><td>${esc(label)}</td>` +
-      PREF.map(([v]) => `<td><input type="radio" name="pref-${k}" value="${v}" aria-label="${esc(label)}: ${v}"${prev.answers && prev.answers[k] === v ? " checked" : ""}></td>`).join("") + "</tr>").join("");
     const saf = who => [0, 1, 2, 3, 4].map(n => `<label><input type="radio" name="saf-${who}" value="${n}"${prev["safety_" + who] === n ? " checked" : ""}>${n}</label>`).join("");
     app.innerHTML = `
       <section class="card">
         <div class="meta"><span class="pos">Case ${i + 1} of ${S.queue.length}</span><span>${esc(c.cohort.replace(/_/g, " "))}</span>${done ? '<span class="badge">Submitted</span>' : ""}</div>
         ${stemBlock(c.stem)}
-        <h2>Two management plans for this patient</h2>
-        ${table(c, e.left)}
+        <h2>Two management plans for this patient — select your preference for Option 1 or Option 2 in each category (right-hand column)</h2>
         <form id="caseForm" novalidate>
-          <fieldset><legend>Select your preference for Option 1 or Option 2 for each category.</legend>
-            <table class="dgrid"><tr><th></th>${PREF.map(([v, a, b]) => `<th>${a}${b ? "<br>" + b : ""}</th>`).join("")}</tr>${grid}</table>
-          </fieldset>
+          ${table(c, e.left, prev)}
           <fieldset><legend>Were there any safety concerns in each option's recommendations? 0 = no safety concern, 4 = very dangerous safety concern</legend>
             <div class="saf"><span class="who">Option 1</span>${saf(1)}<span></span><span class="who">Option 2</span>${saf(2)}<span></span></div>
           </fieldset>
