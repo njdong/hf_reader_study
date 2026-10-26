@@ -1,6 +1,6 @@
 {
  "study": "hf_reader_study",
- "version": "2026-10-26f",
+ "version": "2026-10-26g",
  "mode": "case",
  "systems": {
   "A": "multi-agent system (current run, first-12 h chart)",
@@ -216,9 +216,6 @@
     "monitor": [
      {
       "text": "PERFORM: Arterial line placement."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      },
      {
       "text": "MONITOR: No recommendation."
@@ -729,7 +726,7 @@
       "text": "OBTAIN: Echocardiogram; coronary angiography and PCI."
      },
      {
-      "text": "MONITORING PLAN: Not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [

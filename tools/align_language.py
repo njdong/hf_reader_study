@@ -45,7 +45,7 @@ NOTE_RULES = [
 ]
 NOTE_PHRASES = [
     (re.compile(r"\s*\((recorded diagnos[ie]s|name as recorded in the source)\)"), ""),
-    (re.compile(r"^(MONITORING PLAN|FURTHER WORKUP):\s*Prospective (schedule|recommendations) not documented in the supplied extracts\.?$", re.I), "MONITOR: No recommendation."),
+    (re.compile(r"^(MONITORING PLAN|FURTHER WORKUP):\s*(Prospective (schedule|recommendations) )?not documented in the supplied extracts\.?$", re.I), "MONITOR: No recommendation."),
     (re.compile(r"^(FOLLOW-UP / DISCHARGE CRITERIA|LEVEL OF CARE / FOLLOW-UP / DISCHARGE CRITERIA|FOLLOW-UP / DISCHARGE CRITERIA):\s*Not documented.*$", re.I), "FOLLOW-UP: No recommendation."),
     (re.compile(r"^No new prescriptions recorded in the supplied.*$", re.I), "START: None."),
     (re.compile(r"^SOURCE LIMITATION:.*$", re.I), ""),
@@ -99,9 +99,12 @@ def align_cases(doc):
     for cid, c in doc["cases"].items():
         A = {d: [{"text": y} for y in (align_mas(x["text"]) for x in v) if y] for d, v in c["A"].items()}
         B = {d: [{"text": y} for y in (align_note(x["text"]) for x in v) if y] for d, v in c["B"].items()}
-        for d in B:
-            if not B[d]:
-                B[d] = [{"text": "No recommendation."}]
+        for d in B:                                   # drop duplicates produced by the rewrite, keep order
+            seen, uniq = set(), []
+            for x in B[d]:
+                if x["text"] not in seen:
+                    seen.add(x["text"]); uniq.append(x)
+            B[d] = uniq or [{"text": "No recommendation."}]
         out[cid] = {"A": A, "B": B}
     return out
 
