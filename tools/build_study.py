@@ -193,9 +193,13 @@ def main():
     ap.add_argument("--base-url", default="")
     ap.add_argument("--version", default=dt.date.today().isoformat())
     ap.add_argument("--cases-only", action="store_true")
+    ap.add_argument("--forms-only", action="store_true", help="include only cases that have a Teams-form transcription")
     args = ap.parse_args()
 
     cases = load_cases(args.selection, args.fullcases)
+    if args.forms_only:
+        cases = {k: v for k, v in cases.items() if v["source"].startswith("Teams")}
+        print(f"forms-only: {len(cases)} cases kept")
     doc = {
         "study": "hf_reader_study", "version": args.version, "mode": "case",
         "systems": {"A": "multi-agent system (current run, first-12 h chart)", "B": "clinical note (record: coded diagnoses, orders, prescriptions)"},
