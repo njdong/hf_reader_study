@@ -1,6 +1,6 @@
 {
  "study": "hf_reader_study",
- "version": "2026-10-26c",
+ "version": "2026-10-26d",
  "mode": "case",
  "systems": {
   "A": "multi-agent system (current run, first-12 h chart)",
