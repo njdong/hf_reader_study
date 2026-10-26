@@ -1,6 +1,6 @@
 {
  "study": "hf_reader_study",
- "version": "2026-10-26e",
+ "version": "2026-10-26f",
  "mode": "case",
  "systems": {
   "A": "multi-agent system (current run, first-12 h chart)",
@@ -130,7 +130,7 @@
       "text": "STOP: Diltiazem, fludrocortisone, aspirin."
      },
      {
-      "text": "STOP: Digoxin, potassium chloride, tolterodine — specified in safety actions."
+      "text": "STOP: Digoxin, potassium chloride, tolterodine."
      },
      {
       "text": "CONTINUE: Omeprazole, citalopram; lactulose as needed."
@@ -147,7 +147,7 @@
       "text": "LIMIT: Citalopram dose in elderly patients."
      },
      {
-      "text": "TRANSITION: Heparin to apixaban — at least 6-hour interval stated in output; source instruction is truncated."
+      "text": "TRANSITION: Heparin to apixaban — at least 6 hours between.."
      },
      {
       "text": "SAFETY RATIONALE: Digoxin-amiodarone interaction and renal impairment; potassium supplementation with hyperkalemia; tolterodine anticholinergic risk; diltiazem negative inotropy in HFrEF."
@@ -161,14 +161,14 @@
       "text": "FOLLOW-UP: Outpatient echocardiogram in 3–6 months after rate control and GDMT optimization."
      },
      {
-      "text": "LEVEL OF CARE / DISCHARGE CRITERIA: Not documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Acute on chronic systolic HF (recorded diagnosis)."
+      "text": "DIAGNOSIS: Acute on chronic systolic HF."
      },
      {
       "text": "CLINICAL COURSE: Worsening CHF during AF with rapid ventricular response."
@@ -190,46 +190,46 @@
     ],
     "acute": [
      {
-      "text": "GIVEN: Diltiazem — 10 mg IV twice, then 20 mg IV and 30 mg PO; initial limited response, followed by heart-rate reduction."
+      "text": "START: Diltiazem — 10 mg IV twice, then 20 mg IV and 30 mg PO; initial limited response, followed by heart-rate reduction."
      },
      {
-      "text": "GIVEN: Metoprolol — 10 mg IV, recorded in examination."
+      "text": "START: Metoprolol — 10 mg IV."
      },
      {
-      "text": "GIVEN: Normal saline — 1 L for renal dysfunction; second liter hung before floor transfer."
+      "text": "START: Normal saline — 1 L for renal dysfunction; second liter hung before floor transfer."
      },
      {
-      "text": "GIVEN: Furosemide — 40 mg IV twice after deterioration; minimal response."
+      "text": "START: Furosemide — 40 mg IV twice after deterioration; minimal response."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Amiodarone, heparin, digoxin, potassium chloride, nitroglycerin, norepinephrine."
+      "text": "START: Amiodarone, heparin, digoxin, potassium chloride, nitroglycerin, norepinephrine."
      },
      {
-      "text": "NEWLY PRESCRIBED: Cefazolin, ceftriaxone, metronidazole, cefpodoxime."
+      "text": "START: Cefazolin, ceftriaxone, metronidazole, cefpodoxime."
      },
      {
-      "text": "NEWLY PRESCRIBED: Tolterodine, haloperidol, sennosides, docusate, latanoprost, tolnaftate, sodium chloride, glucose."
+      "text": "START: Tolterodine, haloperidol, sennosides, docusate, latanoprost, tolnaftate, sodium chloride, glucose."
      }
     ],
     "monitor": [
      {
-      "text": "PERFORMED: Arterial line placement."
+      "text": "PERFORM: Arterial line placement."
      },
      {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      },
      {
-      "text": "FURTHER WORKUP: Prospective recommendations not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
-      "text": "TRANSFERRED: CCU — AF with rapid ventricular response and worsening CHF after minimal response to IV furosemide."
+      "text": "TRANSFER: CCU — AF with rapid ventricular response and worsening CHF after minimal response to IV furosemide."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -317,7 +317,7 @@
       "text": "CONTINUE: Ferrous sulfate, insulin per home regimen, repaglinide, methimazole, calcitriol, folic acid, fluticasone nasal spray, docusate."
      },
      {
-      "text": "STOP: Potassium chloride, meperidine — specified in safety actions."
+      "text": "STOP: Potassium chloride, meperidine."
      }
     ],
     "monitor": [
@@ -325,7 +325,7 @@
       "text": "MONITOR: Daily weights; strict intake/output; BMP every 24–48 hours."
      },
      {
-      "text": "MONITOR: Renal function every 3 days during therapy initiation — separately specified in safety actions."
+      "text": "MONITOR: Renal function every 3 days during therapy initiation — separately specified."
      },
      {
       "text": "REQUEST: Technetium-99m PYP cardiac scintigraphy; serum free light chains; urine protein electrophoresis with immunofixation."
@@ -342,14 +342,14 @@
     ],
     "dispo": [
      {
-      "text": "LEVEL OF CARE / FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Acute on chronic diastolic HF (recorded diagnosis)."
+      "text": "DIAGNOSIS: Acute on chronic diastolic HF."
      },
      {
       "text": "ASSESSMENT: Presumed CHF exacerbation; history of EF 50–55%."
@@ -368,43 +368,40 @@
     ],
     "acute": [
      {
-      "text": "ED TREATMENT: No medications or interventions given, as documented in the narrative."
+      "text": "START: No medications or interventions given."
      },
      {
-      "text": "DIET RECOMMENDATION: Soft solids; thin liquids with single sips; pills with puree — following aspiration/penetration on swallow study."
+      "text": "START: diet — Soft solids; thin liquids with single sips; pills with puree — following aspiration/penetration on swallow study."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Warfarin, heparin, vitamin K1, phenylephrine."
+      "text": "START: Warfarin, heparin, vitamin K1, phenylephrine."
      },
      {
-      "text": "NEWLY PRESCRIBED: Metronidazole, cefepime, cefazolin, vancomycin, nafcillin."
+      "text": "START: Metronidazole, cefepime, cefazolin, vancomycin, nafcillin."
      },
      {
-      "text": "NEWLY PRESCRIBED: Ascorbic acid, vitamin B12, acetaminophen, tolnaftate, sodium chloride, ondansetron, meperidine, polyethylene glycols, miconazole."
-     },
-     {
-      "text": "SOURCE LIMITATION: One additional medication is not named in the supplied list."
+      "text": "START: Ascorbic acid, vitamin B12, acetaminophen, tolnaftate, sodium chloride, ondansetron, meperidine, polyethylene glycols, miconazole."
      }
     ],
     "monitor": [
      {
-      "text": "PERFORMED: Right thoracentesis; transesophageal echocardiogram."
+      "text": "PERFORM: Right thoracentesis; transesophageal echocardiogram."
      },
      {
-      "text": "COMPLETED: Chest CT; swallow study."
+      "text": "OBTAIN: Chest CT; swallow study."
      },
      {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
-      "text": "ADMITTED: Cardiology — presumed CHF exacerbation."
+      "text": "ADMIT: Cardiology — presumed CHF exacerbation."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -461,7 +458,7 @@
       "text": "DIAGNOSIS: Acute decompensated HF; likely radiation-induced cardiomyopathy / pericardial disease."
      },
      {
-      "text": "HF CHARACTERIZATION: EF indeterminate in prescription rationale; HFpEF recorded separately in the completeness assessment."
+      "text": "HF CHARACTERIZATION: EF indeterminate."
      }
     ],
     "causes": [
@@ -503,7 +500,7 @@
       "text": "HOLD: Temazepam — respiratory-depression concern."
      },
      {
-      "text": "STOP: Valsartan and potassium chloride — specified in safety actions."
+      "text": "STOP: Valsartan and potassium chloride."
      }
     ],
     "monitor": [
@@ -517,7 +514,7 @@
       "text": "SAFETY RATIONALE: Avoid concurrent lisinopril/valsartan; hyperkalemia risk with potassium supplementation, lisinopril, and spironolactone."
      },
      {
-      "text": "CAUTION: Morphine if continued — older age, COPD exacerbation, and respiratory compromise; safety instruction is truncated in the source."
+      "text": "CAUTION: Morphine if continued — older age, COPD exacerbation, and respiratory compromise."
      },
      {
       "text": "REQUEST: Urgent transthoracic echocardiogram with Doppler; cardiac MRI with LGE and T1 mapping."
@@ -531,14 +528,14 @@
       "text": "DISCHARGE COUNSELING: Temazepam deprescribing."
      },
      {
-      "text": "LEVEL OF CARE / FOLLOW-UP / DISCHARGE CRITERIA: Not otherwise documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Acute on chronic diastolic HF (recorded diagnosis)."
+      "text": "DIAGNOSIS: Acute on chronic diastolic HF."
      }
     ],
     "causes": [
@@ -557,37 +554,37 @@
     ],
     "acute": [
      {
-      "text": "GIVEN: Bronchodilators, methylprednisolone, vancomycin, piperacillin-tazobactam, aspirin in the ED."
+      "text": "START: Bronchodilators, methylprednisolone, vancomycin, piperacillin-tazobactam, aspirin in the ED."
      },
      {
-      "text": "GIVEN: IV fluids — hydration in anticipation of CTA."
+      "text": "START: IV fluids — hydration in anticipation of CTA."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Salmeterol, morphine, potassium chloride, acetylcysteine, nitroglycerin."
+      "text": "START: Salmeterol, morphine, potassium chloride, acetylcysteine, nitroglycerin."
      },
      {
-      "text": "NEWLY PRESCRIBED: Acetaminophen, valsartan, ceftriaxone, heparin, alteplase."
+      "text": "START: Acetaminophen, valsartan, ceftriaxone, heparin, alteplase."
      }
     ],
     "monitor": [
      {
-      "text": "COMPLETED: Chest CTA — no pulmonary embolism; lower-extremity ultrasound — no DVT; left ankle radiograph."
+      "text": "OBTAIN: Chest CTA — no pulmonary embolism; lower-extremity ultrasound — no DVT; left ankle radiograph."
      },
      {
-      "text": "PERFORMED: Line placement — type redacted in the source."
+      "text": "PERFORM: Line placement."
      },
      {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
-      "text": "ADMITTED: Hospital floor after ED treatment."
+      "text": "ADMIT: Hospital floor after ED treatment."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented for the current admission in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -687,14 +684,14 @@
       "text": "FOLLOW-UP: Echocardiogram 4–6 weeks after MI."
      },
      {
-      "text": "LEVEL OF CARE / DISCHARGE CRITERIA: Not documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: NSTEMI (recorded diagnosis)."
+      "text": "DIAGNOSIS: NSTEMI."
      },
      {
       "text": "HF CHARACTERIZATION: Preserved LV systolic function, LVEF >55%; no HF diagnosis recorded."
@@ -710,26 +707,26 @@
     ],
     "acute": [
      {
-      "text": "GIVEN: Aspirin and metoprolol; START: Heparin infusion in the ED."
+      "text": "START: Aspirin and metoprolol; START: Heparin infusion in the ED."
      },
      {
-      "text": "PERFORMED: Cardiac catheterization with bare-metal stenting of an 80% mid-LAD lesion; loss of a jailed diagonal branch with postprocedure chest pain."
+      "text": "PERFORM: Cardiac catheterization with bare-metal stenting of an 80% mid-LAD lesion; loss of a jailed diagonal branch with postprocedure chest pain."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Aspirin, clopidogrel, atorvastatin, lisinopril."
+      "text": "START: Aspirin, clopidogrel, atorvastatin, lisinopril."
      },
      {
-      "text": "NEWLY PRESCRIBED: Tolnaftate, atropine, sodium chloride, potassium chloride, ketorolac, sennosides, docusate."
+      "text": "START: Tolnaftate, atropine, sodium chloride, potassium chloride, ketorolac, sennosides, docusate."
      }
     ],
     "monitor": [
      {
-      "text": "COMPLETED: ECG and initial cardiac enzymes; initial ECG unremarkable and enzymes negative."
+      "text": "OBTAIN: ECG and initial cardiac enzymes; initial ECG unremarkable and enzymes negative."
      },
      {
-      "text": "COMPLETED: Echocardiogram; coronary angiography and PCI."
+      "text": "OBTAIN: Echocardiogram; coronary angiography and PCI."
      },
      {
       "text": "MONITORING PLAN: Not documented in the supplied extracts."
@@ -737,10 +734,10 @@
     ],
     "dispo": [
      {
-      "text": "ADMITTED: Hospital admission for the chest-pain episode; subsequent PCI documented."
+      "text": "ADMIT: Hospital admission for the chest-pain episode; subsequent PCI documented."
      },
      {
-      "text": "LEVEL OF CARE / FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -810,10 +807,10 @@
       "text": "CONTINUE: Valsartan and insulin."
      },
      {
-      "text": "STOP: Diltiazem, warfarin and lisinopril in safety actions; stop heparin before apixaban transition."
+      "text": "STOP: Diltiazem, warfarin and lisinopril; stop heparin before apixaban transition."
      },
      {
-      "text": "ASPIRIN: Continue in the prescription table; safety review recommends discontinuation because of bleeding risk with apixaban."
+      "text": "ASPIRIN: Continue; recommend discontinuation because of bleeding risk with apixaban."
      }
     ],
     "monitor": [
@@ -821,10 +818,10 @@
       "text": "MONITOR: Potassium with valsartan, spironolactone and supplementation; renal function every 3 days during empagliflozin initiation."
      },
      {
-      "text": "CONFIRM: Patient weight for apixaban dosing; source initially assumes low body weight."
+      "text": "CONFIRM: Patient weight for apixaban dosing."
      },
      {
-      "text": "TRANSITION: Stop heparin 6 hours before first apixaban dose, as specified in the output."
+      "text": "TRANSITION: Stop heparin 6 hours before first apixaban dose."
      },
      {
       "text": "REQUEST: TEE for mitral regurgitation assessment; NT-proBNP; iron studies (ferritin, TSAT)."
@@ -835,14 +832,14 @@
       "text": "CONSULT: Electrophysiology for atrial flutter ablation candidacy."
      },
      {
-      "text": "LEVEL OF CARE / FOLLOW-UP TIMING / DISCHARGE CRITERIA: Not otherwise documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Acute diastolic HF (recorded diagnosis)."
+      "text": "DIAGNOSIS: Acute diastolic HF."
      },
      {
       "text": "HF CHARACTERIZATION: LVEF >55%; moderate-to-severe mitral regurgitation, mild calcific aortic stenosis and moderate pulmonary hypertension."
@@ -853,45 +850,45 @@
       "text": "ACTIVE PROBLEMS: Rapid atrial arrhythmia with palpitations, dyspnea, worsening leg edema and pulmonary edema."
      },
      {
-      "text": "HISTORY: Diabetes and hypertension; AF/flutter and kidney disease recorded among coded diagnoses."
+      "text": "HISTORY: Diabetes and hypertension; AF/flutter and kidney disease."
      }
     ],
     "acute": [
      {
-      "text": "GIVEN: IV diltiazem followed by oral diltiazem for rate control; palpitations resolved after rate control."
+      "text": "START: IV diltiazem followed by oral diltiazem for rate control; palpitations resolved after rate control."
      },
      {
-      "text": "GIVEN: IV fluids while rhythm was uncertain; subsequent oxygen requirement prompted IV furosemide."
+      "text": "START: IV fluids while rhythm was uncertain; subsequent oxygen requirement prompted IV furosemide."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Nitroglycerin, heparin, warfarin, lisinopril, spironolactone, potassium chloride and magnesium sulfate."
+      "text": "START: Nitroglycerin, heparin, warfarin, lisinopril, spironolactone, potassium chloride and magnesium sulfate."
      },
      {
-      "text": "NEWLY PRESCRIBED: Albuterol, acetaminophen, sennosides, glucose, glucagon and orchard grass pollen extract."
+      "text": "START: Albuterol, acetaminophen, sennosides, glucose, glucagon and orchard grass pollen extract."
      }
     ],
     "monitor": [
      {
-      "text": "COMPLETED: ECG; elevated D-dimer prompted CTA, negative for PE."
+      "text": "OBTAIN: ECG; elevated D-dimer prompted CTA, negative for PE."
      },
      {
-      "text": "COMPLETED: Echocardiography and serial chest radiographs."
+      "text": "OBTAIN: Echocardiography and serial chest radiographs."
      },
      {
-      "text": "RECOMMENDED: Repeat chest radiograph after diuresis to assess for underlying infection."
+      "text": "REQUEST: Repeat chest radiograph after diuresis to assess for underlying infection."
      },
      {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
-      "text": "ADMITTED: Transferred for inpatient care after ED treatment; heart rate controlled, receiving nasal-cannula oxygen."
+      "text": "ADMIT: Transferred for inpatient care after ED treatment; heart rate controlled, receiving nasal-cannula oxygen."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -962,7 +959,7 @@
       "text": "CONTINUE: Metoprolol succinate, atorvastatin, aspirin, amlodipine, insulin and heparin for VTE prophylaxis."
      },
      {
-      "text": "STOP: Omeprazole in safety actions; CONTINUE: Pantoprazole in the prescription table."
+      "text": "STOP: Omeprazole; CONTINUE: Pantoprazole."
      }
     ],
     "monitor": [
@@ -984,14 +981,14 @@
       "text": "DISCUSS: Goals of care and ICD implantation in the setting of DNR status."
      },
      {
-      "text": "LEVEL OF CARE / DISCHARGE CRITERIA: Not documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Acute on chronic systolic HF (recorded diagnosis)."
+      "text": "DIAGNOSIS: Acute on chronic systolic HF."
      },
      {
       "text": "HF CHARACTERIZATION: Previous LVEF 45%; bedside LVEF approximately 25%, formal resting study 27%."
@@ -1010,37 +1007,34 @@
     ],
     "acute": [
      {
-      "text": "GIVEN: IV furosemide, sublingual nitroglycerin and aspirin in the ED."
-     },
-     {
-      "text": "RESPONSE: Dyspnea improved but had not returned to baseline on the floor."
+      "text": "START: IV furosemide, sublingual nitroglycerin and aspirin in the ED."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Torsemide, spironolactone, metoprolol and isosorbide."
+      "text": "START: Torsemide, spironolactone, metoprolol and isosorbide."
      },
      {
-      "text": "NEWLY PRESCRIBED: Omeprazole and obecabtagene autoleucel (name as recorded in the source)."
+      "text": "START: Omeprazole and obecabtagene autoleucel."
      }
     ],
     "monitor": [
      {
-      "text": "COMPLETED: ECG, bedside echocardiography, chest radiography and serial troponins; troponin negative twice."
+      "text": "OBTAIN: ECG, bedside echocardiography, chest radiography and serial troponins; troponin negative twice."
      },
      {
-      "text": "COMPLETED: Stress echocardiography with resting LVEF 27%, improving to 40% after exercise."
+      "text": "OBTAIN: Stress echocardiography with resting LVEF 27%, improving to 40% after exercise."
      },
      {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
-      "text": "ADMIT: Cardiology recommended admission for CHF management and ischemia evaluation; unit name redacted."
+      "text": "ADMIT: Cardiology recommended admission for CHF management and ischemia evaluation."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -1122,14 +1116,14 @@
       "text": "FOLLOW-UP: Event monitor or 14-day Holter after discharge; spirometry after asthma exacerbation resolves."
      },
      {
-      "text": "LEVEL OF CARE / DISCHARGE CRITERIA: Not documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Atrial flutter (recorded diagnosis); rapid ventricular rate on presentation."
+      "text": "DIAGNOSIS: Atrial flutter; rapid ventricular rate on presentation."
      },
      {
       "text": "HF CHARACTERIZATION: No HF diagnosis recorded."
@@ -1145,34 +1139,34 @@
     ],
     "acute": [
      {
-      "text": "GIVEN: IV diltiazem twice, followed by oral diltiazem; converted to sinus rhythm."
+      "text": "START: IV diltiazem twice, followed by oral diltiazem; converted to sinus rhythm."
      },
      {
-      "text": "GIVEN: IV fluids and aspirin in the ED."
+      "text": "START: IV fluids and aspirin in the ED."
      }
     ],
     "gdmt": [
      {
-      "text": "No new prescriptions recorded in the supplied newly prescribed medication extract."
+      "text": "START: None."
      },
      {
-      "text": "START: Oral diltiazem after conversion to sinus rhythm, documented in the clinical narrative."
+      "text": "START: Oral diltiazem after conversion to sinus rhythm."
      }
     ],
     "monitor": [
      {
-      "text": "COMPLETED: ECG, chest radiograph and echocardiogram; no acute cardiopulmonary abnormality on chest radiograph."
+      "text": "OBTAIN: ECG, chest radiograph and echocardiogram; no acute cardiopulmonary abnormality on chest radiograph."
      },
      {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
-      "text": "ADMITTED: Hospital floor after ED treatment; comfortable and without complaints on arrival."
+      "text": "ADMIT: Hospital floor after ED treatment; comfortable and without complaints on arrival."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -1243,13 +1237,13 @@
       "text": "CONTINUE: Lisinopril, carvedilol, warfarin, atorvastatin and aspirin; reassess aspirin need with anticoagulation."
      },
      {
-      "text": "START: Spironolactone deferred until trimethoprim-sulfamethoxazole is completed, per safety review."
+      "text": "START: Spironolactone deferred until trimethoprim-sulfamethoxazole is completed,."
      },
      {
-      "text": "START: Dapagliflozin deferred until after the acute phase, per safety review."
+      "text": "START: Dapagliflozin deferred until after the acute phase,."
      },
      {
-      "text": "STOP: Potassium chloride in safety actions."
+      "text": "STOP: Potassium chloride."
      }
     ],
     "monitor": [
@@ -1274,14 +1268,14 @@
       "text": "CONSULT: Palliative care for goals-of-care discussion."
      },
      {
-      "text": "LEVEL OF CARE / DISCHARGE CRITERIA: Not documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Acute on chronic combined systolic and diastolic HF (recorded diagnosis)."
+      "text": "DIAGNOSIS: Acute on chronic combined systolic and diastolic HF."
      },
      {
       "text": "HF CHARACTERIZATION: LVEF 15%; dilated RV with depressed systolic function."
@@ -1292,7 +1286,7 @@
       "text": "PRESENTING PROBLEMS: Left-foot ulcerations with warmth, erythema and swelling extending up the ankle; refractory bilateral leg edema."
      },
      {
-      "text": "OTHER PROBLEMS: AF, CKD stage 4, AKI and malnutrition/cachexia among recorded diagnoses."
+      "text": "OTHER PROBLEMS: AF, CKD stage 4, AKI and malnutrition/cachexia."
      },
      {
       "text": "HISTORY: CAD with prior MI/CABG, diabetes, hypertension and hyperlipidemia."
@@ -1300,28 +1294,28 @@
     ],
     "acute": [
      {
-      "text": "NEWLY PRESCRIBED: Torsemide, potassium chloride, cephalexin and sulfamethoxazole. Acute IV diuretic or antibiotic administration is not documented in the supplied clinical narrative."
+      "text": "START: Torsemide, potassium chloride, cephalexin and sulfamethoxazole. Acute IV diuretic or antibiotic administration is not documented."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Nystatin, miconazole, docusate, sodium chloride, calcium carbonate and psyllium."
+      "text": "START: Nystatin, miconazole, docusate, sodium chloride, calcium carbonate and psyllium."
      }
     ],
     "monitor": [
      {
-      "text": "COMPLETED: Echocardiogram showing severe biventricular dysfunction; chest radiograph concerning for pulmonary edema."
+      "text": "OBTAIN: Echocardiogram showing severe biventricular dysfunction; chest radiograph concerning for pulmonary edema."
      },
      {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
-      "text": "ADMITTED: Direct inpatient admission for left-foot ulcerations, erythema and swelling with persistent edema."
+      "text": "ADMIT: Direct inpatient admission for left-foot ulcerations, erythema and swelling with persistent edema."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -1377,7 +1371,7 @@
       "text": "START: Oral furosemide for volume management."
      },
      {
-      "text": "CONTINUE: IV heparin during anticoagulant transition; stop at least 6 hours before first apixaban dose, per safety actions."
+      "text": "CONTINUE: IV heparin during anticoagulant transition; stop at least 6 hours before first apixaban dose,."
      }
     ],
     "gdmt": [
@@ -1410,14 +1404,14 @@
       "text": "FOLLOW-UP: Repeat echocardiogram after 3 months of GDMT optimization."
      },
      {
-      "text": "LEVEL OF CARE / DISCHARGE CRITERIA: Not documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
    "B": {
     "dx": [
      {
-      "text": "DIAGNOSIS: Systolic HF and cardiomyopathy (recorded diagnoses)."
+      "text": "DIAGNOSIS: Systolic HF and cardiomyopathy."
      },
      {
       "text": "HF CHARACTERIZATION: LVEF 30%; global hypokinesis with more severe apical involvement."
@@ -1428,28 +1422,28 @@
       "text": "ACTIVE PROBLEMS: Pleuritic, partly reproducible chest pain; LAD-to-pulmonary-artery fistula without an oxygen-saturation step-up."
      },
      {
-      "text": "OTHER PROBLEMS: AF, diabetes and hyperlipidemia recorded among coded diagnoses."
+      "text": "OTHER PROBLEMS: AF, diabetes and hyperlipidemia."
      }
     ],
     "acute": [
      {
-      "text": "PERFORMED: Cardiac catheterization after abnormal resting echocardiogram; planned exercise stress test was not performed. No acute decongestive treatment documented in the supplied clinical narrative."
+      "text": "PERFORM: Cardiac catheterization after abnormal resting echocardiogram; planned exercise stress test was not performed. No acute decongestive treatment documented."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Metoprolol, aspirin, warfarin, heparin, pravastatin and fish oils."
+      "text": "START: Metoprolol, aspirin, warfarin, heparin, pravastatin and fish oils."
      },
      {
-      "text": "NEWLY PRESCRIBED: Metformin, regular human insulin, glucose and glucagon."
+      "text": "START: Metformin, regular human insulin, glucose and glucagon."
      }
     ],
     "monitor": [
      {
-      "text": "COMPLETED: Coronary angiography—no coronary stenoses; LAD-to-pulmonary-artery fistula and normal hemodynamics."
+      "text": "OBTAIN: Coronary angiography—no coronary stenoses; LAD-to-pulmonary-artery fistula and normal hemodynamics."
      },
      {
-      "text": "COMPLETED: Echocardiogram; pattern does not exclude stress-induced cardiomyopathy or focal myopericarditis."
+      "text": "OBTAIN: Echocardiogram; pattern does not exclude stress-induced cardiomyopathy or focal myopericarditis."
      },
      {
       "text": "MONITORING PLAN: Transferred to the floor for further monitoring; schedule not specified."
@@ -1457,10 +1451,10 @@
     ],
     "dispo": [
      {
-      "text": "ADMITTED: Hospital floor after catheterization for further monitoring."
+      "text": "ADMIT: Hospital floor after catheterization for further monitoring."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -1525,12 +1519,12 @@
       "text": "CONTINUE: Sublingual nitroglycerin as needed; START: Oral furosemide as needed if congestion develops."
      },
      {
-      "text": "HOLD: Prednisone pending assessment of need; STOP: Morphine in safety actions."
+      "text": "HOLD: Prednisone pending assessment of need; STOP: Morphine."
      }
     ],
     "gdmt": [
      {
-      "text": "CONTINUE: Aspirin, clopidogrel and warfarin; limit aspirin to no more than 30 days after PCI in safety review."
+      "text": "CONTINUE: Aspirin, clopidogrel and warfarin; limit aspirin to no more than 30 days after PCI."
      },
      {
       "text": "START: Sacubitril-valsartan, metoprolol succinate, dapagliflozin and atorvastatin."
@@ -1561,7 +1555,7 @@
       "text": "FOLLOW-UP: Cardiology in 1–2 weeks for ARNI and beta-blocker titration."
      },
      {
-      "text": "LEVEL OF CARE / DISCHARGE CRITERIA: Not documented in the supplied output."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -1584,37 +1578,37 @@
     ],
     "acute": [
      {
-      "text": "GIVEN: IV nitroglycerin titrated for chest pain, aspirin, morphine and hydromorphone before transfer."
+      "text": "START: IV nitroglycerin titrated for chest pain, aspirin, morphine and hydromorphone before transfer."
      },
      {
-      "text": "PERFORMED: Balloon angioplasty of the OM2 origin with less than 20% residual stenosis and normal flow."
+      "text": "PERFORM: Balloon angioplasty of the OM2 origin with less than 20% residual stenosis and normal flow."
      }
     ],
     "gdmt": [
      {
-      "text": "NEWLY PRESCRIBED: Furosemide, warfarin, simvastatin, atorvastatin and colchicine."
+      "text": "START: Furosemide, warfarin, simvastatin, atorvastatin and colchicine."
      },
      {
-      "text": "NEWLY PRESCRIBED: Sodium chloride, vitamin K1, sitocalciferol, glucose, sodium bicarbonate, acetylcysteine, docusate and sennosides."
+      "text": "START: Sodium chloride, vitamin K1, sitocalciferol, glucose, sodium bicarbonate, acetylcysteine, docusate and sennosides."
      }
     ],
     "monitor": [
      {
-      "text": "COMPLETED: Coronary/graft angiography and hemodynamic assessment; echocardiogram with normally functioning bioprosthetic aortic valve gradient."
+      "text": "OBTAIN: Coronary/graft angiography and hemodynamic assessment; echocardiogram with normally functioning bioprosthetic aortic valve gradient."
      },
      {
-      "text": "COMPLETED: Chest radiograph without signs of overhydration."
+      "text": "OBTAIN: Chest radiograph without signs of overhydration."
      },
      {
-      "text": "MONITORING PLAN: Prospective schedule not documented in the supplied extracts."
+      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
-      "text": "ADMITTED: Transferred to the CCU for consideration of cardiac catheterization; chest-pain free on arrival."
+      "text": "ADMIT: Transferred to the CCU for consideration of cardiac catheterization; chest-pain free on arrival."
      },
      {
-      "text": "FOLLOW-UP / DISCHARGE CRITERIA: Not documented in the supplied extracts."
+      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
