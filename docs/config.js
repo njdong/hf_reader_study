@@ -5,7 +5,8 @@ window.STUDY_CONFIG = {
 
   title: "HF Plan Comparison",
 
-  // Shown before the first case and from the "Instructions" link. Bump introVersion to show it again to everyone.
+  // Shown before the first case and from the "Instructions" link. Bump introVersion to show it again to everyone,
+  // and bump ?v= on the config.js script tag in index.html so browsers refetch this file.
   introVersion: "2026-10-26",
   intro: `
     <p>This is a research study comparing management plans for heart-failure admissions. Your ratings are the outcome.
