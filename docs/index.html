@@ -228,7 +228,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     stopClock();
     const back = S.idx >= 0 ? S.idx : nextUndone(-1);
     app.innerHTML = `<section class="card"><h1>Before you start</h1>${CFG.intro}
-      <p class="muted">${S.queue.length} cases · about ${S.queue.length * 12} minutes · you can stop and come back with the same link</p>
+      <p class="muted">${S.queue.length} cases · about ${S.queue.length * 6} minutes · you can stop and come back with the same link</p>
       <div class="actions"><button class="btn primary" id="go" type="button">${S.idx >= 0 ? "Back to the case" : "Start"}</button></div></section>`;
     $("go").addEventListener("click", () => { store.set(key("introSeen"), INTRO_VER); allDone() && S.idx < 0 ? finish() : show(back); });
     window.scrollTo(0, 0);
