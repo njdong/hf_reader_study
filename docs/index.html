@@ -131,10 +131,8 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
 <script>
 (() => {
   "use strict";
-  const PAGE_VERSION = "2026-10-27-case-relay";
-  const CFG = Object.assign({ endpoint: "", title: "HF Plan Comparison", intro: "", contact: "", relay: "", inbox: {} }, window.STUDY_CONFIG || {});
-  const RELAY = (CFG.relay || "").replace(/\/+$/, "");
-  const INBOX = CFG.inbox && CFG.inbox.repo && CFG.inbox.token ? CFG.inbox : null;
+  const PAGE_VERSION = "2026-10-27-case";
+  const CFG = Object.assign({ endpoint: "", title: "HF Plan Comparison", intro: "", contact: "" }, window.STUDY_CONFIG || {});
   const DEMO = !CFG.endpoint;
   const PREF = [["strong_1", "Strongly prefer", "Option 1"], ["slight_1", "Slightly prefer", "Option 1"], ["neutral", "Neutral", ""],
                 ["slight_2", "Slightly prefer", "Option 2"], ["strong_2", "Strongly prefer", "Option 2"]];
@@ -201,9 +199,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     if (!DEMO) {
       await flushOutbox();
       try {
-        let r;
-        try { r = await getJSON(CFG.endpoint + (CFG.endpoint.includes("?") ? "&" : "?") + "r=" + encodeURIComponent(code)); }
-        catch (x) { if (!RELAY) throw x; r = await getJSON(RELAY + "?r=" + encodeURIComponent(code)); }
+        const r = await getJSON(CFG.endpoint + (CFG.endpoint.includes("?") ? "&" : "?") + "r=" + encodeURIComponent(code));
         if (r.ok === false && r.error === "unknown_evaluator") {
           return message("Code not registered", "Your code isn't registered with the study yet, so answers can't be saved. Contact the study team.");
         }
@@ -341,8 +337,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     let err = "";
     if (DEMO) S.sent.push(payload);
     else err = await send(payload);
-    const viaInbox = err === "inbox" || err === "relay";
-    if (viaInbox) err = "";
+    const viaInbox = false;
     if (err && err !== "network") {
       btn.disabled = false; startClock(); status.className = "status err";
       status.textContent = err === "unknown_evaluator" ? "Your code isn't registered with the study, so this answer wasn't saved. Contact the study team."
@@ -357,7 +352,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
       S.pending.add(e.case);
       persist(); progress();
       status.className = "status err";
-      status.textContent = "No connection to the server (this network may block Google). Your answers for this case are saved on this device and will be sent automatically when you open your link on another network.";
+      status.textContent = "No connection to the server (hospital Wi-Fi often blocks Google). Your answers for this case are saved on this device and will be sent automatically when you open your link on another network.";
       setTimeout(() => { if (S.queue[S.idx] !== e) return; allDone() ? finish() : show(nextUndone(S.idx)); }, 2500);
       return;
     }
@@ -383,29 +378,12 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     $("progFill").style.width = n ? (100 * d / n) + "%" : "0";
     $("dl").hidden = !(S.code && (Object.keys(S.answers).length || S.outbox.length));
   }
-  // One submission: the Apps Script first; if the network blocks it, the GitHub inbox. "" = saved.
+  // One submission to the Apps Script. "" = saved; "network" = no route (kept on the device); else the server's error.
   async function send(payload) {
     try {
       const r = await fetch(CFG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
       const res = await r.json();
       return res.ok ? "" : (res.error || "unknown");
-    } catch (x) { /* no route to Google: fall through */ }
-    if (RELAY) {
-      try {
-        const r = await fetch(RELAY, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(Object.assign({}, payload, { via: "relay" })) });
-        const res = await r.json();
-        if (res.ok) return "relay";
-        if (res.error && res.error !== "relay_upstream") return res.error;   // the sheet answered through the relay
-      } catch (x) { /* relay unreachable too */ }
-    }
-    if (!INBOX) return "network";
-    try {
-      const r = await fetch(`https://api.github.com/repos/${INBOX.repo}/issues`, {
-        method: "POST",
-        headers: { "Authorization": `Bearer ${INBOX.token}`, "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json" },
-        body: JSON.stringify({ title: `${payload.evaluator} ${payload.case_id}`, body: "```json\n" + JSON.stringify(Object.assign({}, payload, { via: "github_inbox" }), null, 1) + "\n```" })
-      });
-      return r.status === 201 ? "inbox" : "network";
     } catch (x) { return "network"; }
   }
   // Send queued answers; stop at the first failure (the network is still blocked).
@@ -413,7 +391,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     if (DEMO || !S.outbox.length) return;
     for (const payload of S.outbox) {
       const err = await send(Object.assign({}, payload, { uploaded_later: true }));
-      if (err && err !== "inbox" && err !== "relay") break;   // still no route: keep the rest for next time
+      if (err) break;                                   // still no route: keep the rest for next time
       S.domains.forEach(([k]) => S.done.add(`${payload.case_id}-${k}`));
       S.pending.delete(payload.case_id);
     }

@@ -5,12 +5,6 @@ window.STUDY_CONFIG = {
 
   title: "HF Plan Comparison",
 
-  // Backup channel for networks that block Google: a tiny relay on a non-Google host (relay/worker.js)
-  // that forwards submissions to the Apps Script server-side. Leave "" to disable.
-  relay: "",
-
-  // (Unused: a GitHub-token inbox cannot live in a public Pages repo — GitHub revokes tokens it finds there.)
-  inbox: { repo: "njdong/hf_reader_inbox", token: "" },
 
   // Shown before the first case and from the "Instructions" link. Bump introVersion to show it again to everyone,
   // and bump ?v= on the config.js script tag in index.html so browsers refetch this file.
