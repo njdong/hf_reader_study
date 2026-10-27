@@ -131,8 +131,9 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
 <script>
 (() => {
   "use strict";
-  const PAGE_VERSION = "2026-10-27-case-inbox";
-  const CFG = Object.assign({ endpoint: "", title: "HF Plan Comparison", intro: "", contact: "", inbox: {} }, window.STUDY_CONFIG || {});
+  const PAGE_VERSION = "2026-10-27-case-relay";
+  const CFG = Object.assign({ endpoint: "", title: "HF Plan Comparison", intro: "", contact: "", relay: "", inbox: {} }, window.STUDY_CONFIG || {});
+  const RELAY = (CFG.relay || "").replace(/\/+$/, "");
   const INBOX = CFG.inbox && CFG.inbox.repo && CFG.inbox.token ? CFG.inbox : null;
   const DEMO = !CFG.endpoint;
   const PREF = [["strong_1", "Strongly prefer", "Option 1"], ["slight_1", "Slightly prefer", "Option 1"], ["neutral", "Neutral", ""],
@@ -200,7 +201,9 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     if (!DEMO) {
       await flushOutbox();
       try {
-        const r = await getJSON(CFG.endpoint + (CFG.endpoint.includes("?") ? "&" : "?") + "r=" + encodeURIComponent(code));
+        let r;
+        try { r = await getJSON(CFG.endpoint + (CFG.endpoint.includes("?") ? "&" : "?") + "r=" + encodeURIComponent(code)); }
+        catch (x) { if (!RELAY) throw x; r = await getJSON(RELAY + "?r=" + encodeURIComponent(code)); }
         if (r.ok === false && r.error === "unknown_evaluator") {
           return message("Code not registered", "Your code isn't registered with the study yet, so answers can't be saved. Contact the study team.");
         }
@@ -338,7 +341,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     let err = "";
     if (DEMO) S.sent.push(payload);
     else err = await send(payload);
-    const viaInbox = err === "inbox";
+    const viaInbox = err === "inbox" || err === "relay";
     if (viaInbox) err = "";
     if (err && err !== "network") {
       btn.disabled = false; startClock(); status.className = "status err";
@@ -387,6 +390,14 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
       const res = await r.json();
       return res.ok ? "" : (res.error || "unknown");
     } catch (x) { /* no route to Google: fall through */ }
+    if (RELAY) {
+      try {
+        const r = await fetch(RELAY, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(Object.assign({}, payload, { via: "relay" })) });
+        const res = await r.json();
+        if (res.ok) return "relay";
+        if (res.error && res.error !== "relay_upstream") return res.error;   // the sheet answered through the relay
+      } catch (x) { /* relay unreachable too */ }
+    }
     if (!INBOX) return "network";
     try {
       const r = await fetch(`https://api.github.com/repos/${INBOX.repo}/issues`, {
@@ -402,7 +413,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     if (DEMO || !S.outbox.length) return;
     for (const payload of S.outbox) {
       const err = await send(Object.assign({}, payload, { uploaded_later: true }));
-      if (err && err !== "inbox") break;                // still no route: keep the rest for next time
+      if (err && err !== "inbox" && err !== "relay") break;   // still no route: keep the rest for next time
       S.domains.forEach(([k]) => S.done.add(`${payload.case_id}-${k}`));
       S.pending.delete(payload.case_id);
     }

@@ -5,9 +5,11 @@ window.STUDY_CONFIG = {
 
   title: "HF Plan Comparison",
 
-  // Backup channel for networks that block Google: a private GitHub repo that receives one issue per
-  // submitted case; a workflow there forwards it to the sheet. The token must be a fine-grained PAT
-  // limited to that repo with "Issues: read and write" only. Leave token "" to disable.
+  // Backup channel for networks that block Google: a tiny relay on a non-Google host (relay/worker.js)
+  // that forwards submissions to the Apps Script server-side. Leave "" to disable.
+  relay: "",
+
+  // (Unused: a GitHub-token inbox cannot live in a public Pages repo — GitHub revokes tokens it finds there.)
   inbox: { repo: "njdong/hf_reader_inbox", token: "" },
 
   // Shown before the first case and from the "Instructions" link. Bump introVersion to show it again to everyone,
