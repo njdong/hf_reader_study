@@ -96,11 +96,21 @@ def teams_override():
         tables = json.load(f)
     out = {}
     for n, t in tables.items():
-        stem_path = os.path.join(TEAMS_DIR, f"case{n}_stem.txt")
-        if not os.path.exists(stem_path):
-            continue
-        with open(stem_path, encoding="utf-8") as f:
-            stem = parse_form_stem(f.read())
+        if n.startswith("B"):                                   # backup case: stem comes from the extracted packet
+            ex_path = os.path.join(DATA, "formcases", "extracted", f"{t['case_id']}.json")
+            if not os.path.exists(ex_path):
+                continue
+            with open(ex_path, encoding="utf-8") as f:
+                st = json.load(f)["stem"]
+            labs = " | ".join(x for x in (st.get("presentation_labs", ""), st.get("labs", "")) if x)
+            stem = {"presentation": st["presentation"], "home_meds": st.get("home_meds", ""), "vitals": st.get("vitals", ""), "labs": labs,
+                    "exam": st.get("exam") or [], "echo": st.get("echo") or [], "ecg": st.get("ecg") or [], "imaging": st.get("imaging") or [], "cath": st.get("cath") or []}
+        else:
+            stem_path = os.path.join(TEAMS_DIR, f"case{n}_stem.txt")
+            if not os.path.exists(stem_path):
+                continue
+            with open(stem_path, encoding="utf-8") as f:
+                stem = parse_form_stem(f.read())
         key = {"Diagnosis and HF characterization": "dx", "Decompensation causes and other active problems": "causes",
                "Acute treatment and decongestion": "acute", "Ongoing medication/GDMT decisions": "gdmt",
                "Monitoring and further workup": "monitor", "Disposition and follow-up": "dispo"}
@@ -110,7 +120,8 @@ def teams_override():
             mas_txt, note_txt = (r["option_1"], r["option_2"]) if t["option_1"] == "MAS" else (r["option_2"], r["option_1"])
             A[d] = [{"text": x} for x in BULLET_SPLIT.split(mas_txt)]
             B[d] = [{"text": x} for x in BULLET_SPLIT.split(note_txt)]
-        out[t["case_id"]] = {"stem": stem, "A": A, "B": B, "source": f"Teams form case {n} (verbatim)"}
+        out[t["case_id"]] = {"stem": stem, "A": A, "B": B, "form": True,
+                             "source": (f"Backup case {t['case_id']}: vignette + editable-tables column + reformatted MAS (form style)" if n.startswith("B") else f"Teams form case {n} (verbatim)")}
     return out
 
 
@@ -132,8 +143,8 @@ def load_cases(selection, fullcases_dir):
         if fc["case_id"] in forms:
             rec.update(forms[fc["case_id"]])
         cases[fc["case_id"]] = rec
-    n_forms = sum(1 for c in cases.values() if c["source"].startswith("Teams"))
-    print(f"{n_forms} cases use the original Teams-form text verbatim")
+    n_forms = sum(1 for c in cases.values() if c.get("form"))
+    print(f"{n_forms} cases use form-format tables (10 verbatim Teams forms + reformatted backup cases)")
     return cases
 
 
@@ -198,8 +209,12 @@ def main():
 
     cases = load_cases(args.selection, args.fullcases)
     if args.forms_only:
-        cases = {k: v for k, v in cases.items() if v["source"].startswith("Teams")}
+        cases = {k: v for k, v in cases.items() if v.get("form")}
         print(f"forms-only: {len(cases)} cases kept")
+    from align_language import align_cases
+    aligned = align_cases({"cases": cases})
+    for cid, c in cases.items():
+        c["A"], c["B"] = aligned[cid]["A"], aligned[cid]["B"]
     doc = {
         "study": "hf_reader_study", "version": args.version, "mode": "case",
         "systems": {"A": "multi-agent system (current run, first-12 h chart)", "B": "clinical note (record: coded diagnoses, orders, prescriptions)"},

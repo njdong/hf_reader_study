@@ -70,11 +70,31 @@ MAS_PHRASES = [
     (re.compile(r";\s*HFpEF recorded separately in the completeness assessment", re.I), ""),
     (re.compile(r"^(LEVEL OF CARE / (FOLLOW-UP / )?DISCHARGE CRITERIA|LEVEL OF CARE / FOLLOW-UP TIMING / DISCHARGE CRITERIA):\s*Not (otherwise )?documented in the supplied output\.?$", re.I), "FOLLOW-UP: No recommendation."),
     (re.compile(r"^LEVEL OF CARE / FOLLOW-UP / DISCHARGE CRITERIA:\s*Not documented in the supplied output\.?$", re.I), "FOLLOW-UP: No recommendation."),
+    (re.compile(r"^([A-Z][A-Z /-]+):\s*(Not documented|None prescribed|None specified) in the supplied output\.?$"), r"\1: No recommendation."),
 ]
+
+
+NOT_DOC = re.compile(r"^([A-Z][A-Z /-]+):\s*(?:Prospective (?:schedule|recommendations) )?[Nn]ot (?:otherwise )?documented(?: for the current admission)? in the supplied (?:extracts?|output)\.?$")
+
+
+def no_recommendation(line):
+    """Any '<LABEL>: Not documented in the supplied …' line -> a uniform 'No recommendation' line."""
+    m = NOT_DOC.match(line.strip())
+    if not m:
+        return None
+    lab = m.group(1)
+    if "MONITOR" in lab or "WORKUP" in lab:
+        return "MONITOR: No recommendation."
+    if "FOLLOW" in lab or "DISCHARGE" in lab or "LEVEL OF CARE" in lab:
+        return "FOLLOW-UP: No recommendation."
+    return f"{lab}: No recommendation."
 
 
 def align_note(text):
     t = text.strip()
+    nr = no_recommendation(t)
+    if nr:
+        return nr
     for rx, rep in NOTE_RULES:
         if rx.search(t):
             if rep is None:
@@ -89,6 +109,9 @@ def align_note(text):
 
 def align_mas(text):
     t = text.strip()
+    nr = no_recommendation(t)
+    if nr:
+        return nr
     for rx, rep in MAS_PHRASES:
         t = rx.sub(rep, t)
     return re.sub(r"\s+", " ", t).strip() or None

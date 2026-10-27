@@ -1,6 +1,6 @@
 {
  "study": "hf_reader_study",
- "version": "2026-10-26g",
+ "version": "2026-10-27a",
  "mode": "case",
  "systems": {
   "A": "multi-agent system (current run, first-12 h chart)",
@@ -230,7 +230,8 @@
      }
     ]
    },
-   "source": "Teams form case 01 (verbatim)"
+   "source": "Teams form case 01 (verbatim)",
+   "form": true
   },
   "C100": {
    "case_id": "C100",
@@ -402,7 +403,8 @@
      }
     ]
    },
-   "source": "Teams form case 02 (verbatim)"
+   "source": "Teams form case 02 (verbatim)",
+   "form": true
   },
   "C098": {
    "case_id": "C098",
@@ -585,7 +587,8 @@
      }
     ]
    },
-   "source": "Teams form case 03 (verbatim)"
+   "source": "Teams form case 03 (verbatim)",
+   "form": true
   },
   "C001": {
    "case_id": "C001",
@@ -738,7 +741,8 @@
      }
     ]
    },
-   "source": "Teams form case 04 (verbatim)"
+   "source": "Teams form case 04 (verbatim)",
+   "form": true
   },
   "C082": {
    "case_id": "C082",
@@ -889,7 +893,8 @@
      }
     ]
    },
-   "source": "Teams form case 05 (verbatim)"
+   "source": "Teams form case 05 (verbatim)",
+   "form": true
   },
   "C083": {
    "case_id": "C083",
@@ -1035,7 +1040,8 @@
      }
     ]
    },
-   "source": "Teams form case 06 (verbatim)"
+   "source": "Teams form case 06 (verbatim)",
+   "form": true
   },
   "C061": {
    "case_id": "C061",
@@ -1167,7 +1173,8 @@
      }
     ]
    },
-   "source": "Teams form case 07 (verbatim)"
+   "source": "Teams form case 07 (verbatim)",
+   "form": true
   },
   "C099": {
    "case_id": "C099",
@@ -1316,7 +1323,8 @@
      }
     ]
    },
-   "source": "Teams form case 08 (verbatim)"
+   "source": "Teams form case 08 (verbatim)",
+   "form": true
   },
   "C092": {
    "case_id": "C092",
@@ -1455,7 +1463,8 @@
      }
     ]
    },
-   "source": "Teams form case 09 (verbatim)"
+   "source": "Teams form case 09 (verbatim)",
+   "form": true
   },
   "C031": {
    "case_id": "C031",
@@ -1609,7 +1618,2981 @@
      }
     ]
    },
-   "source": "Teams form case 10 (verbatim)"
+   "source": "Teams form case 10 (verbatim)",
+   "form": true
+  },
+  "C006": {
+   "case_id": "C006",
+   "cohort": "I21_MI",
+   "age_sex": "82F",
+   "label": "backup",
+   "stem": {
+    "presentation": "An 82-year-old woman presented with two days of progressively worsening burning throughout her left arm and exertional dyspnea after a respiratory illness treated with levofloxacin. She denied typical chest pain. Outside troponin T was elevated and ECG showed anteroseptal T-wave inversion. Aspirin and IV heparin were given before transfer for coronary angiography. She subsequently underwent LAD drug-eluting stenting and balloon dilation of a diagonal branch.",
+    "home_meds": "Atorvastatin, Metoprolol Tartrate, Heparin",
+    "vitals": "ED: T 97.9°F, HR 80, BP 119/77, RR 14, SpO₂ 96% RA. Admission: T 98.1°F, HR 83, BP 131/89, RR 18, SpO₂ 97% RA.",
+    "labs": "Outside/ED narrative: troponin T 0.635 then 0.69; Na 141, K 4.6, BUN 18, creatinine 1.0; Hb 13.3, WBC 7.5, platelets 259. | Na 140 mEq/L | K 4.6 mEq/L | BUN 16 mg/dL | Cr 0.9 mg/dL | Mg 2.3 mg/dL | Hb 11.5 g/dL | WBC 7.8 K/uL | Platelets 213 K/uL | Troponin T 1.56 ng/mL | INR 1.1. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Comfortable, no elevated JVP. Regular rhythm without murmur. Lungs clear. No peripheral edema; distal pulses symmetric."
+    ],
+    "echo": [
+     "LVEF 37%; severe distal anteroseptal, anterior and inferior hypokinesis with apical akinesis. No LV thrombus seen. Estimated filling pressure <12 mmHg; normal RV function."
+    ],
+    "ecg": [
+     "ED ECG: sinus rhythm at 78 bpm, left axis deviation, T-wave inversion V1–V3 and Q waves in III/aVF."
+    ],
+    "imaging": [
+     "CXR: minimal left basilar atelectasis; no pulmonary edema or pleural effusion."
+    ],
+    "cath": [
+     "Two-vessel CAD: complex LAD/diagonal bifurcation disease and chronic mid-RCA occlusion with collaterals. Successful proximal LAD DES and diagonal balloon angioplasty."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: NSTEMI."
+     },
+     {
+      "text": "HF CHARACTERIZATION: New-onset HFrEF; ischemic cardiomyopathy, LVEF 37%."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Systolic HF; coronary artery disease; prior MI; prior coronary angioplasty; shortness of breath."
+     },
+     {
+      "text": "COMPLICATION: Prolonged QT interval."
+     },
+     {
+      "text": "COMORBIDITIES: Pneumonia, anemia, hypertension, hyperlipidemia, aortic atherosclerosis, osteoporosis, osteoarthritis and macular degeneration."
+     }
+    ],
+    "acute": [
+     {
+      "text": "CONTINUE: Guaifenesin and ipratropium-albuterol as needed — residual cough and bronchospasm after recent pneumonia; stop when symptoms resolve, reassess a cough lasting over 2 weeks, and use albuterol judiciously alongside the beta-blocker."
+     },
+     {
+      "text": "DIURETICS: No recommendation."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Aspirin and clopidogrel — dual antiplatelet therapy after DES; reassess clopidogrel duration at 6 months by DAPT score."
+     },
+     {
+      "text": "START: Pantoprazole — GI prophylaxis on dual antiplatelet therapy; reassess when de-escalated to aspirin alone."
+     },
+     {
+      "text": "STOP: Metoprolol tartrate; START: Metoprolol succinate — no overlap of formulations; uptitrate every 2 weeks toward 200 mg."
+     },
+     {
+      "text": "START: Sacubitril-valsartan, spironolactone and dapagliflozin — no potassium supplements and no ACE inhibitor (36-hour washout if one is ever considered); uptitrate sacubitril-valsartan every 2–4 weeks, and spironolactone to 25 mg at 4 weeks if K <5.0 and renal function is stable."
+     },
+     {
+      "text": "CONTINUE: Atorvastatin 80 mg — reduce to 40 mg for myalgias or LFTs >3× ULN."
+     },
+     {
+      "text": "CONTINUE: Subcutaneous heparin for VTE prophylaxis — stop at discharge; if LV thrombus later needs therapeutic anticoagulation, stop heparin and start warfarin with INR targets, without DOAC overlap."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP at 3 days, 1, 2 and 4 weeks after starting sacubitril-valsartan, spironolactone and dapagliflozin, and at 1 and 2 weeks after each sacubitril-valsartan uptitration."
+     },
+     {
+      "text": "MONITOR: ECG at baseline and after each metoprolol uptitration for QTc; heart rate with albuterol use; genital mycotic infection and volume depletion on dapagliflozin."
+     },
+     {
+      "text": "SAFETY: Hyperkalemia risk with spironolactone plus sacubitril-valsartan; AKI risk with three-drug initiation at age 82 and eGFR ~50–55; bleeding risk with heparin plus dual antiplatelet therapy; PPI flagged by Beers criteria but retained for GI prophylaxis; albuterol may counteract the beta-blocker."
+     },
+     {
+      "text": "REQUEST: BNP/NT-proBNP baseline; TSH to exclude thyroid contribution; ferritin and iron studies for anemia (Hgb 11.5) and IV iron eligibility."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Non-ST elevation (NSTEMI) myocardial infarction."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF 37%, apical akinesis; no HF diagnosis in the primary coded label."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Arm burning and exertional dyspnea after respiratory infection; multivessel CAD and an akinetic apex."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Aspirin, IV heparin and clopidogrel loading."
+     },
+     {
+      "text": "PERFORM: LAD DES and diagonal balloon angioplasty."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: aspirin, clopidogrel, lisinopril, benzocaine, warfarin, enoxaparin, benzonatate."
+     },
+     {
+      "text": "START: dextromethorphan, metoprolol, albuterol."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Serial cardiac markers, echocardiogram, coronary angiography and PCI."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Transferred for coronary angiography and inpatient post-PCI care."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C006: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C013": {
+   "case_id": "C013",
+   "cohort": "I21_MI",
+   "age_sex": "64F",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 64-year-old woman with hypertension, hyperlipidemia, hyperglycemia and fibromyalgia developed abrupt chest pain radiating to her left arm and back while watching television. Initial enzymes were negative and ECG showed inferior T-wave inversion. Recurrent pain with inferior ST elevation prompted urgent catheterization and drug-eluting stenting of a 90% mid-RCA lesion. Substantial LAD/diagonal disease remained.",
+    "home_meds": "Pravastatin, Clopidogrel Bisulfate, Metoprolol, Aspirin EC, Sodium Chloride Nasal",
+    "vitals": "ED: T 97°F, HR 84, BP 127/79, RR 16, SpO₂ 98% RA. Postprocedure examination: T 97.3°F, HR 64, BP 111/61, RR 16, SpO₂ 100% RA.",
+    "labs": "Initial cardiac enzymes described as negative; numeric values not supplied in the narrative. | Na 135 mEq/L | K 4.2 mEq/L | BUN 5 mg/dL | Cr 0.5 mg/dL | Mg 2 mg/dL | Hb 11.8 g/dL | WBC 4.6 K/uL | Platelets 212 K/uL | INR 1. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "No distress or JVD. Regular rhythm without murmur. Anterior lungs clear; posterior examination limited by position. No edema; right groin without hematoma or bruit."
+    ],
+    "echo": [
+     "LVEF 70%; normal regional/global systolic function, impaired relaxation and mild pulmonary hypertension. Trace AR and trivial MR."
+    ],
+    "ecg": [
+     "Initially T-wave inversion in III/aVF. During recurrent pain: 2-mm ST elevation in II/III/aVF with reciprocal depression in I/aVL. ST changes resolved after PCI."
+    ],
+    "imaging": [
+     "No separate chest radiograph report supplied."
+    ],
+    "cath": [
+     "Successful mid-RCA DES; serial 80% LAD lesions at the D1 bifurcation and an 80% proximal D1 lesion. HPI refers to LAD/OM disease, whereas the angiographic report describes LAD/D1."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute inferior STEMI (RCA territory), successfully treated with primary PCI and DES."
+     },
+     {
+      "text": "HF CHARACTERIZATION: Not HF; no HF phenotype or etiology assigned."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Coronary artery disease; coronary stent; long-term antithrombotic therapy."
+     },
+     {
+      "text": "COMORBIDITIES: Hypertension, hyperlipidemia, hypothyroidism, fibromyalgia, aortic valve thickening with trace regurgitation, mitral valve thickening with trivial regurgitation, osteoporosis, GERD, depression and generalized anxiety disorder."
+     },
+     {
+      "text": "HISTORY: Former nicotine dependence."
+     }
+    ],
+    "acute": [
+     {
+      "text": "STOP: IV eptifibatide — per post-PCI protocol timing (typically 18–24 hours)."
+     },
+     {
+      "text": "START: Sublingual nitroglycerin as needed for chest pain — residual 80% LAD/D1 stenosis; not within 24 hours of a PDE5 inhibitor; call 911 if no relief after the first dose."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "TITRATE DOWN: Aspirin to 81 mg."
+     },
+     {
+      "text": "STOP: Clopidogrel; START: Ticagrelor — more potent P2Y12 inhibition after STEMI with DES; reassess at 12 months; resume clopidogrel, with pantoprazole rather than omeprazole, if ticagrelor causes dyspnea or bleeding."
+     },
+     {
+      "text": "STOP: Pravastatin, metoprolol tartrate and ranitidine; START: Atorvastatin 80 mg, metoprolol succinate and pantoprazole — reduce atorvastatin to 40 mg for intolerable myalgias; uptitrate metoprolol to 50 mg at 2 weeks, toward 200 mg; reassess pantoprazole when DAPT de-escalates."
+     },
+     {
+      "text": "START: Lisinopril — uptitrate to 10–20 mg as BP tolerates."
+     },
+     {
+      "text": "CONTINUE: Levothyroxine, gabapentin, lidocaine patch, bupropion, raloxifene, fexofenadine, docusate, pyridoxine, folic acid, vitamin D and cyanocobalamin."
+     },
+     {
+      "text": "CONTINUE: Hydromorphone and lorazepam as needed, with caution — minimize opioid use in the acute post-STEMI period; use lorazepam sparingly and avoid abrupt discontinuation."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP (K, creatinine) within 1 week of starting lisinopril and after each titration; LFTs if statin symptoms; sedation with gabapentin, hydromorphone and lorazepam."
+     },
+     {
+      "text": "SAFETY: Opioids delay ticagrelor absorption and reduce its antiplatelet effect; if chest pain recurs, do not rely on ticagrelor alone and consider IV antiplatelet or parenteral analgesic alternatives."
+     },
+     {
+      "text": "SAFETY: Additive CNS and respiratory depression with hydromorphone, lorazepam and gabapentin (opioid–benzodiazepine boxed warning)."
+     },
+     {
+      "text": "REQUEST: TSH to confirm euthyroid state on levothyroxine, with a TSH check again in 6–8 weeks; BNP/NT-proBNP for post-MI risk stratification and to exclude subclinical HF given mild diastolic dysfunction and RVSP 40 mmHg."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "REFER: PCP and pain management for an opioid-reduction plan."
+     },
+     {
+      "text": "FOLLOW-UP: PCP review of raloxifene VTE risk after the new cardiovascular diagnosis."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: ST elevation (STEMI) myocardial infarction involving other coronary artery of inferior wall."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF 70%; no HF diagnosis in the primary coded label."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Acute inferior ischemic ECG changes; residual nonculprit coronary disease. Hypertension, hyperlipidemia and fibromyalgia."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Aspirin, morphine, IV metoprolol, heparin, clopidogrel and eptifibatide."
+     },
+     {
+      "text": "PERFORM: Mid-RCA DES."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: heparin, psyllium, potassium chloride, lactulose."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Serial ECGs, coronary angiography/PCI and echocardiography."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Inpatient care following urgent PCI."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C013: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C016": {
+   "case_id": "C016",
+   "cohort": "I21_MI",
+   "age_sex": "71M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 71-year-old man with CLL, hypertension, GERD, gout and psoriasis developed fatigue and episodic right jaw/shoulder pain, followed by persistent jaw, temporal and shoulder discomfort at rest. Nitroglycerin relieved his pain. ST elevation in V1–V2 and a new fascicular block accompanied rising outside troponin I (0.09 → 1.77 → 21.07). He was transferred for urgent catheterization, received an LCx DES, and had mild, different-quality right arm discomfort afterward.",
+    "home_meds": "(none listed)",
+    "vitals": "Outside ED: HR 84, BP 136/104, RR 16, SpO₂ 98% RA. Admission: T 97.6°F, HR 73, BP 112/70, RR 16, SpO₂ 97% RA.",
+    "labs": "Outside troponin I 0.09 → 1.77 → 21.07; creatinine 0.83, K 4.0, Hb 16.9, WBC 8.1, platelets 184. | Na 138 mEq/L | K 3.6 mEq/L | BUN 13 mg/dL | Cr 0.8 mg/dL | Hb 14.8 g/dL | WBC 11.6 K/uL | Platelets 149 K/uL | Troponin T 3.47 ng/mL. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Fatigued but oriented and comfortable. JVP 7 cm. Regular rhythm, no murmur; lungs clear. Trace ankle edema; right radial compression band with warm distal extremity."
+    ],
+    "echo": [
+     "LVEF 45% with inferolateral hypokinesis. Normal RV function, trivial MR, borderline pulmonary hypertension and no effusion."
+    ],
+    "ecg": [
+     "Outside ECG: V1–V2 ST elevation and new fascicular block. Workbook ECG extract: sinus rhythm, left axis deviation and nonspecific anterolateral T-wave changes."
+    ],
+    "imaging": [
+     "CXR: no acute cardiopulmonary process. CT chest/neck report states no PE or thoracic dissection."
+    ],
+    "cath": [
+     "Clinical narrative documents right-radial LCx PCI with DES, clopidogrel loading and an eight-hour eptifibatide bridge."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute STEMI, left circumflex territory, after successful PCI with DES."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFmrEF, ischemic; LVEF 45%."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Coronary stent after PCI; long-term antiplatelet therapy; weakness and fatigue."
+     },
+     {
+      "text": "COMPLICATIONS: Chronic diastolic HF with mid-range EF; left anterior fascicular block."
+     },
+     {
+      "text": "COMORBIDITIES: Hypertension, chronic lymphocytic leukemia, GERD, gout, psoriasis, mild aortic valve disease, hyperlipidemia; borderline pulmonary hypertension (chronic pulmonary embolism ruled out)."
+     },
+     {
+      "text": "HISTORY: Mildly dilated ascending aorta (aortic dissection ruled out)."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Sublingual nitroglycerin as needed for recurrent angina after STEMI — not if SBP <90 or a PDE5 inhibitor was taken within 24–48 hours."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Aspirin; CONTINUE: Clopidogrel — dual antiplatelet therapy after DES; consider switching clopidogrel to ticagrelor if no contraindication and no excess bleeding risk."
+     },
+     {
+      "text": "START: Atorvastatin 80 mg — reduce to 40 mg for myalgias or ALT >3× ULN; stop if rhabdomyolysis."
+     },
+     {
+      "text": "START: Lisinopril and spironolactone — no potassium supplements unless K <3.5 with close monitoring; uptitrate lisinopril to 10–20 mg at 2-week intervals and spironolactone to 25 mg if K stays <5.0; consider switching lisinopril to sacubitril-valsartan if LVEF remains ≤45% at 3-month reassessment."
+     },
+     {
+      "text": "START: Metoprolol succinate, uptitrating every 2 weeks toward 200 mg, and dapagliflozin."
+     },
+     {
+      "text": "START: Pantoprazole — GERD and GI prophylaxis on dual antiplatelet therapy, chosen over omeprazole with clopidogrel; reassess at 12 months when DAPT may de-escalate."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: K and creatinine at 3 days, 1 week and 1 month after co-starting lisinopril and spironolactone; BMP at 3 days and 1 week after starting dapagliflozin; volume depletion, UTI and genital mycotic infection on dapagliflozin."
+     },
+     {
+      "text": "SAFETY: Hyperkalemia risk with ACE inhibitor plus MRA at age 71 (baseline K 4.0, creatinine 0.83); AKI risk with dapagliflozin plus lisinopril; long-term PPI flagged by Beers criteria but retained for GERD and DAPT, with discontinuation or step-down to an H2 blocker possible at 12 months."
+     },
+     {
+      "text": "REQUEST: NT-proBNP baseline; serial troponin to confirm peak and downtrend (last 21.07); TSH; ferritin and TSAT for iron deficiency and IV iron."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: ST elevation (STEMI) myocardial infarction of unspecified site."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF 45% with inferolateral hypokinesis."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Atypical jaw/shoulder ischemic presentation; CLL, hypertension, GERD, gout and psoriasis."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Sublingual/topical nitroglycerin, then nitroglycerin and heparin infusions."
+     },
+     {
+      "text": "PERFORM: LCx DES; GIVEN: Clopidogrel load and eptifibatide bridge."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: sodium chloride, orchard grass pollen extract, eptifibatide, streptococcus pneumoniae type 1 capsular polysaccharide antigen, lisinopril, metoprolol, clobetasol."
+     },
+     {
+      "text": "START: calcipotriene, acetaminophen, omeprazole, atorvastatin, docusate, sennosides, usp, nitroglycerin."
+     },
+     {
+      "text": "START: heparin, aspirin, clopidogrel, potassium chloride."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Serial troponins, ECGs, echocardiogram and urgent catheterization."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Transferred urgently for catheterization; monitored on the floor afterward."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C016: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C018": {
+   "case_id": "C018",
+   "cohort": "I21_MI",
+   "age_sex": "83M",
+   "label": "backup",
+   "stem": {
+    "presentation": "An 83-year-old man with extensive CAD, prior LVEF about 40%, CKD, hypertension and peripheral vascular disease developed progressive dyspnea, orthopnea, edema, nine-pound weight gain and pink sputum after a respiratory illness. Chest pain improved with nitroglycerin. Diuresis for pulmonary edema was followed by hypotension and rapid AF despite metoprolol, prompting CCU transfer. Angiography later attributed NSTEMI to collateral insufficiency during rapid AF.",
+    "home_meds": "Lisinopril, Heparin, Aspirin, Heparin Sodium, Metoprolol Tartrate, Nitroglycerin SL",
+    "vitals": "ED: T 97.7°F, HR 78, BP 136/86, RR 18, SpO₂ 100% RA. Admission exam: T 97.7°F, HR 75, BP 145/98, RR 22, SpO₂ 97% recorded as RA; nasal cannula also mentioned.",
+    "labs": "ED narrative: troponin 2.13, Na 129, K 5.7, creatinine 1.9, Hct 32.8, INR 1.1. | Na 133 mEq/L | K 5.9 mEq/L | BUN 56 mg/dL | Cr 2.1 mg/dL | Mg 2.3 mg/dL | Hb 10.9 g/dL | WBC 14.1 K/uL | Platelets 189 K/uL | Troponin T 2.41 ng/mL | INR 1.4 | Lactate 1.2 mmol/L. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Dyspneic, bibasilar crackles, holosystolic murmur and bilateral 1+ pitting edema. Extremities warm; stool guaiac negative."
+    ],
+    "echo": [
+     "Serial studies describe worsening regional LV and RV dysfunction, 3+ MR and later 3+ TR. Possible interatrial shunt. LV thrombus not demonstrated but not excluded; numerical EF missing in the supplied reports."
+    ],
+    "ecg": [
+     "AF with RVR around 133 bpm and occasional PVCs; prior Q waves and unchanged lateral ST depression described."
+    ],
+    "imaging": [
+     "Initial CXR: pulmonary edema and small-to-moderate bilateral effusions. Subsequent film shows reduced effusions and no pulmonary edema."
+    ],
+    "cath": [
+     "Three-vessel CAD with patent LCx stents, severe LAD disease and known RCA occlusion; no interval angiographic change. Report diagnosis: NSTEMI from collateral insufficiency during rapid AF."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute decompensated HFrEF (acute on chronic systolic HF)."
+     },
+     {
+      "text": "HF CHARACTERIZATION: Ischemic; LVEF 30%, NYHA class IV."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: NSTEMI; AF with rapid ventricular response; severe three-vessel CAD; mitral regurgitation; tricuspid regurgitation."
+     },
+     {
+      "text": "COMPLICATIONS: Primary pulmonary hypertension, hyperkalemia and hyponatremia."
+     },
+     {
+      "text": "COMORBIDITIES: CKD stage 4, hypertension, hyperlipidemia, peripheral vascular disease and anemia."
+     },
+     {
+      "text": "HISTORY: Prior MI."
+     }
+    ],
+    "acute": [
+     {
+      "text": "CONTINUE: IV furosemide infusion — titrate to urine output >100 mL/h; hold if SBP <85 or creatinine rises >50%; add metolazone if diuresis is inadequate."
+     },
+     {
+      "text": "START: IV amiodarone bolus and infusion — AF with RVR refractory to IV metoprolol; oral taper to 200 mg daily if sinus rhythm is restored."
+     },
+     {
+      "text": "START: IV calcium gluconate, and IV insulin with dextrose — hyperkalemia (K 5.9–6.1); repeat calcium if ECG changes persist and insulin if K stays >5.5 at 1 hour."
+     },
+     {
+      "text": "START: Patiromer — once acute hyperkalemia is managed; titrate to K 4.0–5.0, up to 16.8 g daily."
+     },
+     {
+      "text": "STOP: IV heparin — 6 hours before the first apixaban dose, no overlap; continue with aPTT monitoring if oral intake is not yet possible."
+     },
+     {
+      "text": "HOLD: Sublingual nitroglycerin while SBP <100; cautious use for angina if SBP >110."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "HOLD: Lisinopril, metoprolol tartrate, isosorbide mononitrate and allopurinol — hyperkalemia, hypotension (MAP 55) and decompensation; lisinopril may restart at 2.5–5 mg once SBP >100, K <5.0 and creatinine stable; restart allopurinol when stable and isosorbide (30 mg) only for persistent angina."
+     },
+     {
+      "text": "START: Sacubitril-valsartan — only after K <5.0, SBP consistently >100, stable creatinine and a 36-hour washout from lisinopril, never together; if not tolerated, return to lisinopril after a 36-hour washout."
+     },
+     {
+      "text": "START: Metoprolol succinate, replacing tartrate, once euvolemic with SBP >100, HR >60 and no active decompensation, then uptitrate; dapagliflozin once SBP >95 and stable."
+     },
+     {
+      "text": "START: Apixaban 2.5 mg twice daily — dose-reduced for age 83 and creatinine 2.1, for AF and LV thrombus prophylaxis; reassess full dose if creatinine normalizes; TITRATE DOWN: Aspirin 325 → 81 mg, triple therapy for 1 week only, then stop aspirin."
+     },
+     {
+      "text": "CONTINUE: Clopidogrel up to 12 months, with apixaban after aspirin stops; atorvastatin 80 mg despite amiodarone, adding ezetimibe if LDL >70."
+     },
+     {
+      "text": "STOP: Ranitidine; START: Famotidine — pantoprazole, not omeprazole, if a PPI is needed."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP every 3 days during dapagliflozin initiation (hold if creatinine rises >30%); glucose hourly for 4 hours after insulin; QTc (hold amiodarone if >500 ms), TSH and LFTs at baseline and every 3 months on amiodarone; LDL at 4–6 weeks, CK if myalgias; renal function for apixaban dosing; bleeding."
+     },
+     {
+      "text": "SAFETY: Major bleeding risk with heparin–apixaban overlap and with triple therapy at age 83 with CKD; angioedema with sacubitril-valsartan plus lisinopril; AKI risk with SGLT2 inhibitor, loop diuretic and RAAS therapy at eGFR 30.7; amiodarone raises atorvastatin exposure (rhabdomyolysis) and apixaban levels."
+     },
+     {
+      "text": "REQUEST: Urgent NT-proBNP; TSH before amiodarone; ferritin and TSAT for IV iron; urgent 12-lead ECG with QRS duration once in sinus rhythm (CRT candidacy); cardiac MRI with LGE for scar, viability (CABG candidacy) and LV thrombus."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: ST elevation (STEMI) myocardial infarction of unspecified site."
+     },
+     {
+      "text": "HF / STRUCTURE: Prior LVEF about 40%; later severe LV/RV dysfunction. Cath diagnosis is NSTEMI despite coded STEMI."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Volume overload, rapid AF, hypotension, kidney dysfunction and hyperkalemia; substantial MR/TR. Coded STEMI differs from the catheterization diagnosis of NSTEMI."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV furosemide followed by infusion; heparin initially given then stopped in the narrative."
+     },
+     {
+      "text": "START: Metoprolol for rapid AF and fluid bolus for hypotension."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: sodium chloride, amiodarone, glucose, ketamine, midazolam, phenylephrine, vasopressin (usp)."
+     },
+     {
+      "text": "START: water, potassium chloride, warfarin, bisacodyl, lidocaine, lorazepam, morphine."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Serial echocardiograms, ECGs, chest radiographs and coronary angiography."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "TRANSFER: CCU for hypotension with rapid AF during treatment of decompensation."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C018: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C021": {
+   "case_id": "C021",
+   "cohort": "I25_CAD",
+   "age_sex": "60F",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 60-year-old woman with persistent angina and declining exercise tolerance underwent planned LAD PCI. Drug-eluting stenting of the mid/distal LAD was complicated by a small distal dissection and hypotension requiring an intra-aortic balloon pump and dopamine. She had asthma/COPD and reported inability to tolerate metoprolol and clopidogrel in the preceding history. After transfer to the CCU, chest pain improved and she denied dyspnea.",
+    "home_meds": "Heparin Sodium, Heparin (IABP), Heparin",
+    "vitals": "CCU admission: T 97.6°F, HR 76, BP 114/68, RR 15, SpO₂ 92% on 2 L NC.",
+    "labs": "Na 137 mEq/L | K 4.4 mEq/L | BUN 21 mg/dL | Cr 0.8 mg/dL | Mg 1.9 mg/dL | Hb 13.6 g/dL | WBC 19.9 K/uL | Platelets 288 K/uL | Troponin T <0.01 ng/mL | INR 1. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Alert; regular rhythm without murmur. Intermittent expiratory wheeze. Warm extremities without edema; right groin line dressing clean and dry. Insulin pump present."
+    ],
+    "echo": [
+     "LVEF >55%; normal RV function and estimated filling pressure. Technical limitations prevent complete exclusion of focal wall-motion abnormality. No effusion."
+    ],
+    "ecg": [
+     "Sinus rhythm on admission telemetry; no standalone ECG report in the raw note."
+    ],
+    "imaging": [
+     "Post-IABP removal CXR: lower lung volumes, engorged pulmonary vessels and left basal pleural fluid/atelectasis."
+    ],
+    "cath": [
+     "Mid-LAD PCI documented. HPI describes mid/distal LAD DES, distal dissection and periprocedural hypotension requiring IABP/dopamine."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Single-vessel CAD (mid and distal LAD) after PCI with stent, complicated by postprocedural hypotension, iatrogenic distal coronary dissection and periprocedural MI (type 4a)."
+     },
+     {
+      "text": "HF CHARACTERIZATION: Not HF; no HF phenotype or etiology assigned."
+     }
+    ],
+    "causes": [
+     {
+      "text": "COMPLICATIONS: Intraoperative cardiac arrest during cardiac surgery; LAD STEMI; postprocedural hypotension; coronary artery dissection; acute pulmonary edema."
+     },
+     {
+      "text": "COMORBIDITIES: Right bundle-branch block, left anterior fascicular block and first-degree AV block; type 2 diabetes with hyperglycemia; COPD and asthma; depression and generalized anxiety disorder; GERD."
+     }
+    ],
+    "acute": [
+     {
+      "text": "TITRATE DOWN: Dopamine — wean by 2 mcg/kg/min every 30–60 minutes toward discontinuation; pause the wean if MAP <65 or SBP <90."
+     },
+     {
+      "text": "CONTINUE: IV heparin for the IABP — stop on IABP removal; hold if platelets <50,000 or active bleeding."
+     },
+     {
+      "text": "START: Sublingual nitroglycerin as needed for residual angina — not if SBP <90; up to 3 doses 5 minutes apart, then activate EMS."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Aspirin and clopidogrel — dual antiplatelet therapy after DES; do not stop clopidogrel without cardiology approval."
+     },
+     {
+      "text": "STOP: Omeprazole; START: Pantoprazole — avoids reduced clopidogrel activation; reassess when DAPT ends."
+     },
+     {
+      "text": "START: Atorvastatin 80 mg — reduce if ALT >3× ULN or myalgias with raised CK."
+     },
+     {
+      "text": "START: Lisinopril and bisoprolol (cardioselective, for asthma/COPD) — not until dopamine is weaned and hemodynamics are stable for ≥6 hours; stop bisoprolol and switch to ivabradine if bronchospasm occurs."
+     },
+     {
+      "text": "CONTINUE: Insulin pump (glucose target 140–180; glucose gel or glucagon for hypoglycemia), bupropion, citalopram (dose ≤20 mg; stop if QTc >500 ms), ipratropium-albuterol (before bisoprolol if symptomatic; more often if bronchospasm), acetaminophen as needed (max 3 g/day; no NSAIDs)."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP 72 hours after starting lisinopril; on heparin, aPTT (target 60–80 s), daily CBC with platelet trend for HIT, daily hemoglobin and bleeding checks every 4 hours; QTc on citalopram."
+     },
+     {
+      "text": "SAFETY: Omeprazole stopped because CYP2C19 inhibition reduces clopidogrel effect after DES; bleeding risk with heparin plus dual antiplatelet therapy; ACE inhibitor started only after vasopressor support ends."
+     },
+     {
+      "text": "REQUEST: Urgent serial troponin every 6–8 hours ×3 to define the peak; urgent serial ECGs every 12 hours for 48 hours for evolving ischemia from the distal dissection; BNP/NT-proBNP to clarify whether pulmonary congestion reflects raised filling pressures or iatrogenic volume overload."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Atherosclerotic heart disease of native coronary artery with unstable angina pectoris."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF >55%; normal estimated filling pressure."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Iatrogenic coronary dissection and hypotension after PCI; asthma/COPD and insulin-pump-treated diabetes."
+     }
+    ],
+    "acute": [
+     {
+      "text": "PERFORM: LAD DES and IABP placement."
+     },
+     {
+      "text": "START: Dopamine support and contrast-allergy premedication with prednisone, diphenhydramine and ranitidine."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: ipratropium, trazodone, aspirin, umeclidinium, vilanterol, prasugrel, losartan."
+     },
+     {
+      "text": "START: oxycodone, morphine, docusate, albuterol, furosemide, salmeterol, tiotropium."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Echocardiography and postprocedure chest radiography; groin access sites examined."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: CCU after complicated PCI; pain improved on arrival."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C021: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C029": {
+   "case_id": "C029",
+   "cohort": "I25_CAD",
+   "age_sex": "81M",
+   "label": "backup",
+   "stem": {
+    "presentation": "An 81-year-old man with CAD, aortic stenosis, renal insufficiency and prior renal artery stenting was admitted for hydration before planned coronary catheterization. Exertional chest pain and dyspnea had progressed to minimal activity despite nitrates, with one episode at rest. He denied orthopnea, PND, syncope and significant edema.",
+    "home_meds": "Simvastatin, Metoprolol Succinate XL, Valsartan, Aspirin, Clopidogrel, Isosorbide Mononitrate",
+    "vitals": "Admission: T 97.9°F, HR 54, BP 186/74, RR 18, SpO₂ 100% RA; weight 91.5 kg.",
+    "labs": "Na 140 mEq/L | K 5.5 mEq/L | BUN 48 mg/dL | Cr 2.3 mg/dL | Mg 2.2 mg/dL | Hb 10.4 g/dL | WBC 3.8 K/uL | Platelets 132 K/uL | INR 1. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Comfortable, JVP not elevated. Harsh systolic crescendo-decrescendo murmur; lungs clear. Minimal pedal edema; mild venous stasis changes."
+    ],
+    "echo": [
+     "LVEF >55%. Moderate-to-severe AS, AVA 1.0 cm²; mild AR/MR/TR and moderate pulmonary hypertension."
+    ],
+    "ecg": [
+     "Sinus bradycardia with nonspecific lateral ST–T changes, without diagnostic interval change."
+    ],
+    "imaging": [
+     "No chest imaging report supplied."
+    ],
+    "cath": [
+     "Coronary catheterization planned; no angiographic result supplied."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Symptomatic moderate-to-severe aortic stenosis (AVA 1.0 cm²)."
+     },
+     {
+      "text": "HF CHARACTERIZATION: No HF phenotype assigned; valvular etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Coronary artery disease; angina; primary pulmonary hypertension."
+     },
+     {
+      "text": "COMPLICATIONS: Hyperkalemia."
+     },
+     {
+      "text": "COMORBIDITIES: CKD stage 4, hypertension, type 2 diabetes with hyperglycemia, anemia, bradycardia, aortic regurgitation, gout, hyperlipidemia, benign prostatic hyperplasia."
+     },
+     {
+      "text": "HISTORY: Renal artery atherosclerosis."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Sodium polystyrene sulfonate — for K 5.5 before catheterization; recheck K in 4–6 h and, if still ≥5.5, repeat the dose or consider IV calcium gluconate and sodium zirconium cyclosilicate; do not proceed to catheterization until K <5.0."
+     },
+     {
+      "text": "START: IV normal saline at 1 mL/kg/h — contrast-nephropathy prevention in CKD stage 4; reduce to 0.5 mL/kg/h or stop if pulmonary congestion develops."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "HOLD: Valsartan — hyperkalemia; restart at a reduced dose once K <5.0 and eGFR stable; no ACE inhibitor, spironolactone or potassium supplements."
+     },
+     {
+      "text": "STOP: Omeprazole."
+     },
+     {
+      "text": "START: Pantoprazole instead — avoids the CYP2C19 interaction with clopidogrel; reassess need periodically."
+     },
+     {
+      "text": "CONTINUE: Aspirin, clopidogrel — hold clopidogrel 5–7 days before SAVR if surgery is chosen; coordinate with the Heart Team for TAVR."
+     },
+     {
+      "text": "CONTINUE: Metoprolol succinate without up-titration (baseline bradycardia), hold if HR <50; isosorbide mononitrate with caution in severe AS, held for presyncope or syncope, reassess after TAVR; hold either if SBP <100."
+     },
+     {
+      "text": "CONTINUE: Simvastatin — consider outpatient switch to high-intensity atorvastatin; hold if a macrolide is started."
+     },
+     {
+      "text": "TITRATE DOWN: Insulin total daily dose by about 25% for CKD stage 4, dextrose 50% and glucagon at bedside; allopurinol to ≤100–200 mg/day if the home dose is higher, held for rash or hypersensitivity."
+     },
+     {
+      "text": "CONTINUE: Tamsulosin; trazodone at lowest effective dose; hold either for orthostatic hypotension, trazodone also for QTc prolongation."
+     },
+     {
+      "text": "CONTINUE: Polyethylene glycol, docusate, multivitamin; senna and acetaminophen (max 2 g/day) as needed."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: Intake/output, daily weight, lung exam every 4 h, continuous SpO2 and daily BMP during IV hydration; fingerstick glucose every 6 h; daily orthostatic BP and fall risk; uric acid and renal function in 2 weeks; BMP before any valsartan restart, then at 48 h and 1 week; high-degree AV block after TAVR."
+     },
+     {
+      "text": "SAFETY: Hyperkalemia on an ARB at eGFR 28; Beers flags for long-term PPI and trazodone, with added fall risk from tamsulosin, nitrate and metoprolol; IV fluid risks volume overload with AS and pulmonary hypertension; confirm home heparin is flush or prophylactic only, not therapeutic, given DAPT."
+     },
+     {
+      "text": "CONSIDER: H. pylori testing and GI evaluation for anemia."
+     },
+     {
+      "text": "REQUEST: Urgent coronary angiography this admission to guide revascularization and valve strategy, BNP/NT-proBNP, and repeat ECG after potassium correction, before catheterization; routine iron studies (ferritin, TIBC, transferrin saturation) and troponin to exclude NSTEMI."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Atherosclerotic heart disease of native coronary artery without angina pectoris."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF >55%; moderate-to-severe AS, AVA 1.0 cm²."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Progressive angina with moderate-to-severe AS, renal impairment, hyperkalemia and anemia."
+     }
+    ],
+    "acute": [
+     {
+      "text": "PLANNED: Precatheterization hydration. No acute diuresis documented."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: atropine, sodium chloride."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Echocardiogram and serial ECGs."
+     },
+     {
+      "text": "PLANNED: Coronary catheterization."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Observation for hydration before planned catheterization."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C029: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C036": {
+   "case_id": "C036",
+   "cohort": "I25_CAD",
+   "age_sex": "59M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 59-year-old man with diabetes, hypertension, hyperlipidemia and peripheral vascular disease developed ten days of progressive exertional chest pressure radiating to the arms and back, eventually with minimal activity. Initial outside troponin was 0.02 and ECG/CXR were unrevealing. Angiography showed severe three-vessel CAD. He was transferred for preoperative assessment and CABG after clopidogrel washout.",
+    "home_meds": "Aspirin, Metoprolol Tartrate, Atorvastatin, Lisinopril, Heparin Sodium, Heparin",
+    "vitals": "Outside presentation: T 98.1°F, HR 78, BP 116/66, SpO₂ 98% RA. Admission line is malformed: HR 80, BP 135/74, RR 18, SpO₂ 95% RA are discernible; temperature cannot be assigned reliably.",
+    "labs": "Na 140 mEq/L | K 4.3 mEq/L | BUN 19 mg/dL | Cr 0.9 mg/dL | Mg 1.8 mg/dL | Hb 12.5 g/dL | WBC 6.1 K/uL | Platelets 199 K/uL | Troponin T <0.01 ng/mL | INR 1.2. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "No distress; JVP 8 cm, regular rhythm without murmur and clear lungs. No edema. Bilateral femoral bruits; left groin catheterization site without hematoma."
+    ],
+    "echo": [
+     "Numerical LVEF is absent from the extracted echo. Catheterization report states normal LVEF on a recent TTE. Normal RV function and pulmonary pressure; no effusion."
+    ],
+    "ecg": [
+     "Outside ECG described as normal; no standalone raw ECG report supplied."
+    ],
+    "imaging": [
+     "CXR: no acute abnormality. Carotid duplex: bilateral ICA stenosis <40%, antegrade vertebral flow."
+    ],
+    "cath": [
+     "LAD 80%, major diagonal origin 90%, mid-LCx 70%, and serial RCA lesions including 90% stenosis. Ventriculography deferred."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Unstable angina (NSTE-ACS) with severe three-vessel coronary artery disease requiring CABG."
+     },
+     {
+      "text": "HF CHARACTERIZATION: No HF phenotype or etiology assigned; HF considered clinically excluded."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Three-vessel coronary artery disease; anticipated CABG, listed as bypass-graft status."
+     },
+     {
+      "text": "COMORBIDITIES: Type 2 diabetes with hyperglycemia, hypertension, hyperlipidemia, peripheral vascular disease after SFA intervention, bilateral carotid stenosis, aortic atherosclerosis, cervical spondylosis with myelopathy and thoracic degenerative changes, long-term aspirin and diabetes-drug use, insomnia, hypokalemia."
+     },
+     {
+      "text": "HISTORY: Prior coronary angioplasty or vascular intervention."
+     }
+    ],
+    "acute": [
+     {
+      "text": "CONTINUE: Sublingual nitroglycerin as needed — hold if SBP <90; activate the ACS protocol if pain persists after 3 doses 5 minutes apart."
+     },
+     {
+      "text": "TRANSITION: Therapeutic IV heparin to prophylactic SQ heparin — give SQ heparin only once IV heparin is confirmed stopped; resume therapeutic dosing if ischemic symptoms recur."
+     },
+     {
+      "text": "CONTINUE: Hydrochlorothiazide — hold if SBP <100, Na <130 or K <3.5, and perioperatively if hemodynamically unstable."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "STOP: Clopidogrel — at least 5 days before CABG; resume after surgery per cardiac surgery; may restart with surgical agreement if CABG is delayed beyond 5 days and ischemia recurs."
+     },
+     {
+      "text": "STOP: Zolpidem — postoperative respiratory depression with home opioids, and falls; reassess as outpatient."
+     },
+     {
+      "text": "TITRATE DOWN: Aspirin to 81 mg — continue through CABG; hold for active GI bleeding."
+     },
+     {
+      "text": "TITRATE UP: Metoprolol tartrate to resting HR 55–65 — hold if HR <55 or SBP <100; do not stop abruptly, continue perioperatively for AF prophylaxis."
+     },
+     {
+      "text": "CONTINUE: Lisinopril, potassium chloride, high-intensity atorvastatin (LDL target <70), insulin — hold lisinopril the morning of CABG and if SBP <90, K >5.5 or creatinine rises >30%; keep K 3.5–5.0, holding potassium chloride if K >5.0; move insulin to basal-bolus plus sliding scale perioperatively, glucose target 140–180."
+     },
+     {
+      "text": "START: Empagliflozin — not until recovery from CABG with adequate oral intake; hold ≥3 days before surgery; do not start if eGFR <20."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP every 3 days while lisinopril, potassium chloride and hydrochlorothiazide are combined; platelets every 2–3 days for HIT after therapeutic heparin; fingerstick glucose before meals and at bedtime; BMP within 1 week of starting empagliflozin, watching for genital mycotic infection and euglycemic DKA; LFTs if myopathy or hepatotoxicity symptoms."
+     },
+     {
+      "text": "SAFETY: Hyperkalemia risk with ACE inhibitor plus potassium chloride; confirm therapeutic heparin is off before prophylactic dosing."
+     },
+     {
+      "text": "REQUEST: BNP/NT-proBNP as a pre-CABG baseline; serial troponin to separate unstable angina from NSTEMI; TSH before surgery."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Atherosclerotic heart disease of native coronary artery without angina pectoris."
+     },
+     {
+      "text": "HF / STRUCTURE: Normal LVEF reported by the catheterization note; numerical EF unavailable."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Progressive angina with severe three-vessel CAD; diabetes and peripheral vascular disease."
+     }
+    ],
+    "acute": [
+     {
+      "text": "PERFORM: Diagnostic coronary angiography."
+     },
+     {
+      "text": "PLANNED: CABG after clopidogrel washout."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: None."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Coronary angiography, echocardiographic assessment, chest radiograph and carotid duplex."
+     },
+     {
+      "text": "PLANNED: Pre-CABG workup."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "TRANSFER: For CABG evaluation and clopidogrel washout."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C036: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C037": {
+   "case_id": "C037",
+   "cohort": "I25_CAD",
+   "age_sex": "63M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 63-year-old man with CAD and peripheral arterial disease reported persistent left-sided chest discomfort and worsening bilateral leg pain, left worse than right, at rest and with walking. He required a motorized chair when shopping. The supplied narrative contains a catheterization documenting distal left-main/LCx disease and a plan for CABG plus later peripheral intervention, as well as a separately redacted description of RCA atherectomy and DES. Their chronology cannot be established from the extracted dates.",
+    "home_meds": "Lisinopril, Metoprolol Succinate XL, Atorvastatin, Aspirin",
+    "vitals": "Admission: T 98.3°F, HR 72, BP 135/61, RR 18, SpO₂ 97% RA.",
+    "labs": "Na 140 mEq/L | K 4.1 mEq/L | BUN 19 mg/dL | Cr 0.8 mg/dL | Mg 2 mg/dL | Hb 14.3 g/dL | WBC 5.7 K/uL | Platelets 194 K/uL | INR 1.2. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Comfortable, regular rhythm, no murmur or gallop; lungs clear. No edema. Right groin access site clean without swelling or tenderness."
+    ],
+    "echo": [
+     "Mild LVH and mild regional LV dysfunction with inferior/inferoseptal hypokinesis; filling pressure >18 mmHg. Normal RV function and pulmonary pressure; no significant valve disease."
+    ],
+    "ecg": [
+     "Workbook ECG extract: sinus rhythm with first-degree AV block, age-undetermined inferior infarct and nonspecific lateral ST–T changes."
+    ],
+    "imaging": [
+     "CXR: enlarged cardiac silhouette without congestion, pleural effusion or focal pneumonia."
+    ],
+    "cath": [
+     "One report: distal LM 60–70%, LCx origin 80%, proximal RCA 90% and mid-RCA occlusion; right popliteal 90%, left SFA 70% and left popliteal 80%. Another narrative describes RCA atherectomy/angioplasty and DES; timing is redacted."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Multivessel coronary artery disease requiring CABG."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFmrEF, ischemic etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Chronic stable angina; bilateral leg arterial disease with rest pain; chronic diastolic HF; old MI; hypertensive heart disease with HF."
+     },
+     {
+      "text": "COMORBIDITIES: Type 2 diabetes with hyperglycemia, hypothyroidism, first-degree AV block, hyperlipidemia, obesity, depression, aortic stenosis, aortic atherosclerosis."
+     },
+     {
+      "text": "HISTORY: Prior coronary stent."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Oral furosemide — for LV filling pressure >18 mmHg before CABG; titrate to euvolemia; hold if hypotensive or hypovolemic; reduce or hold for overdiuresis or creatinine rise >0.3 mg/dL; reassess need after the SGLT2 inhibitor is started."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Dapagliflozin — hold 3 days before CABG and resume when tolerating oral intake after surgery; hold if eGFR <20; hold with furosemide if creatinine rises >0.3 mg/dL."
+     },
+     {
+      "text": "START: Spironolactone — hold if K >5.0 or eGFR <30, and perioperatively if K is trending up; no potassium supplements."
+     },
+     {
+      "text": "START: Clopidogrel — DAPT after recent RCA stent; hold 5 days before CABG and resume afterwards per surgical team; if a PPI is needed use pantoprazole, not omeprazole."
+     },
+     {
+      "text": "TITRATE DOWN: Aspirin to 81 mg — hold the morning of CABG or if bleeding."
+     },
+     {
+      "text": "CONTINUE: Lisinopril, metoprolol succinate, high-intensity atorvastatin — hold lisinopril the morning of CABG and if SBP <90, K >5.5 or AKI; hold metoprolol if HR <55 or SBP <90 and do not up-titrate if PR >280 ms or symptomatic bradycardia; continue atorvastatin through surgery."
+     },
+     {
+      "text": "CONTINUE: U-500 insulin, 225 units morning and 200 units evening with endocrine input — may need reduction after dapagliflozin starts; insulin infusion protocol for CABG."
+     },
+     {
+      "text": "CONTINUE: Levothyroxine on an empty stomach; venlafaxine, not stopped abruptly, with a coordinated perioperative plan; trazodone."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: Renal function and BMP every 3 days while dapagliflozin, furosemide and lisinopril are started together, with daily weights; BMP 3 days and 1 week after starting spironolactone, then weekly; blood glucose four times daily; PR interval on metoprolol; orthostatic BP on trazodone; LFTs if myopathy symptoms."
+     },
+     {
+      "text": "SAFETY: AKI risk from SGLT2 inhibitor, loop diuretic and ACE inhibitor together; hyperkalemia risk with lisinopril plus spironolactone; omeprazole would weaken clopidogrel; hypoglycemia risk when dapagliflozin is added to high-dose U-500 insulin."
+     },
+     {
+      "text": "REQUEST: NT-proBNP as an HFmrEF baseline; TSH before CABG; troponin for periprocedural injury after the RCA intervention; ECG after catheterization for new ischemia and a baseline PR interval."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Atherosclerotic heart disease of native coronary artery without angina pectoris."
+     },
+     {
+      "text": "HF / STRUCTURE: Mild regional LV dysfunction and raised filling pressure; numerical EF unavailable."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Chest discomfort, disabling claudication/rest leg pain and extensive coronary/peripheral arterial disease."
+     }
+    ],
+    "acute": [
+     {
+      "text": "DOCUMENTED PROCEDURES: Coronary/peripheral angiography; separate narrative of RCA atherectomy, angioplasty and DES. Timing relative to the CABG plan is unclear."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: None."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Echocardiogram and vascular/coronary angiography."
+     },
+     {
+      "text": "PLANNED: Carotid ultrasound in the narrative."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "PLAN IN EXTRACT: CABG and subsequent SFA/popliteal intervention; chronology relative to the separately described PCI is unresolved."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C037: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C041": {
+   "case_id": "C041",
+   "cohort": "I35_I31_valve_pericardial",
+   "age_sex": "65M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 65-year-old man with prior LAD DES developed shoulder discomfort and ischemic-appearing ST changes during routine exercise testing. Echocardiography unexpectedly showed severe aortic regurgitation, previously described as mild. He was otherwise active without baseline dyspnea, edema or other HF symptoms. He was sent to the ED, where CTA excluded dissection, and admitted for further evaluation.",
+    "home_meds": "Pravastatin, Heparin, Lisinopril, Aspirin, Clopidogrel",
+    "vitals": "Admission: T 97.8°F, HR 101, BP 157/64, RR 18, SpO₂ 98% RA.",
+    "labs": "Na 143 mEq/L | K 5.1 mEq/L | BUN 16 mg/dL | Cr 1 mg/dL | Mg 2.3 mg/dL | Hb 13.7 g/dL | WBC 6.5 K/uL | Platelets 265 K/uL. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "No distress; JVP just above clavicle. Systolic and diastolic murmurs; lungs clear. No edema; peripheral pulses palpable."
+    ],
+    "echo": [
+     "LVEF >55%, normal LV size and wall motion. Severe AR (3+ on formal TTE; 4+ described in HPI), mild MR. Stress imaging showed no inducible wall-motion abnormality."
+    ],
+    "ecg": [
+     "Exercise test: borderline ischemic ST changes with anginal symptoms. ED ECG reportedly without acute ischemia."
+    ],
+    "imaging": [
+     "CTA in the clinical narrative: no aortic dissection."
+    ],
+    "cath": [
+     "No catheterization report supplied for this episode."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Symptomatic severe nonrheumatic aortic regurgitation."
+     },
+     {
+      "text": "HF CHARACTERIZATION: No HF phenotype or etiology assigned."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Coronary artery disease; angina with documented coronary spasm; shortness of breath; other circulatory and respiratory signs."
+     },
+     {
+      "text": "COMPLICATIONS: Abnormal ECG."
+     },
+     {
+      "text": "COMORBIDITIES: Hypertension, mitral regurgitation, hyperlipidemia, aortic atherosclerosis, solitary pulmonary nodule, long-term aspirin use, insomnia, allergic rhinitis or asthma."
+     },
+     {
+      "text": "HISTORY: Prior coronary stent."
+     }
+    ],
+    "acute": [
+     {
+      "text": "ACUTE TREATMENT / DECONGESTION: No recommendation."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "TITRATE UP: Lisinopril — afterload reduction for severe AR; increase to 20 mg in 1–2 weeks if tolerated, target 20–40 mg; hold if SBP <100 or DBP <50."
+     },
+     {
+      "text": "START: Amlodipine — only if SBP stays >130 after lisinopril reaches 20 mg; hold if SBP <100 or DBP <50."
+     },
+     {
+      "text": "STOP: Pravastatin, niacin — niacin has no proven benefit on top of a statin."
+     },
+     {
+      "text": "START: High-intensity atorvastatin — on the same day pravastatin stops, to avoid statin duplication; reduce to 40 mg for intolerable myalgia or transaminases >3× ULN."
+     },
+     {
+      "text": "TITRATE DOWN: Aspirin 325 → 81 mg — continue through the preoperative period unless cardiothoracic surgery asks for a hold."
+     },
+     {
+      "text": "CONTINUE: Clopidogrel — stop now if the DES was placed >12 months ago, otherwise hold 5–7 days before AVR; discuss stent-thrombosis risk with interventional cardiology; alert surgery and anesthesia if urgent surgery follows a hold of <5 days."
+     },
+     {
+      "text": "CONTINUE: Trazodone, hold for symptomatic orthostasis or SBP <100; inhaled fluticasone."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP within 1 week of each lisinopril increase; LFTs at baseline and 4–12 weeks on atorvastatin, CK if symptomatic; orthostatic BP with lisinopril up-titration, amlodipine and trazodone; peripheral edema on amlodipine."
+     },
+     {
+      "text": "SAFETY: Hyperkalemia or AKI risk with ACE-inhibitor up-titration in wide pulse pressure plus vasodilators; confirm home heparin is flush-dose only, and if anticoagulation is therapeutic reassess the antithrombotic regimen with cardiology given DAPT; myotoxicity risk with the large statin-intensity jump."
+     },
+     {
+      "text": "REQUEST: Urgent TEE for valve morphology and to exclude vegetation, abscess or leaflet perforation given rapid AR progression; BNP/NT-proBNP baseline; troponin to exclude myocardial injury; preoperative coronary angiography for native CAD and LAD stent patency, deciding on concomitant CABG at AVR."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Nonrheumatic aortic valve disorder, unspecified."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF >55% with severe AR."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Newly recognized severe AR, stress-associated shoulder pain/ST changes and prior LAD PCI."
+     }
+    ],
+    "acute": [
+     {
+      "text": "No acute decongestive or vasoactive treatment documented in the supplied narrative."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: enoxaparin."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Stress testing, echocardiography and CTA to exclude dissection. Echo report suggests further valve imaging if clinically indicated."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Cardiology evaluation after abnormal stress/valve findings."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C041: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C042": {
+   "case_id": "C042",
+   "cohort": "I35_I31_valve_pericardial",
+   "age_sex": "77M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 77-year-old man with AF on warfarin, a pacemaker, prior LVEF about 35% and recent treatment for pneumonia/COPD presented from rehabilitation with four days of chest pain and mild dyspnea. A large pericardial effusion with early tamponade was identified, with INR 4.1 in the ED. He received IV fluids and fresh frozen plasma. Pericardiocentesis removed 850 mL of serosanguinous fluid; subsequent echocardiograms showed only a small residual effusion.",
+    "home_meds": "(no cardiac-relevant drugs identified)",
+    "vitals": "ED: T 97.6°F, HR 68, BP 97/51, RR 20, SpO₂ 100% initially recorded on RA. Admission: T 96.5°F, HR 65, BP 119/66, RR 16, SpO₂ 100% on 4 L.",
+    "labs": "ED narrative: INR 4.1, K 5.7, BUN 61, creatinine 1.8, Hb 9.1, troponin 0.08. | Na 141 mEq/L | K 4.6 mEq/L | BUN 55 mg/dL | Cr 1.4 mg/dL | Mg 2.3 mg/dL | Hb 8.3 g/dL | WBC 5 K/uL | Platelets 293 K/uL | Troponin T 0.07 ng/mL | INR 3.4. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Alert, distant heart sounds, coarse breath sounds and left basal crackles. Chronic nonpitting leg edema/elephantiasis changes; suprapubic catheter present."
+    ],
+    "echo": [
+     "Initial study: LVEF approximately 30%, RV dysfunction and large circumferential effusion with intermittent RV diastolic collapse. Follow-up: very small effusion without tamponade; abnormal septal motion suggests effusive/constrictive physiology."
+    ],
+    "ecg": [
+     "No standalone raw ECG report supplied."
+    ],
+    "imaging": [
+     "CXR: bilateral pleural effusions and moderate pulmonary edema, with retrocardiac opacity. Pericardial fluid cytology negative for malignant cells."
+    ],
+    "cath": [
+     "Subxiphoid pericardiocentesis: 850 mL serosanguinous fluid removed; pericardial pressure fell from 16 to 0 mmHg."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Hemorrhagic pericardial effusion with cardiac tamponade."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFrEF, LVEF 30%, NYHA III; ischemic etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Acute on chronic systolic HF; atrial fibrillation; old MI."
+     },
+     {
+      "text": "COMPLICATIONS: Warfarin adverse effect; effusive-constrictive pericarditis; acute kidney injury; pleural effusion; hyperkalemia."
+     },
+     {
+      "text": "COMORBIDITIES: CKD stage 3, COPD, anemia, suspicious pulmonary nodule, right bundle-branch block or intraventricular conduction delay."
+     },
+     {
+      "text": "HISTORY: Pacemaker."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV furosemide — for pleural effusions and pulmonary edema; hold if SBP <90, creatinine rises >50% or urine output <0.5 mL/kg/h; switch to oral furosemide once euvolemic."
+     },
+     {
+      "text": "START: Vitamin K 2.5 mg orally once — only if INR remains >3.0 after FFP; recheck INR 6–12 h later and repeat once if still >2.5."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "STOP: Warfarin permanently — supratherapeutic INR caused the hemorrhagic tamponade."
+     },
+     {
+      "text": "START: Apixaban 5 mg twice daily — only when INR <2.0, the pericardial drain is out, repeat echo shows no reaccumulation and hemostasis has held 48–72 h; never overlap with warfarin; reassess for 2.5 mg if creatinine reaches ≥1.5 or weight is ≤60 kg (2 of 3 criteria needed)."
+     },
+     {
+      "text": "START: Sacubitril-valsartan — not until ≥48 h after pericardiocentesis and hemodynamically stable; hold if SBP <100, K >5.5 or creatinine rises >30%; up-titrate every 2–4 weeks."
+     },
+     {
+      "text": "START: Carvedilol — also AF rate control; switch to bisoprolol if bronchospasm occurs; confirm pacemaker rate support before up-titration."
+     },
+     {
+      "text": "START: Dapagliflozin — hold if eGFR <20."
+     },
+     {
+      "text": "START: Spironolactone — defer until K <5.0 on 2 consecutive checks and the SGLT2 inhibitor is established (3–5 days); stop if K >5.5 or creatinine >2.5; no potassium supplements."
+     },
+     {
+      "text": "START: Colchicine for effusive-constrictive pericarditis — hold for diarrhea, WBC <3000 or eGFR <30; avoid strong CYP3A4 inhibitors."
+     },
+     {
+      "text": "START: Atorvastatin — consider 20 mg if poorly tolerated."
+     },
+     {
+      "text": "CONTINUE: Albuterol and ipratropium as needed — by nebulizer, not IV."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP every 3 days while furosemide, sacubitril-valsartan and dapagliflozin are started; K and creatinine 3 days and 1 week after spironolactone; renal function every 1–2 weeks on colchicine (reduced clearance at eGFR 52); CBC for bleeding (Hb 8.3); volume status and UTI on dapagliflozin with a suprapubic catheter; LFTs at baseline and 3 months on atorvastatin."
+     },
+     {
+      "text": "SAFETY: AKI risk from SGLT2 inhibitor, loop diuretic and sacubitril-valsartan together; hyperkalemia risk with spironolactone plus sacubitril-valsartan; no warfarin–apixaban overlap."
+     },
+     {
+      "text": "REQUEST: Urgent NT-proBNP; urgent repeat 12-lead ECG for QRS assessment toward CRT-D eligibility and rhythm after pericardiocentesis; contrast chest CT in 6–8 weeks for the suspicious lung lesion, as malignancy remains possible for the effusion; iron studies (ferritin) for anemia; TSH."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Disease of pericardium, unspecified."
+     },
+     {
+      "text": "HF / STRUCTURE: Prior LVEF about 35%; initial echo approximately 30%, with tamponade."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Tamponade physiology, supratherapeutic anticoagulation, biventricular dysfunction, AF, COPD and anemia."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: 3 L IV normal saline and 2 units FFP in the ED."
+     },
+     {
+      "text": "PERFORM: Pericardiocentesis with hemodynamic pressure reduction."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: vitamin k1, finasteride, docusate, acetaminophen, fluticasone, omeprazole, furosemide."
+     },
+     {
+      "text": "START: lisinopril, metoprolol, gabapentin, pravastatin, warfarin, mineral oil, sodium phosphate, monobasic."
+     },
+     {
+      "text": "START: torsemide, hydroxyzine, camphor, diphenhydramine, bisacodyl."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Serial echocardiograms and pericardial fluid cytology."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Inpatient care for tamponade and drainage; later echo shows no recurrent tamponade."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C042: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C043": {
+   "case_id": "C043",
+   "cohort": "I35_I31_valve_pericardial",
+   "age_sex": "78M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 78-year-old man with prior RCA stenting, severe AS and COPD awoke with sudden severe dyspnea and productive yellow sputum after several days of reduced exercise tolerance. Symptoms improved markedly after nebulizer therapy; ceftriaxone, azithromycin and IV steroids were given for suspected pulmonary infection/COPD exacerbation. Stress testing showed lateral ischemia and catheterization found RCA in-stent restenosis. He was transferred for consideration of valve/coronary intervention.",
+    "home_meds": "Losartan Potassium, Isosorbide Mononitrate (Extended Release), Heparin, Metoprolol Succinate XL, Aspirin, Clopidogrel",
+    "vitals": "Transfer/admission: T 97.8°F, HR 70, BP 186/90, RR 14, SpO₂ 93% RA.",
+    "labs": "Na 141 mEq/L | K 4.9 mEq/L | BUN 42 mg/dL | Cr 1.5 mg/dL | Mg 2.4 mg/dL | Hb 12.2 g/dL | WBC 9.9 K/uL | Platelets 224 K/uL | Troponin T 0.04 ng/mL | INR 1.2. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Comfortable and ambulatory; no JVD. Loud IV/VI systolic ejection murmur at RUSB. Lungs clear; no peripheral edema."
+    ],
+    "echo": [
+     "No full echocardiogram report supplied. HPI records prior AVA 0.7 cm²; catheterization mean aortic gradient 31 mmHg."
+    ],
+    "ecg": [
+     "Sinus bradycardia with atrial premature beats, borderline RBBB-type conduction delay, and possible lateral infarct pattern."
+    ],
+    "imaging": [
+     "CXR: mild interstitial edema and abnormal left hilar contour. CT: mediastinal adenopathy, possible left perihilar soft tissue, a 7-mm RUL nodule, emphysema and severe valve/coronary calcification; no focal consolidation."
+    ],
+    "cath": [
+     "Outside cath: 80% RCA in-stent restenosis, no intervention; PA pressure in the mid-40s and mean aortic gradient 31 mmHg."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Symptomatic severe nonrheumatic aortic stenosis."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFpEF; valvular etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Acute on chronic systolic HF; COPD exacerbation."
+     },
+     {
+      "text": "COMPLICATIONS: Type 2 NSTEMI; group 2 pulmonary hypertension; hemoptysis with productive cough."
+     },
+     {
+      "text": "COMORBIDITIES: CAD with coronary in-stent restenosis; CKD stage 3b; hypertension; right bundle-branch block; solitary pulmonary nodule."
+     },
+     {
+      "text": "HISTORY: Prior MI; recurrent pneumonia; left lobectomy."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV furosemide — avoid aggressive diuresis in preload-dependent severe AS; hold if SBP <100 or creatinine rises >0.5; switch to oral when euvolemic."
+     },
+     {
+      "text": "STOP: IV ceftriaxone — retrocardiac opacity likely post-lobectomy atelectasis; restart if fever, leukocytosis or new infiltrate."
+     },
+     {
+      "text": "CONTINUE: Prednisone — stop after 5-day course for COPD exacerbation; azithromycin — stop when course complete; ipratropium-albuterol every 6 h, then as needed."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "CONTINUE: Losartan — hold if SBP <100, K >5.5 or creatinine rises >30%."
+     },
+     {
+      "text": "CONTINUE: Metoprolol succinate — no up-titration until LVEF known and after valve intervention."
+     },
+     {
+      "text": "CONTINUE: Isosorbide mononitrate — caution in preload-dependent AS; hold if SBP <110, consider down-titration around TAVR."
+     },
+     {
+      "text": "CONTINUE: Clonidine — do not stop abruptly; taper by 0.1 mg/week once BP is controlled on other agents."
+     },
+     {
+      "text": "CONTINUE: Aspirin, clopidogrel, SQ heparin prophylaxis, docusate, multivitamin."
+     },
+     {
+      "text": "START: Atorvastatin — not until the day after the last azithromycin dose."
+     },
+     {
+      "text": "START: Pantoprazole — GI protection on DAPT and steroids; chosen over omeprazole to avoid clopidogrel interaction."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: Daily BMP; daily CBC, hemoglobin and stool guaiac for bleeding and HIT; glucose every 6 h on prednisone; ECG at baseline and day 3 for QTc on azithromycin; LFTs and CK at atorvastatin start and 4–12 weeks; orthostatic BP and mental status on clonidine."
+     },
+     {
+      "text": "SAFETY: Azithromycin–atorvastatin rhabdomyolysis risk, no overlap; clonidine Beers-criteria risk at age 78; AKI and hyperkalemia with losartan, furosemide and CKD 3b; additive bleeding with heparin plus DAPT."
+     },
+     {
+      "text": "REQUEST: Urgent echocardiogram — LVEF, AS severity and flow-gradient pattern, RV and diastolic function."
+     },
+     {
+      "text": "REQUEST: Urgent BNP/NT-proBNP; TSH; ferritin — IV iron if ferritin <100, or 100–300 with TSAT <20%."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Nonrheumatic aortic valve disorder, unspecified."
+     },
+     {
+      "text": "HF / STRUCTURE: Known AS, AVA 0.7 cm²; LVEF not supplied."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Dyspnea with COPD/infection treatment response, severe AS, RCA in-stent restenosis and abnormal thoracic imaging. Outside troponin sequence is internally inconsistent (0.6 described as increasing to 0.44)."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Ceftriaxone, azithromycin, IV steroids and nebulizers, with marked respiratory improvement. No coronary intervention at outside catheterization."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: furosemide, atorvastatin, amlodipine, acetaminophen."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Stress test, right/left heart catheterization, CXR and CT."
+     },
+     {
+      "text": "REQUEST: Contrast-enhanced chest CT or comparison with outside studies for the hilar abnormality."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "TRANSFER: Evaluation for further AS/CAD intervention."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C043: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C058": {
+   "case_id": "C058",
+   "cohort": "I35_I31_valve_pericardial",
+   "age_sex": "46M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 46-year-old man with BRAF V600E metastatic melanoma, spinal metastases and a T8 compression fracture developed recurrent pleuritic substernal pain shortly after an admission for pericarditis and possible aspiration pneumonia. He had completed antibiotics and initially improved at home. New pain limited deep inspiration; he described worse pain sitting and improvement lying down. CT showed increased pericardial fluid and multifocal pulmonary consolidations, without PE. Cardiology found no tamponade and recommended NSAIDs and colchicine.",
+    "home_meds": "Verapamil SR, Heparin",
+    "vitals": "Admission: T 97.8°F, HR 99, BP 126/82, RR 22, SpO₂ 94% on 2 L.",
+    "labs": "Na 135 mEq/L | K 4.1 mEq/L | BUN 16 mg/dL | Cr 1 mg/dL | Mg 2.4 mg/dL | Hb 7.9 g/dL | WBC 5.2 K/uL | Platelets 217 K/uL | Troponin T <0.01 ng/mL. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Pain-related distress and shallow breathing. No JVD; regular rhythm with II/VI systolic murmur. Lungs clear; diffuse abdominal tenderness without peritoneal signs. No leg edema on exam."
+    ],
+    "echo": [
+     "LVEF >55%, preserved biventricular function. Small circumferential effusion without chamber collapse or hemodynamic compromise."
+    ],
+    "ecg": [
+     "Recent ECG described in narrative as consistent with pericarditis without ischemic changes; no separate current tracing supplied."
+    ],
+    "imaging": [
+     "CT: no PE; worsening multifocal consolidation, increased moderate pericardial effusion and widespread osseous metastases. CXR: bibasilar opacities and probable small left effusion without pulmonary edema."
+    ],
+    "cath": [
+     "No pericardial drainage documented."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Recurrent pericarditis with increasing pericardial effusion."
+     },
+     {
+      "text": "HF CHARACTERIZATION: No HF phenotype or etiology assigned."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Metastatic BRAF V600E melanoma; pneumonia; aspiration pneumonitis; adverse effect of cancer therapy."
+     },
+     {
+      "text": "COMPLICATIONS: Pericardial effusion, labelled hemopericardium; pleural effusion; sinus tachycardia."
+     },
+     {
+      "text": "COMORBIDITIES: Bone and lung metastases; pathologic sacral compression fracture; chronic pain; depression; anxiety; GERD."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV vancomycin, cefepime and metronidazole — empiric cover for multifocal consolidation and suspected aspiration in an immunocompromised host; de-escalate on cultures, reassess metronidazole at 48–72 h."
+     },
+     {
+      "text": "CONTINUE: IV hydromorphone as needed for breakthrough pain — switch to oral when eating."
+     },
+     {
+      "text": "CONTINUE: IV ondansetron as needed — switch to prochlorperazine or trimethobenzamide if QTc >500 ms."
+     },
+     {
+      "text": "STOP: IV ketorolac — no benefit added to ibuprofen; substitute for ibuprofen only if oral is not tolerated."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "CONTINUE: Ibuprofen — first-line for pericarditis; taper rather than stop abruptly; hold if eGFR <30, GI bleeding or AKI."
+     },
+     {
+      "text": "TITRATE DOWN: Colchicine 0.5 mg twice daily to 0.5 mg daily because of verapamil; reduce further or hold if eGFR <30 or severe diarrhea."
+     },
+     {
+      "text": "CONTINUE: Vemurafenib — discuss with oncology its possible role in pericarditis and dose adjustment with verapamil; consider holding if pericarditis is refractory or effusion grows."
+     },
+     {
+      "text": "CONTINUE: Citalopram — switch to sertraline if QTc >500 ms."
+     },
+     {
+      "text": "CONTINUE: Oxycodone ER and clonazepam at lowest effective doses; taper clonazepam if feasible."
+     },
+     {
+      "text": "CONTINUE: Verapamil, omeprazole, SQ heparin, docusate, senna, polyethylene glycol; aluminum-magnesium hydroxide-simethicone as needed, 2 h apart from colchicine."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: Baseline ECG, then QTc at 48–72 h and after dose changes."
+     },
+     {
+      "text": "MONITOR: Continuous pulse oximetry, respiratory rate and sedation on opioids plus clonazepam; vancomycin troughs; colchicine toxicity (myopathy, cytopenias, diarrhea)."
+     },
+     {
+      "text": "SAFETY: Dual NSAID risk of GI bleeding and kidney injury; verapamil raises colchicine and vemurafenib levels; QT prolongation with citalopram, vemurafenib, ondansetron and verapamil; boxed warning for opioid plus benzodiazepine."
+     },
+     {
+      "text": "REQUEST: Urgent troponin to rule out myopericarditis; urgent serial ECGs for QTc and pericarditis evolution; BNP/NT-proBNP to confirm absence of HF; TSH for vemurafenib thyroid effect and sinus tachycardia."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Disease of pericardium, unspecified."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF >55%; pericardial effusion without tamponade."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Recurrent pericarditic pain/effusion, metastatic melanoma with spinal fracture, possible pulmonary infection and anemia."
+     }
+    ],
+    "acute": [
+     {
+      "text": "REQUEST: NSAIDs and start colchicine."
+     },
+     {
+      "text": "START: IV ketorolac and morphine for pain; vancomycin, cefepime and metronidazole for possible progressive infection."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: lorazepam, metoclopramide."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: CTA and echocardiography; cardiology assessed no tamponade/hemodynamic instability."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Floor care for recurrent chest pain. Prior plan for outpatient kyphoplasty noted; no new cardiac follow-up schedule supplied."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C058: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C063": {
+   "case_id": "C063",
+   "cohort": "I48_AFib",
+   "age_sex": "69M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 69-year-old man with ESRD on hemodialysis and aortic stenosis developed chest pain with rapid AF around 150 bpm after dialysis. He received repeated IV metoprolol/diltiazem for rate control. Guaiac-positive stool complicated the anticoagulation decision. After approximately 1.5 L IV saline, pulmonary edema and hypoxemia developed; IV furosemide and nebulizers improved his respiratory status.",
+    "home_meds": "Furosemide",
+    "vitals": "Initial ED: T 98.6°F, HR 88, BP 138/71, RR 18, SpO₂ 96% on 2 L. Later arrival: T 98°F, HR 77 after rate treatment, BP 187/95, RR 28, SpO₂ 91% on 4 L. After furosemide/nebulizers: HR 77, BP 143/70, RR 20, SpO₂ 96% on 4 L.",
+    "labs": "Na 144 mEq/L | K 4.2 mEq/L | BUN 30 mg/dL | Cr 3.7 mg/dL | Mg 2 mg/dL | Hb 9.4 g/dL | WBC 9.6 K/uL | Platelets 201 K/uL | Troponin T 0.14 ng/mL | INR 1. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Comfortable after treatment; systolic ejection murmur radiating to carotids. Bibasilar crackles to mid-lung fields, no peripheral edema. Left AV graft with palpable thrill."
+    ],
+    "echo": [
+     "LVEF >55%, mild LVH and increased filling pressure >18 mmHg. Moderate calcific AS and pulmonary hypertension; mild MR. Findings suggest interval intravascular volume expansion."
+    ],
+    "ecg": [
+     "AF at 139 bpm with V3–V5 ST depression; later sinus rhythm with resolution of ST changes."
+    ],
+    "imaging": [
+     "CXR: pulmonary venous congestion, mild-to-moderate interstitial edema, small right effusion and mild cardiomegaly."
+    ],
+    "cath": [
+     "No catheterization report supplied."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute on chronic diastolic HF with acute decompensation."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFpEF; hypertensive etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Paroxysmal AF with rapid ventricular response; aortic stenosis; anemia."
+     },
+     {
+      "text": "COMPLICATIONS: Type 2 MI from demand ischemia; group 2 pulmonary hypertension; GI bleeding; acute pulmonary edema."
+     },
+     {
+      "text": "COMORBIDITIES: ESRD on dialysis; hypertension; aortic insufficiency with mild mitral regurgitation; cardiomegaly; hypokalemia; ventricular fibrillation/prolonged QT."
+     }
+    ],
+    "acute": [
+     {
+      "text": "CONTINUE: IV furosemide, single dose — bridge to dialysis ultrafiltration, which is the main volume strategy; stop once the ultrafiltration plan is set; oral furosemide only if urine output >200 mL/day."
+     },
+     {
+      "text": "START: IV pantoprazole — guaiac-positive stool, anemia, planned anticoagulation; oral when eating; continue through GI evaluation and long term if anticoagulated."
+     },
+     {
+      "text": "START: Epoetin alfa with dialysis — check iron first and replete if TSAT <20% or ferritin <200; target Hgb 10–11, hold if >11 or uncontrolled hypertension; if active GI bleeding, defer and transfuse instead."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Metoprolol succinate — rate control; up-titrate if resting HR >110 in AF or >80 in sinus rhythm."
+     },
+     {
+      "text": "STOP: Diltiazem — metoprolol preferred given HF and aortic stenosis."
+     },
+     {
+      "text": "HOLD: Warfarin — until EGD with or without colonoscopy excludes active bleeding, then start (INR 2–3, checked 2–3 times weekly); if a bleeding lesion is found, defer and reassess with the multidisciplinary team."
+     },
+     {
+      "text": "START: Aspirin — hold if GI bleeding confirmed; stop once warfarin starts unless compelling indication (recent ACS/PCI)."
+     },
+     {
+      "text": "START: Atorvastatin — shared decision; benefit uncertain in dialysis."
+     },
+     {
+      "text": "HOLD: Amiodarone — restart only if symptomatic AF recurs despite rate control and rhythm control is pursued, with electrophysiology input."
+     },
+     {
+      "text": "CONTINUE: Albuterol and ipratropium nebulizers as needed, weaning as able."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: LFTs at statin start and 4–12 weeks; potassium on albuterol, coordinated with dialysis."
+     },
+     {
+      "text": "SAFETY: Aspirin plus warfarin bleeding risk with guaiac-positive stool and Hgb 9.4 — weekly CBC and stool guaiac, PPI mandatory, stop aspirin unless a compelling indication."
+     },
+     {
+      "text": "SAFETY: Amiodarone–warfarin interaction — if amiodarone restarts, cut warfarin dose 30–50% and check INR every 3 days until stable."
+     },
+     {
+      "text": "REQUEST: Urgent serial troponins every 8 h ×3 to confirm a falling type 2 MI pattern rather than evolving ACS."
+     },
+     {
+      "text": "REQUEST: Ferritin and TSAT before epoetin; TSH — AF trigger, prior amiodarone, baseline before any restart."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Unspecified atrial fibrillation."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF >55%, high filling pressure, moderate AS."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Rapid AF, pulmonary edema after IV fluids, ESRD, moderate AS and guaiac-positive stool/anemia."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV metoprolol and diltiazem for rate control; IV saline followed by IV furosemide and nebulizers. Heparin withheld initially because of guaiac-positive stool."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: metoprolol, heparin, simvastatin, aspirin, lidocaine, pantoprazole, warfarin."
+     },
+     {
+      "text": "START: sennosides, usp, docusate, amiodarone, sodium chloride, vial, epoetin alfa, paricalcitol."
+     },
+     {
+      "text": "START: glucose, diltiazem, nephrocaps, calcium acetate, acetaminophen."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Serial ECGs, echocardiography and chest radiography."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Inpatient management of arrhythmia and respiratory decompensation."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C063: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C068": {
+   "case_id": "C068",
+   "cohort": "I48_AFib",
+   "age_sex": "66F",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 66-year-old woman returned the day after discharge following cervical fusion with cough, chest discomfort and palpitations. AF reached approximately 160 bpm. She received IV fluids and IV/oral diltiazem. CT showed postoperative cervical/paratracheal changes and minimal pneumomediastinum, considered expected by neurosurgery. ENT identified vocal cord paralysis, prompting NPO status pending swallowing assessment.",
+    "home_meds": "Aspirin, Diltiazem, Heparin",
+    "vitals": "ED: T 98°F, HR about 160, systolic BP in the 140s, RR 20, SpO₂ 100% RA. Admission: T 98°F, HR 82–160, BP 140/58, RR 18, SpO₂ 97% RA.",
+    "labs": "Na 140 mEq/L | K 4 mEq/L | BUN 8 mg/dL | Cr 0.6 mg/dL | Mg 2.2 mg/dL | Hb 11.3 g/dL | WBC 6.2 K/uL | Platelets 313 K/uL | Troponin T <0.01 ng/mL. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Alert with hard cervical collar; JVD not assessable. Irregularly irregular intermittent tachycardia; lungs clear. Warm extremities with 1+ lower-leg edema."
+    ],
+    "echo": [
+     "LVEF >55%, normal RV function, trivial MR and trace AR. Borderline pulmonary hypertension; no effusion. Image quality limits exclusion of focal wall-motion abnormalities."
+    ],
+    "ecg": [
+     "AF to 160 bpm without ischemic changes; repeat ECG in sinus rhythm with nonspecific ST changes."
+    ],
+    "imaging": [
+     "CT: no PE or acute aortic syndrome; postoperative edema, subcutaneous emphysema and minimal pneumomediastinum; bibasilar atelectasis and small right effusion."
+    ],
+    "cath": [
+     "ENT laryngoscopy documented vocal cord paralysis; recent cervical fusion."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: New-onset postoperative AF with rapid ventricular response."
+     },
+     {
+      "text": "HF CHARACTERIZATION: No HF phenotype or etiology assigned."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Postprocedural cervical kyphosis; pleuritic chest pain; secondary pulmonary hypertension; tachycardia."
+     },
+     {
+      "text": "COMPLICATIONS: Unilateral vocal cord paralysis; pneumomediastinum; atelectasis; chest-wall subcutaneous emphysema."
+     },
+     {
+      "text": "COMORBIDITIES: Hypertension; type 2 diabetes; hypothyroidism; vitamin D deficiency."
+     },
+     {
+      "text": "HISTORY: Former smoker; bilateral prosthetic implants, listed as hip joints and described as breast implants."
+     }
+    ],
+    "acute": [
+     {
+      "text": "CONTINUE: Oral diltiazem — rate control for new-onset AF; target resting HR 60–80; down-titrate if resting HR consistently <55; hold if HR <50 or SBP <90."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Apixaban — only after neurosurgery confirms surgical hemostasis; 2.5 mg twice daily only if 2 of 3 criteria are met (age ≥80, weight ≤60 kg, creatinine ≥1.5)."
+     },
+     {
+      "text": "CONTINUE: SQ heparin prophylaxis until the switch to apixaban."
+     },
+     {
+      "text": "STOP: Aspirin — no indication alongside apixaban."
+     },
+     {
+      "text": "STOP: Amlodipine — avoids dual calcium-channel blockade with diltiazem; reconsider if BP stays uncontrolled."
+     },
+     {
+      "text": "CONTINUE: Ramipril (IV enalaprilat if strictly NPO), hydrochlorothiazide, levothyroxine with sips even if NPO and 4 h apart from calcium."
+     },
+     {
+      "text": "HOLD: Glipizide while NPO — sliding-scale insulin; resume with diet."
+     },
+     {
+      "text": "HOLD: Cholecalciferol and calcium carbonate while NPO."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: Daily BMP and electrolytes on ramipril and hydrochlorothiazide; fingerstick glucose every 6 h while NPO."
+     },
+     {
+      "text": "TRANSITION: Heparin SQ to apixaban — last heparin dose at least 6 h before the first apixaban dose; no heparin after apixaban starts."
+     },
+     {
+      "text": "SAFETY: Bleeding risk from overlapping heparin and apixaban."
+     },
+     {
+      "text": "REQUEST: TSH — hyperthyroidism or levothyroxine over-replacement as AF trigger."
+     },
+     {
+      "text": "REQUEST: BNP/NT-proBNP to exclude HFpEF (H2FPEF score 5/9); serial troponins to exclude demand ischemia at HR 160."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Unspecified atrial fibrillation."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF >55%; no HF diagnosis in the supplied primary code."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Postoperative rapid AF, vocal cord paralysis with swallowing concern, and postoperative pneumomediastinum."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV saline and IV/oral diltiazem; empiric ceftriaxone, azithromycin and vancomycin. NPO after ENT assessment."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: acetaminophen."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: CT, echocardiogram, ECG and ENT laryngoscopy."
+     },
+     {
+      "text": "REQUESTED: Speech/swallow assessment."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "INPATIENT COURSE: Later examination records HR 50–60 at rest and 70s with ambulation; remainder unchanged."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C068: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C078": {
+   "case_id": "C078",
+   "cohort": "I48_AFib",
+   "age_sex": "57F",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 57-year-old woman with possible prior paroxysmal AF developed chest heaviness, dyspnea and fatigue after exercise, followed by repeated nonbloody vomiting and diarrhea. Outside assessment showed rapid AF, pulmonary edema and LVEF about 30%. She was transferred on heparin for possible NSTEMI. Rate treatment and diuresis were given; the subsequent course included electrical cardioversion and repeat echo showing LVEF 58% with residual apical hypokinesis.",
+    "home_meds": "Furosemide, Heparin Sodium, Metoprolol Tartrate, Heparin",
+    "vitals": "Outside: T 98°F, HR 172, BP 126/76, RR 25, SpO₂ 98%. Receiving ED: HR 150, BP 103/91, RR 18, SpO₂ 93% on NC. Admission: T 98.6°F, HR 135, BP 101/68, RR 24, SpO₂ 94% on 2 L; weight 89 kg.",
+    "labs": "Receiving ED narrative: WBC 20.6, Na 129, K 5.1, bicarbonate 15, creatinine 0.8, lactate 1.9, troponin T 0.02, proBNP 9,978. | Na 133 mEq/L | K 4.4 mEq/L | BUN 13 mg/dL | Cr 0.7 mg/dL | Mg 1.9 mg/dL | Hb 12.5 g/dL | WBC 20 K/uL | Platelets 292 K/uL | INR 1.1 | Lactate 1.9 mmol/L. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "JVP to mandibular angle at 30° with hepatojugular reflux. Rapid irregular rhythm; basal crackles and trace ankle edema. Abdomen nontender with hyperactive bowel sounds."
+    ],
+    "echo": [
+     "Initial bedside EF about 30%. TEE: no atrial thrombus, spontaneous echo contrast and biventricular dysfunction. Later TTE: LVEF 58%, focal apical hypokinesis, consistent with resolving takotsubo-type cardiomyopathy."
+    ],
+    "ecg": [
+     "AF with RVR and lateral T-wave inversion. Cardioversion reports document restoration of sinus rhythm; one episode briefly reverted to AF before a second shock."
+    ],
+    "imaging": [
+     "CTA: no PE/dissection; interstitial edema and bilateral effusions. Later CXR: edema cleared, with residual atelectasis/small effusions."
+    ],
+    "cath": [
+     "Angiography: no major obstructive lesion; small distal LAD with possible diffuse disease. Electrical cardioversions performed."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Takotsubo (stress) cardiomyopathy."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFpEF; etiology classed as other."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Paroxysmal AF; vomiting; diarrhea."
+     },
+     {
+      "text": "COMPLICATIONS: Acute on chronic systolic HF; ventricular tachycardia requiring cardioversion; acute pulmonary edema; small bilateral pleural effusions, labelled malignant; pulmonary arterial hypertension; hyponatremia; hypokalemia; metabolic acidosis."
+     },
+     {
+      "text": "COMORBIDITIES: Tricuspid and mitral regurgitation; morbid obesity (BMI 30–34.9); leukocytosis."
+     }
+    ],
+    "acute": [
+     {
+      "text": "STOP: IV heparin — stop the drip first and confirm aPTT is falling before apixaban."
+     },
+     {
+      "text": "TITRATE DOWN: Furosemide from IV to 20 mg oral daily — hold if euvolemic and weight stable; increase to 40 mg if weight gain >2 lb/day or worsening dyspnea."
+     },
+     {
+      "text": "START: Potassium chloride for K 3.3 — reduce once K ≥4.0; stop if K >5.0 or furosemide stops."
+     },
+     {
+      "text": "START: Magnesium oxide — stop or switch to magnesium glycinate if diarrhea or GI intolerance."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Apixaban — first dose 6 h after the heparin drip stops, never concurrent; hold before invasive procedures."
+     },
+     {
+      "text": "START: Amiodarone — rhythm control after cardioversion; hold if QTc >500 ms, HR <50 or ALT >3× ULN; stop after successful catheter ablation."
+     },
+     {
+      "text": "START: Metoprolol succinate — up-titrate after 1–2 weeks if tolerated."
+     },
+     {
+      "text": "STOP: Metoprolol tartrate once succinate starts."
+     },
+     {
+      "text": "START: Lisinopril — up-titrate as BP permits; dapagliflozin — hold if creatinine rises >30% or volume depletion."
+     },
+     {
+      "text": "CONTINUE: Acetaminophen as needed, maximum 3 g/day."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP every 3 days for 2 weeks on dapagliflozin, furosemide and lisinopril; BMP every 2–3 days on potassium with lisinopril."
+     },
+     {
+      "text": "MONITOR: Amiodarone — LFTs at baseline, 1 month, then every 3 months; thyroid tests every 6 months; baseline PFTs."
+     },
+     {
+      "text": "TRANSITION: Heparin drip to apixaban — stop heparin first, start apixaban 6 h later, no overlap."
+     },
+     {
+      "text": "SAFETY: AKI risk with SGLT2 inhibitor, loop diuretic and ACE inhibitor; potassium supplement with ACE inhibitor."
+     },
+     {
+      "text": "REQUEST: Cardiac MRI with LGE and T1 mapping — Takotsubo versus myocarditis, LV thrombus, infiltrative disease."
+     },
+     {
+      "text": "REQUEST: Predischarge NT-proBNP; ferritin and TSAT for IV iron candidacy."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Unspecified atrial fibrillation."
+     },
+     {
+      "text": "HF / STRUCTURE: Initial EF about 30%; later 58% with residual apical hypokinesis."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Rapid AF, transient LV dysfunction/pulmonary edema, gastrointestinal illness, hyponatremia and leukocytosis."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV fluids, heparin, metoprolol, IV furosemide and empiric ceftriaxone/vancomycin."
+     },
+     {
+      "text": "PERFORM: Electrical cardioversion; procedure note recommends amiodarone and continued UFH infusion."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: glucose, amiodarone, docusate, aspirin, captopril, lorazepam, rivaroxaban."
+     },
+     {
+      "text": "START: zolpidem, sodium chloride, ceftriaxone, camphor, metoprolol, lisinopril, atorvastatin."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: CTA, TTE/TEE, coronary angiography and serial rhythm assessment."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: Cardioversion report recommends clinical follow-up with treating clinicians; timing not specified."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C078: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C080": {
+   "case_id": "C080",
+   "cohort": "I48_AFib",
+   "age_sex": "39M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 39-year-old man with hypertension developed a productive cough, intermittent palpitations, dyspnea, nausea and vomiting. His PCP found new AF at 160–180 bpm. ED fluids and escalating IV diltiazem, including an infusion, produced limited rate response, so amiodarone was loaded. Echocardiography subsequently showed severe global biventricular systolic dysfunction, considered possibly tachycardia-mediated.",
+    "home_meds": "Metoprolol Tartrate, Fluticasone Propionate NASAL, Aspirin, Amiodarone, Diltiazem, Atorvastatin",
+    "vitals": "ED: T 99.6°F (maximum 100.4°F), HR about 140, BP 113/85, RR 20, SpO₂ 97%. Admission: T 99.6°F, HR 140–150, BP 124/78, RR 16, SpO₂ 94% RA.",
+    "labs": "Na 139 mEq/L | K 3.7 mEq/L | BUN 11 mg/dL | Cr 0.8 mg/dL | Mg 1.5 mg/dL | Hb 14.4 g/dL | WBC 8.8 K/uL | Platelets 176 K/uL | Troponin T <0.01 ng/mL | INR 1.1 | Lactate 1.6 mmol/L. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Alert and oriented, no acute distress; mild bilateral upper-extremity tremor. Remaining cardiopulmonary examination is absent from the supplied extract."
+    ],
+    "echo": [
+     "Severe global LV dysfunction and mild RV dysfunction on TTE, moderate MR. TEE: no atrial/appendage thrombus and global biventricular dysfunction. Numerical EF is redacted in raw reports."
+    ],
+    "ecg": [
+     "AF with RVR, low limb-lead voltage and nonspecific ST–T changes. Later sinus rhythm with prolonged QT and more prominent ST–T abnormalities."
+    ],
+    "imaging": [
+     "CXR: no acute disease. Respiratory viral testing and urine culture negative; blood cultures negative as of the reported date."
+    ],
+    "cath": [
+     "No separate procedure report supplied."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Tachycardia-mediated cardiomyopathy with HFrEF, precipitated by new-onset AF with rapid ventricular response."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFrEF, LVEF 22%; tachycardia-mediated etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Atrial fibrillation, tachycardia, cough and cardiomegaly."
+     },
+     {
+      "text": "COMPLICATIONS: Mitral regurgitation; hypomagnesemia."
+     },
+     {
+      "text": "COMORBIDITIES: Hypertension, left bundle-branch block with left axis deviation, hyperlipidemia, GERD, major depressive disorder, allergic rhinitis and iron-deficiency anemia."
+     }
+    ],
+    "acute": [
+     {
+      "text": "STOP: IV heparin — at least 6 hours before the first apixaban dose, with no overlap."
+     },
+     {
+      "text": "STOP: IV diltiazem — contraindicated in HFrEF; already off, do not restart."
+     },
+     {
+      "text": "START: Low-dose oral furosemide as needed for weight gain >2 lb/day or new edema or dyspnea — currently euvolemic; hold if hypovolemic."
+     },
+     {
+      "text": "CONTINUE: Amiodarone — rhythm control for new-onset AF; step down to maintenance dosing after loading, hold if QTc >500 ms, reassess need if EF recovers."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Sacubitril-valsartan, carvedilol, spironolactone and dapagliflozin — up-titrate as tolerated."
+     },
+     {
+      "text": "STOP: Metoprolol tartrate — replaced by carvedilol."
+     },
+     {
+      "text": "START: Apixaban 5 mg (no dose-reduction criteria met) — first dose only after heparin has been off ≥6 hours."
+     },
+     {
+      "text": "STOP: Aspirin — no indication in AF without CAD; restart only if coronary evaluation shows obstructive CAD."
+     },
+     {
+      "text": "CONTINUE: Amlodipine — bridge BP control; stop once ARNI and carvedilol are up-titrated and BP is controlled."
+     },
+     {
+      "text": "CONTINUE: Atorvastatin — do not exceed 40 mg with amiodarone; consider 20 mg if myopathy develops."
+     },
+     {
+      "text": "CONTINUE: Sertraline, pantoprazole (reassess at outpatient follow-up), cholecalciferol and nasal fluticasone."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: ECG at baseline and 48–72 hours, within 48 hours of starting carvedilol and after each dose change; hold carvedilol if HR <55 or PR >240 ms and sertraline if QTc >500 ms."
+     },
+     {
+      "text": "MONITOR: BMP at 3 days and 1 week after starting dapagliflozin (hold if creatinine rises >30% or hypovolemia) and at 1 week and 1 month after spironolactone; LFTs and thyroid tests every 6 months on amiodarone."
+     },
+     {
+      "text": "SAFETY: Heparin–apixaban overlap; amiodarone with carvedilol (bradycardia, AV block), with sertraline (QTc prolongation) and with atorvastatin (myopathy, CK if symptomatic); AKI with SGLT2 inhibitor, loop diuretic and ARNI together."
+     },
+     {
+      "text": "REQUEST: BNP/NT-proBNP and troponin (urgent; troponin for ACS and myocarditis given ST-T changes); cardiac MRI with LGE and T1 mapping for myocarditis versus tachycardia-mediated versus early dilated cardiomyopathy, critical if LVEF has not recovered at 3 months; invasive or CT coronary angiography; iron studies including ferritin."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Unspecified atrial fibrillation."
+     },
+     {
+      "text": "HF / STRUCTURE: Severe global biventricular dysfunction; numerical EF redacted in raw report."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: New rapid AF with severe global systolic dysfunction, respiratory symptoms and hypomagnesemia."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: 2 L IV saline, escalating diltiazem boluses/infusion, amiodarone loading and aspirin."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: rivaroxaban, loperamide, dextromethorphan, metoprolol, losartan."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: TTE/TEE, serial ECGs and infectious testing."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Inpatient management of persistent rapid AF and new ventricular dysfunction."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C080: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C084": {
+   "case_id": "C084",
+   "cohort": "I50_HF",
+   "age_sex": "76M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 76-year-old man with COPD and prior alcohol/tobacco exposure developed three weeks of progressive exertional dyspnea and orthopnea, worsening sharply over 48 hours. Outside CT excluded PE; echo showed LVEF 28% and high filling pressure. Respiratory deterioration after fluids required BiPAP and transfer. The record also notes substantial weight loss and pulmonary nodules under evaluation. Later studies documented recovered/hyperdynamic LV function and PCI for proximal LCx in-stent restenosis.",
+    "home_meds": "Furosemide, Heparin",
+    "vitals": "Transfer/ED: HR 143, BP 133/90, RR 29, SpO₂ 100% on BiPAP. Admission examination refers to electronically recorded vitals without providing values.",
+    "labs": "Outside narrative: BNP 11,590 (units not supplied). | Na 145 mEq/L | K 3.6 mEq/L | BUN 12 mg/dL | Cr 0.5 mg/dL | Mg 1.6 mg/dL | Hb 10.4 g/dL | WBC 4.1 K/uL | Platelets 355 K/uL | Troponin T 0.04 ng/mL | INR 1.6 | Lactate 1.7 mmol/L. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Mild respiratory distress, JVP to mid-neck at 60°. Tachycardic regular rhythm; lungs clear on documented exam. Mild ankle edema; warm extremities."
+    ],
+    "echo": [
+     "Echo embedded in X-ray field: initially LVEF 28%, filling pressure >18 mmHg and mild RV dysfunction. Later LVEF ≥75%, high cardiac index, mild resting LVOT gradient and moderate pulmonary hypertension."
+    ],
+    "ecg": [
+     "Outside ECG described as sinus tachycardia; no standalone ECG report supplied."
+    ],
+    "imaging": [
+     "CXR: interstitial edema and subtle right-sided patchy opacities. Outside CT reportedly excluded PE and noted nodules. Abdominal ultrasound: no cause for elevated liver enzymes; gallbladder polyps/adenomyomatosis."
+    ],
+    "cath": [
+     "Later cath: proximal LCx 80% in-stent restenosis with positive iFR; successful PCI. Normal right/left filling pressures and preserved cardiac function at catheterization."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute decompensated HF due to tachycardia-mediated cardiomyopathy from thyrotoxicosis."
+     },
+     {
+      "text": "HF CHARACTERIZATION: Labelled HFimpEF (prior LVEF 28%, now ≥75%) and also HFrEF; tachycardia-mediated etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Tachycardia-mediated cardiomyopathy; thyrotoxicosis without storm; atrial fibrillation."
+     },
+     {
+      "text": "COMPLICATIONS: Coronary in-stent restenosis; hypokalemia."
+     },
+     {
+      "text": "COMORBIDITIES: CAD, COPD, premature ventricular complexes, pulmonary hypertension, anemia, abnormal weight loss, pulmonary nodules and GERD."
+     },
+     {
+      "text": "HISTORY: Cigarette smoking."
+     }
+    ],
+    "acute": [
+     {
+      "text": "CONTINUE: IV furosemide, then oral once euvolemic — target urine output >0.5 mL/kg/h; may stop as an outpatient if euvolemia holds after euthyroidism; replete K and Mg with each dose."
+     },
+     {
+      "text": "CONTINUE: IV magnesium — target Mg >2.0; switch to oral magnesium oxide at discharge."
+     },
+     {
+      "text": "STOP: IV heparin — at least 6 hours before the first apixaban dose, no co-administration; confirm aPTT is trending down."
+     },
+     {
+      "text": "CONTINUE: Propranolol — AF rate control and thyrotoxicosis symptoms; watch for bronchospasm with COPD and consider switching to metoprolol succinate if respiratory symptoms worsen."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "CONTINUE: Methimazole — adjust dose to reach euthyroidism."
+     },
+     {
+      "text": "START: Sacubitril-valsartan, spironolactone and dapagliflozin — up-titrate as tolerated."
+     },
+     {
+      "text": "START: Apixaban — first dose only after heparin has been off ≥6 hours and oral intake is tolerated; coordinate with hematology/oncology if malignancy is confirmed."
+     },
+     {
+      "text": "START: Clopidogrel — after DES for LCx in-stent restenosis, 6–12 months (3–6 if high bleeding risk), with apixaban as dual pathway therapy."
+     },
+     {
+      "text": "START: Aspirin 81 mg — stop after 7 days of triple therapy."
+     },
+     {
+      "text": "STOP: Omeprazole — replaced by pantoprazole to avoid the CYP2C19 interaction with clopidogrel."
+     },
+     {
+      "text": "START: Pantoprazole and high-intensity atorvastatin."
+     },
+     {
+      "text": "CONTINUE: Potassium chloride — reduce or hold if K >5.0; stop once spironolactone is at 25 mg and K is ≥4.5."
+     },
+     {
+      "text": "CONTINUE: Ipratropium (preferred over beta-agonists) and acetaminophen, both as needed."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP every 3 days during ARNI, SGLT2 inhibitor and loop diuretic co-initiation, and at 3 and 7 days after starting spironolactone."
+     },
+     {
+      "text": "MONITOR: Daily hemoglobin during triple therapy (baseline Hgb 10.4); TSH and free T4 every 4–6 weeks and CBC for agranulocytosis on methimazole; LFTs at 6–12 weeks on atorvastatin."
+     },
+     {
+      "text": "SAFETY: Clopidogrel–omeprazole interaction; heparin–apixaban overlap bleeding risk; hyperkalemia with ARNI, spironolactone and potassium chloride; AKI with SGLT2 inhibitor, loop diuretic and ARNI; bleeding with 7-day triple antithrombotic therapy."
+     },
+     {
+      "text": "REQUEST: TSH with free T4/T3 and serial troponins (urgent); iron studies including ferritin for anemia with weight loss; repeat BNP/NT-proBNP to confirm response and set a discharge baseline; discharge ECG for rhythm, QT and ST-T baseline."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute systolic (congestive) heart failure."
+     },
+     {
+      "text": "HF / STRUCTURE: LVEF initially 28%, later ≥75%."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Decompensated systolic dysfunction with later recovery, coronary restenosis, COPD, weight loss and pulmonary nodules."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Potassium replacement and methylprednisolone outside; furosemide administration uncertain in the narrative."
+     },
+     {
+      "text": "REQUIRED: BiPAP. PERFORMED later: Proximal LCx PCI."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: potassium chloride, lisinopril, glucose, digoxin, cefazolin, ceftriaxone, apixaban."
+     },
+     {
+      "text": "START: metoprolol, torsemide, atorvastatin, heparin, aspirin, mineral oil, sodium chloride."
+     },
+     {
+      "text": "START: clopidogrel, rivaroxaban."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Serial echocardiograms and catheterization. Pulmonary nodules were undergoing outpatient investigation."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "TRANSFER: Respiratory decompensation requiring BiPAP; subsequent inpatient coronary intervention."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C084: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C087": {
+   "case_id": "C087",
+   "cohort": "I50_HF",
+   "age_sex": "63M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 63-year-old man with hypertension, hyperlipidemia, diabetes, aortic stenosis and prior CABG reported a week of dyspnea at rest and with exertion, improved by sitting upright, with PND and leg edema but no chest pain. The supplied examination is from later inpatient care, with weight approaching the recorded dry weight and no residual edema. The echo showed preserved LVEF despite the coded systolic HF diagnosis.",
+    "home_meds": "Carvedilol, Heparin",
+    "vitals": "Later inpatient examination: Tmax 98.6°F, HR 50–60s, BP 140–150s/60–70s, on RA; RR and saturation values not supplied. Weight trend 79.7 → 77.9 → 77.0 → 77.4 kg; dry weight approximately 77 kg.",
+    "labs": "Na 140 mEq/L | K 4.6 mEq/L | BUN 35 mg/dL | Cr 2.2 mg/dL | Mg 2.1 mg/dL | Hb 9.4 g/dL | WBC 4 K/uL | Platelets 272 K/uL | Troponin T <0.01 ng/mL | NT-proBNP 4223 pg/mL | INR 1.1 | Lactate 0.9 mmol/L. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Comfortable in chair; JVP not visualized. Regular rhythm with crescendo-decrescendo systolic murmur at RUSB. Lungs clear and no leg edema."
+    ],
+    "echo": [
+     "LVEF >55%, mild LVH, normal LV cavity size and borderline RV function. Mild AR/MR; AS hemodynamics are missing from the extracted report."
+    ],
+    "ecg": [
+     "Sinus rhythm, left atrial abnormality, prolonged AV conduction and nonspecific repolarization changes."
+    ],
+    "imaging": [
+     "CXR: mild pulmonary vascular congestion without overt edema, possible trace right effusion and no consolidation."
+    ],
+    "cath": [
+     "No catheterization report supplied."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute decompensated HFpEF, NYHA class III."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFpEF; hypertensive etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Hypertensive heart disease with HF."
+     },
+     {
+      "text": "COMPLICATIONS: Pleural effusion."
+     },
+     {
+      "text": "COMORBIDITIES: CAD, type 2 diabetes with hyperglycemia, hypertension, hyperlipidemia, aortic stenosis, aortic and mitral regurgitation, first-degree AV block, obesity and bradycardia."
+     },
+     {
+      "text": "HISTORY: Prior CABG; old anterior MI."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV furosemide — titrate to urine output >0.5 mL/kg/h; hold if SBP <90 or creatinine rises >50%; check K, Mg and Na every 8–12 hours."
+     },
+     {
+      "text": "START: Oral furosemide maintenance once euvolemic at a dry weight of about 77 kg — adjust to daily weights; hold if SBP <90 or over-diuresed."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: Dapagliflozin — adjust insulin to avoid hypoglycemia."
+     },
+     {
+      "text": "START: Lisinopril — up-titrate as tolerated."
+     },
+     {
+      "text": "START: Spironolactone — hold if K ≥5.0 or eGFR <30; no potassium supplements unless K <3.5."
+     },
+     {
+      "text": "START: High-intensity atorvastatin."
+     },
+     {
+      "text": "START: Aspirin — if paroxysmal AF is confirmed, move to a DOAC and reassess aspirin."
+     },
+     {
+      "text": "CONTINUE: Carvedilol — consider dose reduction for symptomatic bradycardia or worsening AV block (baseline first-degree block)."
+     },
+     {
+      "text": "CONTINUE: Insulin, with inpatient sliding scale."
+     },
+     {
+      "text": "CONTINUE: Prophylactic SQ heparin — stop at discharge; if a DOAC is started for AF, stop heparin ≥6 hours before the first dose."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: Baseline creatinine, eGFR and potassium first (none available); then potassium and renal function every 3–5 days during lisinopril–spironolactone co-initiation and weekly for the first month, renal function every 3 days during SGLT2 inhibitor, loop diuretic and ACE inhibitor initiation, and LFTs at 4–12 weeks on atorvastatin."
+     },
+     {
+      "text": "MONITOR: Continuous telemetry for paroxysmal AF."
+     },
+     {
+      "text": "SAFETY: Hyperkalemia with ACE inhibitor plus MRA, so no potassium supplements; AKI with SGLT2 inhibitor, loop diuretic and ACE inhibitor started together during decompensation; heparin-to-DOAC transition if AF is confirmed."
+     },
+     {
+      "text": "REQUEST: BNP/NT-proBNP to confirm HFpEF (urgent); troponin to exclude an ischemic precipitant; repeat TTE with full diastolic and aortic valve assessment to resolve the aortic stenosis discrepancy (urgent); repeat ECG with rhythm strip to settle machine-read AF versus physician-read sinus rhythm (urgent)."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute on chronic systolic (congestive) heart failure."
+     },
+     {
+      "text": "HF / STRUCTURE: Echo LVEF >55%, despite coded systolic HF."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Dyspnea/orthopnea and edema with renal dysfunction, AS and prior CABG. Preserved LVEF on echo differs from coded systolic HF."
+     }
+    ],
+    "acute": [
+     {
+      "text": "Clinical narrative does not specify acute doses or a diuresis protocol. Serial weights document reduction toward the stated dry weight."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: amlodipine, lisinopril, aspirin, furosemide, atorvastatin, hydralazine, magnesium oxide."
+     },
+     {
+      "text": "START: torsemide."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Echocardiography, ECG and CXR."
+     },
+     {
+      "text": "DOCUMENTED: Serial weights and intake/output."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "INPATIENT COURSE: Later examination near recorded dry weight, without edema. Discharge criteria not supplied."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C087: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C093": {
+   "case_id": "C093",
+   "cohort": "I50_HF",
+   "age_sex": "55M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 55-year-old man with severe nonischemic cardiomyopathy, two prior subaortic membrane operations and CKD was listed for heart–kidney transplantation (UNOS status 2 in the source). He developed abdominal swelling and approximately five pounds of weight gain over two weeks despite increasing torsemide from 60 to 80 mg twice daily. He denied chest pain or new dyspnea and was admitted for worsening congestion and diuretic resistance.",
+    "home_meds": "Furosemide, Isosorbide Mononitrate (Extended Release), Heparin, Spironolactone, Amiodarone, Aspirin",
+    "vitals": "Admission: T 98.3°F, HR 85, BP 105/68, RR 18, SpO₂ 97% RA; weight 74.9 kg.",
+    "labs": "Na 133 mEq/L | K 3.5 mEq/L | BUN 63 mg/dL | Cr 2.6 mg/dL | Mg 2.4 mg/dL | Hb 11.8 g/dL | WBC 10.7 K/uL | Platelets 283 K/uL | NT-proBNP 2828 pg/mL | INR 1.2. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "JVP 18 cm. Regular rhythm with systolic ejection murmur; slight basal crackles. Distended nontender abdomen and trace leg edema; warm extremities."
+    ],
+    "echo": [
+     "Severe global LV dysfunction with distal akinesis/apical dyskinesis; numerical EF redacted. Possible LV mass/thrombus not excluded. Moderate RV dilation/dysfunction, severe TR, mild-to-moderate AR/MR, high filling pressure and moderate pulmonary hypertension."
+    ],
+    "ecg": [
+     "AV sequential pacing with capture, without diagnostic interval change."
+    ],
+    "imaging": [
+     "CXR: stable cardiomegaly and three-lead pacing device; no acute infiltrate/effusion. Another film describes mild vascular engorgement without edema."
+    ],
+    "cath": [
+     "No catheterization report supplied."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute on chronic systolic HF, stage D, NYHA class III, with diuretic resistance and cardiorenal syndrome."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFrEF, LVEF 22%; idiopathic dilated cardiomyopathy."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Nonischemic dilated cardiomyopathy; severe tricuspid regurgitation; CKD stage 4; primary pulmonary hypertension; mitral and aortic regurgitation."
+     },
+     {
+      "text": "COMPLICATIONS: Hyponatremia; ascites."
+     },
+     {
+      "text": "COMORBIDITIES: CRT-D in place, hypothyroidism, anemia, heart transplant listing/evaluation and GERD."
+     },
+     {
+      "text": "HISTORY: Congenital subaortic membrane, status post repair."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: IV furosemide bolus then continuous infusion — titrate to urine output >100 mL/h; consider adding IV chlorothiazide if response is inadequate."
+     },
+     {
+      "text": "CONTINUE: Metolazone — sequential nephron blockade, given 30 minutes before the loop dose; hold if Na <128 or K <3.0."
+     },
+     {
+      "text": "HOLD: Oral torsemide during IV diuresis — resume at discharge, dose adjusted to response and volume status."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "CONTINUE: Spironolactone — no potassium supplement without checking K."
+     },
+     {
+      "text": "CONTINUE: Metoprolol succinate — reduce to 25 mg if SBP <90, HR <55 or low output; no up-titration during decompensation."
+     },
+     {
+      "text": "CONTINUE: Hydralazine and isosorbide mononitrate in place of ACEi/ARB/ARNI because of CKD stage 4."
+     },
+     {
+      "text": "START: Dapagliflozin — only once SBP is consistently >95 and hemodynamics are stable; expect an initial eGFR dip, stop only if eGFR falls >30% or below 20."
+     },
+     {
+      "text": "CONTINUE: Amiodarone — ventricular arrhythmia suppression; hold if QTc >500 ms."
+     },
+     {
+      "text": "CONTINUE: Prophylactic SQ heparin until discharge — switch without overlap to therapeutic IV heparin if LV thrombus is confirmed."
+     },
+     {
+      "text": "START: Warfarin 2.5 mg (reduced from 5 mg for amiodarone) — only if LV thrombus is confirmed; overlap with IV heparin until INR ≥2.0 for ≥24 hours, continue at least 3–6 months with repeat imaging."
+     },
+     {
+      "text": "STOP: Aspirin — once warfarin is therapeutic; without thrombus or warfarin, may continue pending transplant team input."
+     },
+     {
+      "text": "CONTINUE: Levothyroxine and omeprazole, at least 4 hours apart; consider stopping omeprazole if aspirin stops."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: BMP and potassium every 8 hours during aggressive diuresis, then daily; renal function every 3 days during dapagliflozin initiation; INR every 3 days until stable at 2.0–3.0; TSH and LFTs every 3–6 months on amiodarone."
+     },
+     {
+      "text": "SAFETY: Warfarin–amiodarone interaction (dose reduced); heparin–warfarin bridge with no overlap of two heparin regimens; AKI with SGLT2 inhibitor plus loop diuretic and metolazone at eGFR 28; hyperkalemia with spironolactone at eGFR 28 (hold if K >5.0 or eGFR <20); omeprazole reduces levothyroxine absorption."
+     },
+     {
+      "text": "REQUEST: Contrast echocardiogram for possible LV thrombus (urgent); cardiac MRI with LGE if contrast echo is inconclusive, also for fibrosis, etiology and pre-transplant assessment; TSH for replacement adequacy and amiodarone thyroid effects; iron studies including ferritin — IV iron if ferritin <100, or 100–300 with TSAT <20%."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute on chronic combined systolic (congestive) and diastolic (congestive) heart failure."
+     },
+     {
+      "text": "HF / STRUCTURE: Severe biventricular dysfunction and severe TR; numerical EF redacted."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Advanced biventricular disease with diuretic resistance, renal impairment, severe TR and possible LV thrombus; transplant listing."
+     }
+    ],
+    "acute": [
+     {
+      "text": "OUTPATIENT TITRATION: Torsemide increased before admission without adequate response. Inpatient IV diuretic administration not explicitly described in the supplied narrative."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: potassium chloride, acetaminophen, torsemide, ciprofloxacin."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: Echo, ECG and chest radiographs; admission assessment documents elevated JVP and weight."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "ADMIT: Congestion despite increased oral diuretic therapy; already listed for combined heart–kidney transplant."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C093: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
+  },
+  "C095": {
+   "case_id": "C095",
+   "cohort": "I50_HF",
+   "age_sex": "77M",
+   "label": "backup",
+   "stem": {
+    "presentation": "A 77-year-old man with ESRD on hemodialysis, COPD and combined HF had bradycardia, hypotension and hypoxemia during dialysis. His wife reported possible loss of consciousness and brief CPR; the patient reported little or no preceding symptom. Hypotension persisted despite midodrine and a saline bolus, requiring peripheral dopamine. Bedside echo reportedly showed LVEF about 35% with severe MR/TR; cardiology did not consider the initial presentation cardiogenic shock.",
+    "home_meds": "Aspirin, Atorvastatin, Nitroglycerin SL, Clopidogrel",
+    "vitals": "ED: HR 64, BP 80/42, RR 20, SpO₂ 91% RA. Transfer: HR 86, BP 105/58, RR 16, SpO₂ 100% RA. MICU: T 97.5°F, HR 97, BP 100/60, RR 21, SpO₂ 97%.",
+    "labs": "ED narrative: Na 139, K 3.5, bicarbonate 30, BUN 13, creatinine 2.2, Hb 9.2, platelets 67, lactate 2.2, troponin 0.45. | Na 139 mEq/L | K 3.9 mEq/L | BUN 16 mg/dL | Cr 2.6 mg/dL | Mg 1.9 mg/dL | Hb 9.3 g/dL | WBC 4.3 K/uL | Platelets 84 K/uL | Troponin T 0.51 ng/mL | INR 1.2 | Lactate 2.2 mmol/L. First available value for each analyte in the admission lab export; samples may be from different times and need not be pretreatment.",
+    "exam": [
+     "Alert without distress; JVP not elevated. Irregular rhythm, prolonged left-sided expiration, no edema. Left chemosis/subconjunctival hemorrhage and lower-leg erythema."
+    ],
+    "echo": [
+     "Bedside echo in HPI: LVEF about 35%, severe MR/TR. No full formal cardiac echo report supplied."
+    ],
+    "ecg": [
+     "Irregularly irregular rhythm suggestive of AF, generalized low voltage, possible septal infarct and ST–T abnormalities; rate slower than prior."
+    ],
+    "imaging": [
+     "CXR: cardiomegaly without acute abnormality; later mild improvement in interstitial prominence. Abdominal ultrasound: nodular liver contour, trace ascites and gallstones."
+    ],
+    "cath": [
+     "Central venous and pulmonary artery catheters documented on later radiographs; no hemodynamic report supplied."
+    ]
+   },
+   "A": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Symptomatic bradycardia with syncope/cardiac arrest — AF with slow ventricular response during hemodialysis."
+     },
+     {
+      "text": "HF CHARACTERIZATION: HFrEF; ischemic etiology."
+     }
+    ],
+    "causes": [
+     {
+      "text": "CONTRIBUTORS: Acute on chronic systolic HF; mitral and tricuspid regurgitation."
+     },
+     {
+      "text": "COMPLICATIONS: Syncope and collapse; hypokalemia."
+     },
+     {
+      "text": "COMORBIDITIES: End-stage renal disease on hemodialysis, COPD, cirrhosis, thrombocytopenia, anemia and aortic atherosclerosis."
+     },
+     {
+      "text": "HISTORY: Old MI."
+     }
+    ],
+    "acute": [
+     {
+      "text": "CONTINUE: Dopamine infusion — wean when HR >60 and SBP >90 are sustained; stop after pacemaker implantation."
+     },
+     {
+      "text": "CONTINUE: Vancomycin (trough-guided, per dialysis protocol) and cefepime (ESRD dosing) for possible sepsis — stop if cultures are negative at 48–72 hours with clinical improvement."
+     },
+     {
+      "text": "CONTINUE: Sublingual nitroglycerin as needed for chest pain — only if SBP >100, with extreme caution given hypotension on midodrine and dopamine."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "HOLD: Sacubitril-valsartan, spironolactone and dapagliflozin — not started because of anuric ESRD on dialysis, with chronic hypotension against ARNI and interdialytic hyperkalemia risk against MRA; reassess ARNI if hemodynamics improve after CRT."
+     },
+     {
+      "text": "HOLD: Carvedilol — not started because of symptomatic bradycardia; start at low dose after CRT-P/CRT-D implantation."
+     },
+     {
+      "text": "HOLD: Hydralazine-isosorbide dinitrate — not started because of chronic hypotension; start after CRT if SBP stays >100 off midodrine."
+     },
+     {
+      "text": "CONTINUE: Aspirin and clopidogrel — hold if platelets <50 or bleeding; stop clopidogrel if anticoagulation is started."
+     },
+     {
+      "text": "CONTINUE: Midodrine — wean if SBP stays >100 after CRT."
+     },
+     {
+      "text": "STOP: Omeprazole — replaced by pantoprazole (continued) to avoid the clopidogrel interaction."
+     },
+     {
+      "text": "CONTINUE: Atorvastatin, calcium acetate, paricalcitol, tiotropium, fluticasone-salmeterol, albuterol and ipratropium-albuterol as needed, acyclovir at ESRD dosing, thiamine, and ascorbic acid limited to ≤250 mg/day."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "MONITOR: Magnesium periodically on PPI with ESRD; neurological status on cefepime (consider a cefepime level) and acyclovir; heart rate on salmeterol, reassessed after the pacemaker."
+     },
+     {
+      "text": "SAFETY: Clopidogrel–omeprazole interaction; long-term PPI justified by DAPT, thrombocytopenia and cirrhosis; cefepime and acyclovir neurotoxicity risk in ESRD."
+     },
+     {
+      "text": "REQUEST: Formal comprehensive TTE with amyloid evaluation (wall thickness, strain), RV function, RVSP and MR/TR quantification for CRT planning (urgent); NT-proBNP (urgent); serial ECGs for QTc, pauses and rhythm on dopamine; iron studies including ferritin; TSH to exclude hypothyroidism as a reversible cause of bradycardia."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "CONSULT: Interventional cardiology on minimum DAPT duration."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "B": {
+    "dx": [
+     {
+      "text": "DIAGNOSIS: Acute on chronic systolic (congestive) heart failure."
+     },
+     {
+      "text": "HF / STRUCTURE: Bedside LVEF about 35% with severe MR/TR."
+     }
+    ],
+    "causes": [
+     {
+      "text": "ACTIVE PROBLEMS: Intradialytic collapse with bradycardia/hypotension, ESRD, ventricular/valve dysfunction, anemia and thrombocytopenia."
+     }
+    ],
+    "acute": [
+     {
+      "text": "START: Midodrine and IV saline bolus without adequate response, then dopamine support."
+     }
+    ],
+    "gdmt": [
+     {
+      "text": "START: lidocaine, sodium chloride, quetiapine, norepinephrine, sodium ferric gluconate complex, epoetin alfa, doxercalciferol."
+     },
+     {
+      "text": "START: nephrocaps, ciprofloxacin."
+     }
+    ],
+    "monitor": [
+     {
+      "text": "OBTAIN: ECG, bedside echo, chest radiographs and cardiology assessment."
+     },
+     {
+      "text": "MONITOR: No recommendation."
+     }
+    ],
+    "dispo": [
+     {
+      "text": "TRANSFER: MICU for persistent hypotension requiring vasoactive support."
+     },
+     {
+      "text": "FOLLOW-UP: No recommendation."
+     }
+    ]
+   },
+   "source": "Backup case C095: vignette + editable-tables column + reformatted MAS (form style)",
+   "form": true
   }
  }
 }
