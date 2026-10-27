@@ -52,7 +52,7 @@ NOTE_PHRASES = [
     (re.compile(r",?\s*(as documented in the narrative|documented in the clinical narrative|in the supplied clinical narrative|recorded in examination)", re.I), ""),
     (re.compile(r"\s*Acute IV diuretic or antibiotic administration is not documented[^.]*\.", re.I), ""),
     (re.compile(r"\s*No acute decongestive (?:or vasoactive )?treatment documented[^.]*\.", re.I), ""),
-    (re.compile(r"\s*[^.]*not documented in the supplied (?:clinical )?narrative\.", re.I), ""),
+    (re.compile(r"\s*[^.]*not (?:documented|described|explicitly described|specified|stated)[^.]*in the supplied[^.]*\.", re.I), ""),
     (re.compile(r"\s*\(unit name redacted\)|;\s*unit name redacted", re.I), ""),
     (re.compile(r"\s*—\s*type redacted in the source", re.I), ""),
     (re.compile(r"\s*recorded among coded diagnoses", re.I), ""),

@@ -1,6 +1,6 @@
 {
  "study": "hf_reader_study",
- "version": "2026-10-27b",
+ "version": "2026-10-27c",
  "mode": "case",
  "systems": {
   "A": "multi-agent system (current run, first-12 h chart)",
@@ -1748,17 +1748,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Serial cardiac markers, echocardiogram, coronary angiography and PCI."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Transferred for coronary angiography and inpatient post-PCI care."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -1895,17 +1889,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Serial ECGs, coronary angiography/PCI and echocardiography."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Inpatient care following urgent PCI."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -2036,17 +2024,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Serial troponins, ECGs, echocardiogram and urgent catheterization."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Transferred urgently for catheterization; monitored on the floor afterward."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -2192,17 +2174,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Serial echocardiograms, ECGs, chest radiographs and coronary angiography."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "TRANSFER: CCU for hypotension with rapid AF during treatment of decompensation."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -2330,17 +2306,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Echocardiography and postprocedure chest radiography; groin access sites examined."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: CCU after complicated PCI; pain improved on arrival."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -2483,17 +2453,11 @@
      },
      {
       "text": "PLANNED: Coronary catheterization."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Observation for hydration before planned catheterization."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -2627,17 +2591,11 @@
      },
      {
       "text": "PLANNED: Pre-CABG workup."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "TRANSFER: For CABG evaluation and clopidogrel washout."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -2765,17 +2723,11 @@
      },
      {
       "text": "PLANNED: Carotid ultrasound in the narrative."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "PLAN IN EXTRACT: CABG and subsequent SFA/popliteal intervention; chronology relative to the separately described PCI is unresolved."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -2903,17 +2855,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Stress testing, echocardiography and CTA to exclude dissection. Echo report suggests further valve imaging if clinically indicated."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Cardiology evaluation after abnormal stress/valve findings."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -3059,17 +3005,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Serial echocardiograms and pericardial fluid cytology."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Inpatient care for tamponade and drainage; later echo shows no recurrent tamponade."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -3209,17 +3149,11 @@
      },
      {
       "text": "REQUEST: Contrast-enhanced chest CT or comparison with outside studies for the hilar abnormality."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "TRANSFER: Evaluation for further AS/CAD intervention."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -3356,17 +3290,11 @@
     "monitor": [
      {
       "text": "OBTAIN: CTA and echocardiography; cardiology assessed no tamponade/hemodynamic instability."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Floor care for recurrent chest pain. Prior plan for outpatient kyphoplasty noted; no new cardiac follow-up schedule supplied."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -3509,17 +3437,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Serial ECGs, echocardiography and chest radiography."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Inpatient management of arrhythmia and respiratory decompensation."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -3656,17 +3578,11 @@
      },
      {
       "text": "REQUESTED: Speech/swallow assessment."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "INPATIENT COURSE: Later examination records HR 50–60 at rest and 70s with ambulation; remainder unchanged."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -3812,17 +3728,11 @@
     "monitor": [
      {
       "text": "OBTAIN: CTA, TTE/TEE, coronary angiography and serial rhythm assessment."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "FOLLOW-UP: Cardioversion report recommends clinical follow-up with treating clinicians; timing not specified."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -3959,17 +3869,11 @@
     "monitor": [
      {
       "text": "OBTAIN: TTE/TEE, serial ECGs and infectious testing."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Inpatient management of persistent rapid AF and new ventricular dysfunction."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -4124,17 +4028,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Serial echocardiograms and catheterization. Pulmonary nodules were undergoing outpatient investigation."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "TRANSFER: Respiratory decompensation requiring BiPAP; subsequent inpatient coronary intervention."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -4277,17 +4175,11 @@
      },
      {
       "text": "DOCUMENTED: Serial weights and intake/output."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "INPATIENT COURSE: Later examination near recorded dry weight, without edema. Discharge criteria not supplied."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -4416,7 +4308,7 @@
     ],
     "acute": [
      {
-      "text": "OUTPATIENT TITRATION: Torsemide increased before admission without adequate response. Inpatient IV diuretic administration not explicitly described in the supplied narrative."
+      "text": "OUTPATIENT TITRATION: Torsemide increased before admission without adequate response."
      }
     ],
     "gdmt": [
@@ -4427,17 +4319,11 @@
     "monitor": [
      {
       "text": "OBTAIN: Echo, ECG and chest radiographs; admission assessment documents elevated JVP and weight."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "ADMIT: Congestion despite increased oral diuretic therapy; already listed for combined heart–kidney transplant."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
@@ -4577,17 +4463,11 @@
     "monitor": [
      {
       "text": "OBTAIN: ECG, bedside echo, chest radiographs and cardiology assessment."
-     },
-     {
-      "text": "MONITOR: No recommendation."
      }
     ],
     "dispo": [
      {
       "text": "TRANSFER: MICU for persistent hypotension requiring vasoactive support."
-     },
-     {
-      "text": "FOLLOW-UP: No recommendation."
      }
     ]
    },
