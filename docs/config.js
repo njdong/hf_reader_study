@@ -43,6 +43,7 @@ window.STUDY_CONFIG = {
     <ul>
       <li>Nothing is saved until you press Submit for that case. "Skip for now" moves on; you can return to that case later.
           You can stop and come back with the same link, and reopen a submitted case to change your answers.</li>
+      <li><b>Please use a home or mobile network.</b> Many hospital Wi-Fi networks block the Google service that stores the answers; on such a network the page keeps your answers on the device and uploads them the next time you open your link elsewhere.</li>
     </ul>`,
 
   // Shown on the last screen, e.g. "Questions: jane@upenn.edu".
