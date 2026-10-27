@@ -1,6 +1,6 @@
 {
  "study": "hf_reader_study",
- "version": "2026-10-27a",
+ "version": "2026-10-27b",
  "mode": "case",
  "systems": {
   "A": "multi-agent system (current run, first-12 h chart)",
@@ -1298,7 +1298,7 @@
     ],
     "acute": [
      {
-      "text": "START: Torsemide, potassium chloride, cephalexin and sulfamethoxazole. Acute IV diuretic or antibiotic administration is not documented."
+      "text": "START: Torsemide, potassium chloride, cephalexin and sulfamethoxazole."
      }
     ],
     "gdmt": [
@@ -1432,7 +1432,7 @@
     ],
     "acute": [
      {
-      "text": "PERFORM: Cardiac catheterization after abnormal resting echocardiogram; planned exercise stress test was not performed. No acute decongestive treatment documented."
+      "text": "PERFORM: Cardiac catheterization after abnormal resting echocardiogram; planned exercise stress test was not performed."
      }
     ],
     "gdmt": [
@@ -2892,7 +2892,7 @@
     ],
     "acute": [
      {
-      "text": "No acute decongestive or vasoactive treatment documented in the supplied narrative."
+      "text": "No recommendation."
      }
     ],
     "gdmt": [
