@@ -56,6 +56,8 @@ NOTE_PHRASES = [
     (re.compile(r"\s*\(unit name redacted\)|;\s*unit name redacted", re.I), ""),
     (re.compile(r"\s*—\s*type redacted in the source", re.I), ""),
     (re.compile(r"\s*recorded among coded diagnoses", re.I), ""),
+    (re.compile(r"no HF diagnosis in the supplied primary code", re.I), "no HF diagnosis coded"),
+    (re.compile(r"\s*in the supplied (?:primary )?code", re.I), " coded"),
     (re.compile(r"\s*among recorded diagnoses", re.I), ""),
 ]
 MAS_PHRASES = [
