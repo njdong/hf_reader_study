@@ -100,6 +100,7 @@ input[type="text"] { max-width: 16rem; font-family: var(--font-mono); letter-spa
 .btn.primary { background: var(--accent); color: var(--on-accent); }
 .btn.ghost { background: transparent; color: var(--accent); }
 .btn[disabled] { opacity: .55; cursor: progress; }
+.btn.small { font-size: 12.5px; padding: 5px 10px; }
 .status { margin: 0; font-size: 13.5px; color: var(--muted); }
 .status.err { color: var(--warn); }
 .status.ok { color: var(--ok); }
@@ -118,6 +119,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     <span class="brand" id="brand">HF Plan Comparison</span>
     <a href="#" class="help" id="helpLink" hidden>Instructions</a>
     <span class="prog" id="prog" hidden><span id="progText"></span><span class="track"><span class="fill" id="progFill"></span></span></span>
+    <button class="btn ghost small" id="dl" type="button" hidden title="Save a copy of your answers on this device">Download my answers</button>
   </div>
 </header>
 <p class="demo" id="demo" hidden>Demo mode: answers stay in this browser and are not sent anywhere.</p>
@@ -129,7 +131,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
 <script>
 (() => {
   "use strict";
-  const PAGE_VERSION = "2026-10-26-case";
+  const PAGE_VERSION = "2026-10-27-case-offline";
   const CFG = Object.assign({ endpoint: "", title: "HF Plan Comparison", intro: "", contact: "" }, window.STUDY_CONFIG || {});
   const DEMO = !CFG.endpoint;
   const PREF = [["strong_1", "Strongly prefer", "Option 1"], ["slight_1", "Slightly prefer", "Option 1"], ["neutral", "Neutral", ""],
@@ -145,9 +147,10 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
   const esc = s => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
   const S = { study: "", version: "", domains: [], cases: {}, assign: { evaluators: {} },
-              code: "", queue: [], idx: -1, done: new Set(), answers: {}, sent: [], acc: {}, t0: 0 };
+              code: "", queue: [], idx: -1, done: new Set(), answers: {}, sent: [], acc: {}, t0: 0,
+              outbox: [], pending: new Set() };
   const key = k => `hfrs:${S.study}:${S.code}:${k}`;
-  const caseDone = cid => S.done.has(`${cid}-${S.domains[0][0]}`);
+  const caseDone = cid => S.done.has(`${cid}-${S.domains[0][0]}`) || S.pending.has(cid);
 
   // ---------- timing ----------
   function stopClock() {
@@ -191,7 +194,10 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     store.set("hfrs:lastCode", code);
     S.answers = store.get(key("answers"), {});
     S.done = new Set(store.get(key("done"), []));
+    S.outbox = store.get(key("outbox"), []);
+    S.pending = new Set(S.outbox.map(p => p.case_id));
     if (!DEMO) {
+      await flushOutbox();
       try {
         const r = await getJSON(CFG.endpoint + (CFG.endpoint.includes("?") ? "&" : "?") + "r=" + encodeURIComponent(code));
         if (r.ok === false && r.error === "unknown_evaluator") {
@@ -238,7 +244,8 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     stopClock(); S.idx = -1;
     const contact = CFG.contact ? `<p class="muted">${esc(CFG.contact)}</p>` : "";
     const demo = DEMO && S.sent.length ? `<p class="muted">Demo mode. These payloads would be sent to the Google Sheet:</p><pre class="sent">${esc(S.sent.map(r => JSON.stringify(r)).join("\n"))}</pre>` : "";
-    app.innerHTML = `<section class="card"><h1>All ${S.queue.length} cases are submitted</h1><p>Thank you. You can close this page.</p>${contact}${demo}
+    const pend = S.pending.size ? `<p class="status err">${S.pending.size} case(s) are saved on this device but not yet uploaded, because this network could not reach the server. Open your link once on another network (home Wi-Fi or a phone hotspot) and they will upload by themselves, or use "Download my answers" and email the file to the study team.</p>` : "";
+    app.innerHTML = `<section class="card"><h1>All ${S.queue.length} cases are ${S.pending.size ? "answered" : "submitted"}</h1><p>Thank you.${S.pending.size ? "" : " You can close this page."}</p>${pend}${contact}${demo}
       <div class="actions"><button class="btn ghost" id="review" type="button">Review your answers</button></div></section>`;
     $("review").addEventListener("click", () => show(0));
     window.scrollTo(0, 0);
@@ -336,17 +343,28 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
         if (!res.ok) err = res.error || "unknown";
       } catch (x) { err = "network"; }
     }
-    if (err) {
+    if (err && err !== "network") {
       btn.disabled = false; startClock(); status.className = "status err";
-      status.textContent = err === "network" ? "Couldn't reach the server. Check your connection and press Submit again."
-        : err === "unknown_evaluator" ? "Your code isn't registered with the study, so this answer wasn't saved. Contact the study team."
+      status.textContent = err === "unknown_evaluator" ? "Your code isn't registered with the study, so this answer wasn't saved. Contact the study team."
         : `Couldn't save (${err}). Press Submit again.`;
       return;
     }
     S.acc[e.case] = 0;
-    S.domains.forEach(([k]) => S.done.add(`${e.case}-${k}`));
     S.answers[e.case] = { answers, safety_1: payload.safety_1, safety_2: payload.safety_2, comment: payload.comment };
+    if (err === "network") {
+      // No route to the server (e.g. a network that blocks Google). Keep the answer on this device and retry later.
+      S.outbox = S.outbox.filter(p => p.case_id !== e.case).concat([payload]);
+      S.pending.add(e.case);
+      persist(); progress();
+      status.className = "status err";
+      status.textContent = "No connection to the server (this network may block Google). Your answers for this case are saved on this device and will be sent automatically when you open your link on another network.";
+      setTimeout(() => { if (S.queue[S.idx] !== e) return; allDone() ? finish() : show(nextUndone(S.idx)); }, 2500);
+      return;
+    }
+    S.domains.forEach(([k]) => S.done.add(`${e.case}-${k}`));
+    S.pending.delete(e.case);
     persist(); progress();
+    if (S.outbox.length) flushOutbox();
     status.className = "status ok"; status.textContent = "Saved";
     setTimeout(() => { if (S.queue[S.idx] !== e) return; allDone() ? finish() : show(nextUndone(S.idx)); }, 450);
   }
@@ -358,12 +376,39 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     return 0;
   }
   function allDone() { return S.queue.every(e => caseDone(e.case)); }
-  function persist() { store.set(key("done"), [...S.done]); store.set(key("answers"), S.answers); }
+  function persist() { store.set(key("done"), [...S.done]); store.set(key("answers"), S.answers); store.set(key("outbox"), S.outbox); }
   function progress() {
-    const n = S.queue.length, d = S.queue.filter(e => caseDone(e.case)).length;
-    $("progText").textContent = `${d} of ${n} cases submitted`;
+    const n = S.queue.length, d = S.queue.filter(e => caseDone(e.case)).length, p = S.pending.size;
+    $("progText").textContent = `${d} of ${n} cases submitted` + (p ? ` (${p} waiting to upload)` : "");
     $("progFill").style.width = n ? (100 * d / n) + "%" : "0";
+    $("dl").hidden = !(S.code && (Object.keys(S.answers).length || S.outbox.length));
   }
+  // Send queued answers; stop at the first failure (the network is still blocked).
+  async function flushOutbox() {
+    if (DEMO || !S.outbox.length) return;
+    for (const payload of S.outbox) {
+      let ok = false;
+      try {
+        const r = await fetch(CFG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(Object.assign({}, payload, { uploaded_later: true })) });
+        ok = (await r.json()).ok === true;
+      } catch (x) { ok = false; }
+      if (!ok) break;                                   // still no route: keep the rest for next time
+      S.domains.forEach(([k]) => S.done.add(`${payload.case_id}-${k}`));
+      S.pending.delete(payload.case_id);
+    }
+    S.outbox = S.outbox.filter(p => S.pending.has(p.case_id));
+    persist(); if ($("progText")) progress();
+  }
+  // Last resort on a blocked network: a file the evaluator can email to the study team.
+  function downloadAnswers() {
+    const data = { study: S.study, items_version: S.version, evaluator: S.code, exported_at: new Date().toISOString(), page_version: PAGE_VERSION,
+                   queue: S.queue, answers: S.answers, pending_upload: S.outbox };
+    const blob = new Blob([JSON.stringify(data, null, 1)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = `hf_reader_study_${S.code}.json`; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }
+  $("dl").addEventListener("click", downloadAnswers);
   boot();
 })();
 </script>

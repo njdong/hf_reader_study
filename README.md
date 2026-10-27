@@ -29,6 +29,8 @@ python tools/build_study.py --evaluators 25 --per 6 --base-url https://USERNAME.
 ```
 Then paste `out/evaluators.csv` codes into the sheet's `evaluators` tab and push `docs/`.
 
+**Networks that block Google.** If `script.google.com` is unreachable (some hospital/campus Wi-Fi), the page keeps each submitted case on the device, shows "waiting to upload", and retries automatically the next time the link is opened on another network. "Download my answers" (top bar) saves a JSON file the evaluator can email; `python tools/import_offline.py <file>` turns it into rows for the `responses` tab.
+
 **Response rows (case mode).** One row per domain per case, with `safety_1`/`safety_2` (as shown) and `safety_A`/`safety_B` (A = MAS) repeated on each row. `Code.gs` must be redeployed (Manage deployments → Edit → New version) after updating it, so the new columns are written.
 
 ---
