@@ -5,6 +5,11 @@ window.STUDY_CONFIG = {
 
   title: "HF Plan Comparison",
 
+  // Backup channel for networks that block Google: a private GitHub repo that receives one issue per
+  // submitted case; a workflow there forwards it to the sheet. The token must be a fine-grained PAT
+  // limited to that repo with "Issues: read and write" only. Leave token "" to disable.
+  inbox: { repo: "njdong/hf_reader_inbox", token: "" },
+
   // Shown before the first case and from the "Instructions" link. Bump introVersion to show it again to everyone,
   // and bump ?v= on the config.js script tag in index.html so browsers refetch this file.
   introVersion: "2026-10-26",
