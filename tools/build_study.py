@@ -1,4 +1,4 @@
-"""Assemble the case-mode study: docs/cases.json from data/fullcases/, and case-level assignments.
+"""Assemble the case-mode study: docs/cases.json from data/bank_v2/assembly/tables_v2.json, and case-level assignments.
 
 Each evaluator rates whole cases (all six domains on one screen), in a random order, with the side
 of the MAS randomized per case. Every case is rated about equally often, and for each case the MAS
@@ -33,118 +33,26 @@ DATA = os.path.join(ROOT, "data")
 ALPHABET = "".join(c for c in string.ascii_uppercase + string.digits if c not in "O0I1L")
 
 
-import re
-
-TEAMS_DIR = os.path.join(DATA, "teams-form")
-BULLET_SPLIT = re.compile(r"(?<=[.)]) (?=[A-Z][A-Z0-9 /\-]{2,}:)")   # ". DIAGNOSIS:" -> new bullet
-SECTION_RE = re.compile(r"^(Physical Exam|ECHO|Echo|ECG|Imaging|Cardiac Catheterization / Procedure|Procedures/Other Studies)\s*:?\s*$")
+TABLES_V2 = os.path.join(DATA, "bank_v2", "assembly", "tables_v2.json")
 
 
-def plain(entries):
-    """Headline text only, no detail; shorten the conditional marker."""
-    return [{"text": x["text"].replace(" (conditional — see details)", " (conditional)")} for x in entries]
-
-
-def parse_form_stem(txt):
-    """The Teams-form stem text (from the PDF) into the page's stem fields."""
-    lines = [l.rstrip() for l in txt.split("\n")]
-    lines = [l for l in lines if l.strip() and not l.startswith(("Clinical Evaluation", "System (Latest", "Case 0"))]
-    out = {"presentation": "", "home_meds": "", "vitals": "", "labs": "", "exam": [], "echo": [], "ecg": [], "imaging": [], "cath": []}
-    key_map = {"Physical Exam": "exam", "ECHO": "echo", "Echo": "echo", "ECG": "ecg", "Imaging": "imaging",
-               "Cardiac Catheterization / Procedure": "cath", "Procedures/Other Studies": "cath"}
-    section, buf, field = None, [], None
-    def flush_field():
-        nonlocal buf, field
-        if field and buf:
-            out[field] = (out[field] + " " + " ".join(buf)).strip()
-        buf = []
-    for l in lines:
-        st = l.strip()
-        m = SECTION_RE.match(st)
-        if m:
-            flush_field(); field = None; section = key_map[m.group(1)]; continue
-        if section:
-            if re.match(r"^[A-Z][A-Za-z /()-]{1,40}:$", st):           # sub-head like "CXR:" inside Imaging
-                out[section].append(st.rstrip(":") + ":")
-            elif out[section] and out[section][-1].endswith(":") :
-                out[section][-1] = out[section][-1] + " " + st
-            elif re.match(r"^[^A-Z•]", st) and out[section]:            # wrapped continuation (lowercase, digit, '>' ...)
-                out[section][-1] += " " + st
-            else:
-                out[section].append(st)
-            continue
-        for lab, key in (("Patient Home Medications:", "home_meds"), ("Vitals:", "vitals"), ("Labs:", "labs")):
-            if st.startswith(lab):
-                flush_field(); field = key; buf = [st[len(lab):].strip()]; break
-        else:
-            if field is None and not out["presentation"] and not st.startswith(("Patient Home", "Vitals", "Labs")):
-                buf.append(st); field = "presentation"
-            elif field:
-                buf.append(st)
-    flush_field()
-    for k in ("presentation", "home_meds", "vitals", "labs"):            # drop trailing Forms question numbers ("… Na 143.0 1")
-        out[k] = re.sub(r"\s+\d{1,2}$", "", out[k]).strip()
-    return out
-
-
-def teams_override():
-    """{case_id: {stem, A, B}} for cases that have a transcribed Teams-form table and stem."""
-    tp = os.path.join(TEAMS_DIR, "tables.json")
-    if not os.path.exists(tp):
-        return {}
-    with open(tp, encoding="utf-8") as f:
-        tables = json.load(f)
-    out = {}
-    for n, t in tables.items():
-        if n.startswith("B"):                                   # backup case: stem comes from the extracted packet
-            ex_path = os.path.join(DATA, "formcases", "extracted", f"{t['case_id']}.json")
-            if not os.path.exists(ex_path):
-                continue
-            with open(ex_path, encoding="utf-8") as f:
-                st = json.load(f)["stem"]
-            labs = " | ".join(x for x in (st.get("presentation_labs", ""), st.get("labs", "")) if x)
-            stem = {"presentation": st["presentation"], "home_meds": st.get("home_meds", ""), "vitals": st.get("vitals", ""), "labs": labs,
-                    "exam": st.get("exam") or [], "echo": st.get("echo") or [], "ecg": st.get("ecg") or [], "imaging": st.get("imaging") or [], "cath": st.get("cath") or []}
-        else:
-            stem_path = os.path.join(TEAMS_DIR, f"case{n}_stem.txt")
-            if not os.path.exists(stem_path):
-                continue
-            with open(stem_path, encoding="utf-8") as f:
-                stem = parse_form_stem(f.read())
-        key = {"Diagnosis and HF characterization": "dx", "Decompensation causes and other active problems": "causes",
-               "Acute treatment and decongestion": "acute", "Ongoing medication/GDMT decisions": "gdmt",
-               "Monitoring and further workup": "monitor", "Disposition and follow-up": "dispo"}
-        A, B = {}, {}
-        for r in t["rows"]:
-            d = key[r["domain"]]
-            mas_txt, note_txt = (r["option_1"], r["option_2"]) if t["option_1"] == "MAS" else (r["option_2"], r["option_1"])
-            A[d] = [{"text": x} for x in BULLET_SPLIT.split(mas_txt)]
-            B[d] = [{"text": x} for x in BULLET_SPLIT.split(note_txt)]
-        out[t["case_id"]] = {"stem": stem, "A": A, "B": B, "form": True,
-                             "source": (f"Backup case {t['case_id']}: vignette + editable-tables column + reformatted MAS (form style)" if n.startswith("B") else f"Teams form case {n} (verbatim)")}
-    return out
-
-
-def load_cases(selection, fullcases_dir):
+def load_cases(selection, tables_path):
+    """Shipped case records from the bank-v2 assembly tables (option_1 = MAS -> A, option_2 = note -> B)."""
     with open(selection, newline="", encoding="utf-8") as f:
         sel = {r["case"]: r for r in csv.DictReader(f)}
-    forms = teams_override()
+    with open(tables_path, encoding="utf-8") as f:
+        tables = json.load(f)["cases"]
     cases = {}
-    for case, r in sel.items():
-        path = os.path.join(fullcases_dir, f"C{case}.json")
-        if not os.path.exists(path):
-            print(f"warning: no full case file for {case}; skipped")
+    for case in sel:
+        cid = f"C{case}"
+        t = tables.get(cid)
+        if not t:
+            print(f"warning: no bank-v2 table for {cid}; skipped")
             continue
-        with open(path, encoding="utf-8") as f:
-            fc = json.load(f)
-        rec = {"case_id": fc["case_id"], "cohort": fc["cohort"], "age_sex": fc.get("age_sex"), "label": r["label"],
-               "stem": fc["stem"], "A": {d: plain(v) for d, v in fc["mas"].items()}, "B": {d: plain(v) for d, v in fc["reference"].items()},
-               "source": "first-12 h stem (LLM) + MAS current run (mechanical) + record (parsed)"}
-        if fc["case_id"] in forms:
-            rec.update(forms[fc["case_id"]])
-        cases[fc["case_id"]] = rec
-    n_forms = sum(1 for c in cases.values() if c.get("form"))
-    print(f"{n_forms} cases use form-format tables (10 verbatim Teams forms + reformatted backup cases)")
+        cases[cid] = {"case_id": cid, "cohort": t["cohort"], "age_sex": t.get("age_sex"), "stem": t["stem"],
+                      "A": {d: [{"text": x} for x in v] for d, v in t["option_1"].items()},
+                      "B": {d: [{"text": x} for x in v] for d, v in t["option_2"].items()},
+                      "source": "bank_v2: verbatim sources -> staged extraction -> aligned (see data/bank_v2/MANIFEST.json)"}
     return cases
 
 
@@ -194,7 +102,7 @@ def assign(cases, n_eval, per, rng):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--selection", default=os.path.join(DATA, "case_selection.csv"))
-    ap.add_argument("--fullcases", default=os.path.join(DATA, "fullcases"))
+    ap.add_argument("--tables", default=TABLES_V2)
     ap.add_argument("--out-cases", default=os.path.join(ROOT, "docs", "cases.json"))
     ap.add_argument("--out-assign", default=os.path.join(ROOT, "docs", "assignments.json"))
     ap.add_argument("--csv", default=os.path.join(ROOT, "out", "evaluators.csv"))
@@ -204,20 +112,13 @@ def main():
     ap.add_argument("--base-url", default="")
     ap.add_argument("--version", default=dt.date.today().isoformat())
     ap.add_argument("--cases-only", action="store_true")
-    ap.add_argument("--forms-only", action="store_true", help="include only cases that have a Teams-form transcription")
     args = ap.parse_args()
 
-    cases = load_cases(args.selection, args.fullcases)
-    if args.forms_only:
-        cases = {k: v for k, v in cases.items() if v.get("form")}
-        print(f"forms-only: {len(cases)} cases kept")
-    from align_language import align_cases
-    aligned = align_cases({"cases": cases})
-    for cid, c in cases.items():
-        c["A"], c["B"] = aligned[cid]["A"], aligned[cid]["B"]
+    cases = load_cases(args.selection, args.tables)
     doc = {
         "study": "hf_reader_study", "version": args.version, "mode": "case",
-        "systems": {"A": "multi-agent system (current run, first-12 h chart)", "B": "clinical note (record: coded diagnoses, orders, prescriptions)"},
+        "systems": {"A": "multi-agent system (current run, first-12 h chart)",
+                    "B": "clinical note (record: coded diagnoses, first-12 h orders, clinician prescriptions)"},
         "domains": [[k, v] for k, v in DOMAINS.items()],
         "cases": cases,
     }
