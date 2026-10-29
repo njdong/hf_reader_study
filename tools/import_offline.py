@@ -17,7 +17,8 @@ import json
 
 HEADERS = ["received_at", "study", "items_version", "evaluator", "item_id", "case_id", "domain", "position",
            "left_system", "choice", "score_A", "comment", "seconds_on_item", "submitted_at", "page_version", "user_agent",
-           "safety_1", "safety_2", "safety_A", "safety_B"]
+           "safety_1", "safety_2", "safety_A", "safety_B",
+           "completeness_1", "completeness_2", "completeness_A", "completeness_B"]
 CHOICE_SCORE = {"strong_1": -2, "slight_1": -1, "neutral": 0, "slight_2": 1, "strong_2": 2}
 
 
@@ -32,13 +33,15 @@ def rows_from(doc):
         lft = left.get(case, p.get("left_system", "A"))
         s1, s2 = a.get("safety_1", ""), a.get("safety_2", "")
         sA, sB = (s1, s2) if lft == "A" else (s2, s1)
+        c1, c2 = a.get("completeness_1", ""), a.get("completeness_2", "")
+        cA, cB = (c1, c2) if lft == "A" else (c2, c1)
         for dom, choice in a["answers"].items():
             raw = CHOICE_SCORE[choice]
             out.append([
                 dt.datetime.now().isoformat(timespec="seconds") + " (imported from file)", doc.get("study", ""), doc.get("items_version", ""),
                 code, f"{case}-{dom}", case, dom, pos.get(case, ""), lft, choice, -raw if lft == "A" else raw,
                 a.get("comment", ""), p.get("seconds", ""), p.get("submitted_at", doc.get("exported_at", "")),
-                doc.get("page_version", ""), "", s1, s2, sA, sB,
+                doc.get("page_version", ""), "", s1, s2, sA, sB, c1, c2, cA, cB,
             ])
     return out
 

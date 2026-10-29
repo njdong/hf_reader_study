@@ -24,7 +24,8 @@ var EVALUATORS = 'evaluators';
 var HEADERS = [
   'received_at', 'study', 'items_version', 'evaluator', 'item_id', 'case_id', 'domain', 'position',
   'left_system', 'choice', 'score_A', 'comment', 'seconds_on_item', 'submitted_at', 'page_version', 'user_agent',
-  'safety_1', 'safety_2', 'safety_A', 'safety_B'
+  'safety_1', 'safety_2', 'safety_A', 'safety_B',
+  'completeness_1', 'completeness_2', 'completeness_A', 'completeness_B'
 ];
 // choice is relative to the screen; score_A is relative to the systems (+2 = strongly prefers system A).
 var CHOICE_SCORE = { strong_1: -2, slight_1: -1, neutral: 0, slight_2: 1, strong_2: 2 };
@@ -75,9 +76,11 @@ function doPost(e) {
     if (!/^[A-Za-z0-9_]+-[a-z]+$/.test(itemId)) return out_({ ok: false, error: 'bad_item' });
     answers.push([text_(d.domain, 32), itemId, d.choice]);
   }
-  // safety: 0-4 per screen option; also mapped to systems
+  // safety and completeness: 0-4 per screen option; also mapped to systems
   var s1 = safety_(d.safety_1), s2 = safety_(d.safety_2);
   var sA = left === 'A' ? s1 : s2, sB = left === 'A' ? s2 : s1;
+  var c1 = safety_(d.completeness_1), c2 = safety_(d.completeness_2);
+  var cA = left === 'A' ? c1 : c2, cB = left === 'A' ? c2 : c1;
 
   var rows = [];
   for (var i = 0; i < answers.length; i++) {
@@ -88,7 +91,7 @@ function doPost(e) {
       caseId, answers[i][0], num_(d.position),
       left, answers[i][2], scoreA, text_(d.comment, 5000), num_(d.seconds),
       text_(d.submitted_at, 40), text_(d.page_version, 40), text_(d.user_agent, 300),
-      s1, s2, sA, sB
+      s1, s2, sA, sB, c1, c2, cA, cB
     ]);
   }
   var lock = LockService.getScriptLock();

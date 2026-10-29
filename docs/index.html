@@ -127,11 +127,11 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
 <noscript><p class="wrap">This study page needs JavaScript.</p></noscript>
 
 <!-- bump ?v= whenever config.js changes, so browsers refetch it (GitHub Pages caches files for 10 min) -->
-<script src="config.js?v=20261026b"></script>
+<script src="config.js?v=20261028"></script>
 <script>
 (() => {
   "use strict";
-  const PAGE_VERSION = "2026-10-27-case";
+  const PAGE_VERSION = "2026-10-29-case";
   const CFG = Object.assign({ endpoint: "", title: "HF Plan Comparison", intro: "", contact: "" }, window.STUDY_CONFIG || {});
   const DEMO = !CFG.endpoint;
   const PREF = [["strong_1", "Strongly prefer", "Option 1"], ["slight_1", "Slightly prefer", "Option 1"], ["neutral", "Neutral", ""],
@@ -235,7 +235,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     stopClock();
     const back = S.idx >= 0 ? S.idx : nextUndone(-1);
     app.innerHTML = `<section class="card"><h1>Before you start</h1>${CFG.intro}
-      <p class="muted">${S.queue.length} cases · about ${S.queue.length * 6} minutes · you can stop and come back with the same link</p>
+      <p class="muted">${S.queue.length} cases · you can stop and come back with the same link</p>
       <div class="actions"><button class="btn primary" id="go" type="button">${S.idx >= 0 ? "Back to the case" : "Start"}</button></div></section>`;
     $("go").addEventListener("click", () => { store.set(key("introSeen"), INTRO_VER); allDone() && S.idx < 0 ? finish() : show(back); });
     window.scrollTo(0, 0);
@@ -285,6 +285,7 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     const prev = S.answers[e.case] || { answers: {} };
     const done = caseDone(e.case);
     const saf = who => [0, 1, 2, 3, 4].map(n => `<label><input type="radio" name="saf-${who}" value="${n}"${prev["safety_" + who] === n ? " checked" : ""}>${n}</label>`).join("");
+    const comp = who => [0, 1, 2, 3, 4].map(n => `<label><input type="radio" name="comp-${who}" value="${n}"${prev["completeness_" + who] === n ? " checked" : ""}>${n}</label>`).join("");
     app.innerHTML = `
       <section class="card">
         <div class="meta"><span class="pos">Case ${i + 1} of ${S.queue.length}</span><span>${esc(c.cohort.replace(/_/g, " "))}</span>${done ? '<span class="badge">Submitted</span>' : ""}</div>
@@ -294,6 +295,9 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
           ${table(c, e.left, prev)}
           <fieldset><legend>Were there any safety concerns in each option's recommendations? 0 = no safety concern, 4 = very dangerous safety concern</legend>
             <div class="saf"><span class="who">Option 1</span>${saf(1)}<span></span><span class="who">Option 2</span>${saf(2)}<span></span></div>
+          </fieldset>
+          <fieldset><legend>How complete is each option's plan for this patient? 0 = major gaps, 4 = nothing important missing</legend>
+            <div class="saf"><span class="who">Option 1</span>${comp(1)}<span></span><span class="who">Option 2</span>${comp(2)}<span></span></div>
           </fieldset>
           <label class="field" for="comment">Comments <span>Optional. Explain any safety concern, unsupported fact, or missed opportunity.</span>
             <textarea id="comment" name="comment">${esc(prev.comment || "")}</textarea></label>
@@ -322,22 +326,24 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
       if (p) { answers[k] = p.value; tr.classList.remove("missing"); } else { missing.push(label); tr.classList.add("missing"); }
     });
     const s1 = document.querySelector('input[name="saf-1"]:checked'), s2 = document.querySelector('input[name="saf-2"]:checked');
-    if (missing.length || !s1 || !s2) {
+    const c1 = document.querySelector('input[name="comp-1"]:checked'), c2 = document.querySelector('input[name="comp-2"]:checked');
+    if (missing.length || !s1 || !s2 || !c1 || !c2) {
       status.className = "status err";
-      status.textContent = missing.length ? `Choose a preference for every category (${missing.length} left).` : "Rate the safety concern for both options.";
+      status.textContent = missing.length ? `Choose a preference for every category (${missing.length} left).`
+        : (!s1 || !s2) ? "Rate the safety concern for both options." : "Rate the completeness of both options.";
       return;
     }
     stopClock();
     const payload = {
       study: S.study, items_version: S.version, evaluator: S.code, case_id: e.case, position: S.idx + 1, left_system: e.left,
-      answers, safety_1: Number(s1.value), safety_2: Number(s2.value), comment: $("comment").value.trim(),
+      answers, safety_1: Number(s1.value), safety_2: Number(s2.value),
+      completeness_1: Number(c1.value), completeness_2: Number(c2.value), comment: $("comment").value.trim(),
       seconds: Math.round(S.acc[e.case] || 0), submitted_at: new Date().toISOString(), page_version: PAGE_VERSION, user_agent: navigator.userAgent
     };
     btn.disabled = true; status.className = "status"; status.textContent = "Saving…";
     let err = "";
     if (DEMO) S.sent.push(payload);
     else err = await send(payload);
-    const viaInbox = false;
     if (err && err !== "network") {
       btn.disabled = false; startClock(); status.className = "status err";
       status.textContent = err === "unknown_evaluator" ? "Your code isn't registered with the study, so this answer wasn't saved. Contact the study team."
@@ -345,7 +351,8 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
       return;
     }
     S.acc[e.case] = 0;
-    S.answers[e.case] = { answers, safety_1: payload.safety_1, safety_2: payload.safety_2, comment: payload.comment };
+    S.answers[e.case] = { answers, safety_1: payload.safety_1, safety_2: payload.safety_2,
+                          completeness_1: payload.completeness_1, completeness_2: payload.completeness_2, comment: payload.comment };
     if (err === "network") {
       // No route to the server (e.g. a network that blocks Google). Keep the answer on this device and retry later.
       S.outbox = S.outbox.filter(p => p.case_id !== e.case).concat([payload]);
@@ -360,8 +367,8 @@ pre.sent { margin: 0; max-height: 320px; overflow: auto; font-family: var(--font
     S.pending.delete(e.case);
     persist(); progress();
     if (S.outbox.length) flushOutbox();
-    status.className = "status ok"; status.textContent = viaInbox ? "Saved (via the backup channel)" : "Saved";
-    setTimeout(() => { if (S.queue[S.idx] !== e) return; allDone() ? finish() : show(nextUndone(S.idx)); }, viaInbox ? 900 : 450);
+    status.className = "status ok"; status.textContent = "Saved";
+    setTimeout(() => { if (S.queue[S.idx] !== e) return; allDone() ? finish() : show(nextUndone(S.idx)); }, 450);
   }
 
   // ---------- helpers ----------
