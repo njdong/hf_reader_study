@@ -22,8 +22,23 @@ import datetime as dt
 import json
 import os
 import re
+import ssl
 import sys
 import urllib.request
+
+# macOS python.org builds often lack root certs; use certifi when the default store fails to load.
+try:
+    SSL_CTX = ssl.create_default_context()
+    if not SSL_CTX.cert_store_stats().get("x509_ca"):
+        raise ValueError("empty CA store")
+except Exception:
+    SSL_CTX = None
+if SSL_CTX is None:
+    try:
+        import certifi
+        SSL_CTX = ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        sys.exit("no usable CA store: install certifi (pip install certifi) or run with a python that has root certs")
 
 BASE = "https://njdong.github.io/hf_reader_study/"
 GUARD = re.compile(r"supplied|safety actions|prescription table|recorded diagnos|in the record|"
@@ -35,7 +50,7 @@ RESULTS = []
 def fetch(url, data=None):
     req = urllib.request.Request(url, data=data, headers={
         "User-Agent": "hf-reader-study-check", **({"Content-Type": "text/plain;charset=utf-8"} if data else {})})
-    with urllib.request.urlopen(req, timeout=60) as r:
+    with urllib.request.urlopen(req, timeout=60, context=SSL_CTX) as r:
         return r.read().decode("utf-8")
 
 
@@ -136,7 +151,9 @@ def main():
     print(f"\n{'ALL PASS' if not n_fail else f'{n_fail} FAILED'} ({len(RESULTS)} checks)")
 
     log_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "bank_v2", "deployment")
-    if not os.path.isdir(log_dir):
+    if os.path.isdir(os.path.dirname(log_dir)):
+        os.makedirs(log_dir, exist_ok=True)
+    else:
         log_dir = "."
     log = os.path.join(log_dir, f"check_{dt.datetime.now().strftime('%Y%m%d-%H%M%S')}.log")
     with open(log, "w", encoding="utf-8") as f:
