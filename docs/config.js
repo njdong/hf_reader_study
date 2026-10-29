@@ -8,7 +8,7 @@ window.STUDY_CONFIG = {
 
   // Shown before the first case and from the "Instructions" link. Bump introVersion to show it again to everyone,
   // and bump ?v= on the config.js script tag in index.html so browsers refetch this file.
-  introVersion: "2026-10-28",
+  introVersion: "2026-10-29",
   intro: `
     <p>This study compares two management plans for the same heart-failure admission, domain by domain.
        Your ratings are the outcome of the study. Plan order is randomized; all cases are de-identified
@@ -51,6 +51,8 @@ window.STUDY_CONFIG = {
       <li>Each case saves only on Submit. Skipped cases wait; submitted ones can be reopened and changed.</li>
       <li><b>Use a home or mobile network:</b> hospital Wi-Fi often blocks saving. Blocked answers stay on this device and
           upload later from another network.</li>
+      <li>If uploading never works for you, press <b>"Download my answers"</b> in the top bar and email us the saved file;
+          your answers count the same.</li>
     </ul>`,
 
   // Shown on the last screen, e.g. "Questions: jane@upenn.edu".
