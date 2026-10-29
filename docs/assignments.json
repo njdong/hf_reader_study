@@ -2,7 +2,7 @@
  "study": "hf_reader_study",
  "items_version": "2026-10-28b",
  "mode": "case",
- "generated": "2026-10-28T22:03:50",
+ "generated": "2026-10-28T23:21:00",
  "base_url": "https://njdong.github.io/hf_reader_study/",
  "evaluators": {
   "R01-ATFU": [
@@ -249,6 +249,128 @@
    {
     "case": "C029",
     "left": "A"
+   }
+  ],
+  "R00-EHX9": [
+   {
+    "case": "C093",
+    "left": "B"
+   },
+   {
+    "case": "C080",
+    "left": "B"
+   },
+   {
+    "case": "C029",
+    "left": "A"
+   },
+   {
+    "case": "C021",
+    "left": "A"
+   },
+   {
+    "case": "C095",
+    "left": "B"
+   },
+   {
+    "case": "C092",
+    "left": "A"
+   },
+   {
+    "case": "C082",
+    "left": "B"
+   },
+   {
+    "case": "C036",
+    "left": "B"
+   },
+   {
+    "case": "C081",
+    "left": "A"
+   },
+   {
+    "case": "C078",
+    "left": "A"
+   },
+   {
+    "case": "C100",
+    "left": "A"
+   },
+   {
+    "case": "C068",
+    "left": "B"
+   },
+   {
+    "case": "C018",
+    "left": "B"
+   },
+   {
+    "case": "C087",
+    "left": "A"
+   },
+   {
+    "case": "C041",
+    "left": "B"
+   },
+   {
+    "case": "C006",
+    "left": "B"
+   },
+   {
+    "case": "C043",
+    "left": "A"
+   },
+   {
+    "case": "C013",
+    "left": "B"
+   },
+   {
+    "case": "C099",
+    "left": "B"
+   },
+   {
+    "case": "C042",
+    "left": "A"
+   },
+   {
+    "case": "C058",
+    "left": "A"
+   },
+   {
+    "case": "C001",
+    "left": "A"
+   },
+   {
+    "case": "C063",
+    "left": "B"
+   },
+   {
+    "case": "C037",
+    "left": "B"
+   },
+   {
+    "case": "C098",
+    "left": "A"
+   },
+   {
+    "case": "C084",
+    "left": "A"
+   },
+   {
+    "case": "C083",
+    "left": "A"
+   },
+   {
+    "case": "C031",
+    "left": "B"
+   },
+   {
+    "case": "C016",
+    "left": "A"
+   },
+   {
+    "case": "C061",
+    "left": "B"
    }
   ]
  }

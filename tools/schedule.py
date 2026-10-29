@@ -8,7 +8,12 @@ Commands
   python tools/schedule.py --init --evaluators 3 --per 20 --core 10 --seed 20261028 \
          --base-url https://njdong.github.io/hf_reader_study/
   python tools/schedule.py --add 2 [--per 15]
+  python tools/schedule.py --test-code      # create/refresh the R00 staff test evaluator (all 30 cases)
   ... --dry-run prints the planning report and writes nothing.
+
+The R00 test evaluator is for the study team: it sees every case through the real page and real
+backend, is persisted in STATE (so --add keeps it in assignments.json), appears in evaluators.csv
+but NOT in randomization_key.csv, and its rows must be excluded from analysis by code.
 
 Writes (atomically): docs/assignments.json (existing evaluators byte-identical on --add),
 data/bank_v2/schedule/{STATE.json, evaluators.csv, randomization_key.csv}.
@@ -72,13 +77,28 @@ def planning_report(S):
 
 
 def rebuild(state):
-    """Replay init + history adds; returns the Schedule."""
+    """Replay init + history adds; returns the Schedule. Non-add entries (test-code) are skipped."""
     cases = {c: coh for c, coh in state["cases"].items()}
     h0 = state["history"][0]
     S = init_schedule(cases, h0["n"], h0["per"], h0["core"], state["seed"])
     for h in state["history"][1:]:
-        add_evaluators(S, h["n"], h["per"])
+        if h["cmd"] == "add":
+            add_evaluators(S, h["n"], h["per"])
     return S
+
+
+def make_test_evaluator(state):
+    """R00-XXXX with all cases: cohort-shuffled order, exactly balanced sides, seeded queue."""
+    import random
+    rng = random.Random(f"{state['seed']}:test")
+    cases = sorted(state["cases"])
+    rng.shuffle(cases)
+    sides = ["A", "B"] * (len(cases) // 2) + (["A"] if len(cases) % 2 else [])
+    rng.shuffle(sides)
+    taken = {se["code"] for se in state["evaluators"]}
+    prev = state.get("test_evaluator", {}).get("code")
+    code = prev or new_code(0, taken)
+    return {"code": code, "queue": [[c, s] for c, s in zip(cases, sides)]}
 
 
 def queues_equal(S, state):
@@ -108,6 +128,11 @@ def write_outputs(S, state, dry):
     base = state.get("base_url", "").rstrip("/")
     ev_rows = [[code, e["per"], f"{base}/?r={code}" if base else f"?r={code}"]
                for code, e in zip(codes, S.evals)]
+    test = state.get("test_evaluator")
+    if test:  # staff account: in assignments + evaluators.csv, never in randomization_key.csv
+        assign["evaluators"][test["code"]] = [{"case": c, "left": s} for c, s in test["queue"]]
+        ev_rows.append([test["code"], len(test["queue"]),
+                        f"{base}/?r={test['code']}" if base else f"?r={test['code']}"])
     key_rows = []
     for code, e in zip(codes, S.evals):
         for p, (c, left) in enumerate(e["queue"], 1):
@@ -173,6 +198,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--init", action="store_true")
     ap.add_argument("--add", type=int)
+    ap.add_argument("--test-code", action="store_true",
+                    help="create/refresh the R00 staff test evaluator (sees all cases; excluded from analysis)")
     ap.add_argument("--evaluators", type=int, default=3)
     ap.add_argument("--per", type=int, default=None)
     ap.add_argument("--core", type=int, default=10)
@@ -181,8 +208,24 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true", help="overwrite an existing STATE.json on --init")
     args = ap.parse_args()
-    if args.init == (args.add is not None):
-        sys.exit("use exactly one of --init / --add N")
+    if sum([args.init, args.add is not None, args.test_code]) != 1:
+        sys.exit("use exactly one of --init / --add N / --test-code")
+
+    if args.test_code:
+        with open(STATE, encoding="utf-8") as f:
+            old = json.load(f)
+        S = rebuild(old)
+        if not queues_equal(S, old):
+            sys.exit("replay does not reproduce STATE.json queues; aborting")
+        state = dict(old)
+        state["test_evaluator"] = make_test_evaluator(state)
+        state["history"] = old["history"] + [{"batch": None, "cmd": "test-code",
+                                              "at": dt.datetime.now().isoformat(timespec="seconds")}]
+        print(f"test evaluator {state['test_evaluator']['code']}: all {len(state['test_evaluator']['queue'])} cases "
+              f"(sides {sum(1 for _, s in state['test_evaluator']['queue'] if s == 'A')}A/"
+              f"{sum(1 for _, s in state['test_evaluator']['queue'] if s == 'B')}B); excluded from analysis by code")
+        write_outputs(S, state, args.dry_run)
+        return
 
     if args.init:
         if os.path.exists(STATE) and not args.force:
