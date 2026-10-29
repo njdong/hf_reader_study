@@ -1,128 +1,111 @@
 # HF reader study
 
-Evaluators open a personal link, see their assigned cases one at a time, and every answer goes straight to a Google Sheet. The cases, the assignments and the page are all generated from files, so nothing is built by hand.
+Evaluators open a personal link, see their assigned cases one at a time, and every answer goes
+straight to a Google Sheet. The cases, the assignments and the page are all generated from files,
+so nothing is built by hand.
 
-**Current mode: whole-case comparison** (since 2026-10-26). Each screen shows one case: the chart as of the first 12 h of admission (stem), then a 6-domain table comparing the multi-agent system's plan with the clinical note (the hospital record), then a preference per domain, a 0–4 safety rating per option, and a comment. Option order is randomized per case per evaluator.
+**Mode: whole-case comparison.** Each screen shows one case: a whole-admission chart summary
+(stem), a 6-domain table comparing two management plans (the multi-agent system's plan and the
+clinical-note plan from the record), a preference per domain, a 0–4 safety rating per option, a
+0–4 completeness rating per option, and a comment. Option order is randomized per case per
+evaluator.
 
-```
-data/cases_mas_review_100.md ──parse_mas.py──▶ data/mas_outputs.json
-        │                                              │
-        └── CHART + MAS ──build_fullcase.py (LLM stem)─▶ data/fullcases/C*.json ──build_study.py──▶ docs/cases.json + docs/assignments.json
-                                                                                                          │
-                                                                                 docs/index.html ◀────────┘ ──▶ Apps Script ──▶ Google Sheet
-```
-
-| Path | What it is |
-|---|---|
-| `tools/build_fullcase.py` | First-12 h chart → stem (LLM, chart blocks only), MAS column (mechanical), clinical-note column (parsed record) |
-| `tools/build_study.py` | `data/fullcases/` → `docs/cases.json`; case-level assignments with balanced coverage and MAS side; key CSV |
-| `data/case_selection.csv` | The 30 study cases: 10 "preferred", 20 "backup" |
-| `docs/legacy_items.html` | The earlier per-domain item page (kept for reference; uses `items.json`) |
-
-Rebuild everything:
-```bash
-python tools/parse_mas.py
-CLAUDE_BIN=~/.claude/local/claude python tools/build_fullcase.py          # preferred cases (LLM stems)
-CLAUDE_BIN=~/.claude/local/claude python tools/build_fullcase.py --cases 006 013 ...   # any others
-python tools/build_fullcase.py --render-only                               # recompute MAS/reference without the LLM
-python tools/build_study.py --evaluators 25 --per 6 --base-url https://USERNAME.github.io/hf_reader_study/
-```
-Then paste `out/evaluators.csv` codes into the sheet's `evaluators` tab and push `docs/`.
-
-**Networks that block Google.** If `script.google.com` is unreachable (some hospital/campus Wi-Fi), the page keeps each submitted case on the device, shows "waiting to upload", and retries automatically the next time the link is opened on another network. "Download my answers" (top bar) saves a JSON file the evaluator can email; `python tools/import_offline.py <file>` turns it into rows for the `responses` tab.
-
-**Response rows (case mode).** One row per domain per case, with `safety_1`/`safety_2` (as shown) and `safety_A`/`safety_B` (A = MAS) repeated on each row. `Code.gs` must be redeployed (Manage deployments → Edit → New version) after updating it, so the new columns are written.
-
----
-
-## Earlier per-domain item mode (reference)
+## Data flow (bank v2)
 
 ```
-data/cases/*.json ──make_items.py (LLM)──▶ docs/items.json ──make_assignments.py──▶ docs/assignments.json
-                                                   │                                        │
-                                                   └──────────── docs/index.html ◀──────────┘
-                                                                 (GitHub Pages)
-                                                                       │  POST per item
-                                                                       ▼
-                                                        Apps Script ──▶ Google Sheet
+data/cases_mas_review_100.md ─┐
+mimic-iv-ext-cardiac-…/ ──────┴─ bank2_stage1.py ─▶ data/bank_v2/01_verbatim/C*.json  (spans + sha256)
+                                      │ doer agents (validated 1:1 by independent agents)
+                                      ▼
+                             data/bank_v2/02_extracted/C*.json  (every item cites its source spans)
+                                      │ bank2_align.py (deterministic rules, ALIGN_RULES.md)
+                                      ▼
+                             data/bank_v2/03_aligned/C*.json ── bank2_assemble.py ─▶ docs/cases.json
+                                                                          │
+docs/index.html ◀── docs/assignments.json ◀── schedule.py                 │
+       │                                                                  ▼
+       └────────────── POST per case ──▶ Apps Script (apps_script/Code.gs) ──▶ Google Sheet
 ```
 
 | Path | What it is |
 |---|---|
-| `docs/index.html` | Evaluator page (served by GitHub Pages) |
-| `docs/config.js` | Backend URL, title, intro text, contact line |
-| `docs/items.json` | Question bank: one item = one case × one domain |
-| `docs/assignments.json` | Which items each evaluator sees, and which system appears as Option 1 |
-| `apps_script/Code.gs` | Receives answers and writes them to the sheet |
-| `tools/make_items.py` | Case + two system outputs → items, via any OpenAI-compatible LLM endpoint |
-| `tools/make_assignments.py` | Balanced assignments and personal links |
-| `tools/itemlib.py` | Item schema and validator (`python tools/itemlib.py`) |
-| `prompts/item_prompt.md` | The LLM prompt (stem template, condensing and highlighting rules) |
-| `data/cases/C01.json` | Example of the case input format |
-| `tools/parse_mas.py` | MAS review markdown (`data/cases_mas_review_100.md`) → `data/mas_outputs.json`, one structured record per case |
-| `tools/build_batch.py` | Joins the batch-20 key, docx tables, vignettes and MAS output → `data/batch20_cases.json`, and reports where the docx AI column has drifted from the MAS output |
-| `tools/build_cases.py` | `batch20_cases.json` → `data/cases/C<case>.json` (pipeline input, full text) and `data/batch20_raw.md` (readable stems + tables) |
-| `data/batch20_ai_update_report.md` | Findings from the 2026-10-21 drift check |
+| `tools/bank2_stage1.py` | Verbatim spans per case (dataset + MAS markdown), sha256 + locator each |
+| `tools/bank2_align.py` | Stage 3: deterministic language alignment (rules in `data/bank_v2/00_template/ALIGN_RULES.md`) |
+| `tools/bank2_assemble.py` | Stage-3 files → `assembly/tables_v2.json` → `docs/cases.json`, with grep-guard and budget checks |
+| `tools/build_study.py` | Reader of `assembly/tables_v2.json` (legacy entry point; `--cases-only` kept) |
+| `tools/schedule.py` | Staged assignments (design: `data/bank_v2/schedule/DESIGN.md`): `--init`, incremental `--add`, replay-verified |
+| `tools/check_deploy.py` | End-to-end deployment check (Pages, cases, assignments, backend GET/POST), stdlib only |
+| `tools/import_offline.py` | "Download my answers" file → sheet rows (24 columns) |
+| `tools/parse_mas.py` | MAS review markdown → `data/mas_outputs.json` (mechanical) |
+| `data/case_selection.csv` | The 30 study cases |
+| `docs/config.js` | Backend URL, title, intro text (cardiologist-persona reviewed), contact |
+| `apps_script/Code.gs` | Receives answers, writes one row per domain |
 
-Run all commands from the repo root.
-
-## One-time setup (about 15 minutes)
-
-**1. Google Sheet and backend**
-1. Create a new Google Sheet. Open Extensions → Apps Script, replace the contents of `Code.gs` with `apps_script/Code.gs`, and save.
-2. Pick `setup` in the function menu, click Run, and approve the permissions. This creates the `responses` and `evaluators` tabs.
-3. Deploy → New deployment → Select type: Web app. Set *Execute as* to **Me** and *Who has access* to **Anyone**. Deploy and copy the URL ending in `/exec`.
-
-**2. Page**
-1. Paste that URL into `docs/config.js` as `endpoint`. Edit `intro` and `contact` if you like.
-2. Push this folder to a GitHub repo. In the repo, open Settings → Pages, set Source to *Deploy from a branch*, choose branch `main` and folder `/docs`, and save. After about a minute the site is live at `https://USERNAME.github.io/hf_reader_study/`.
-
-**3. Evaluators**
+Rebuild everything (deterministic; `docs/cases.json` is byte-identical given the same version):
 ```bash
-python tools/make_assignments.py --evaluators 12 --per 10 --base-url https://USERNAME.github.io/hf_reader_study/
+python tools/bank2_stage1.py
+# stage 2 is agent work recorded in data/bank_v2/02_extracted/ — do not regenerate casually
+python tools/bank2_align.py && python tools/bank2_assemble.py --version <date>
+python tools/schedule.py --init --evaluators 3 --per 20 --core 10 --seed 20261028 \
+       --base-url https://njdong.github.io/hf_reader_study/     # or --add N later
+python tools/check_deploy.py --live     # from a network that can reach script.google.com
 ```
-Commit and push `docs/assignments.json`. Then paste the `code` column of `out/evaluators.csv` into column A of the `evaluators` tab. Each evaluator gets their `link` from that CSV.
+Then paste the codes from `data/bank_v2/schedule/evaluators.csv` into the sheet's `evaluators` tab
+and push `docs/`. After any `apps_script/Code.gs` edit: Deploy → Manage deployments → Edit →
+Version: *New version* (same URL; a *New deployment* would change the URL).
 
-**4. Test.** Open one link, submit an item, and check that a row appears in `responses`. Then delete the test row.
+## Not in git (never commit these)
+
+- `data/` — everything under it, notably `data/bank_v2/` (the complete provenance record of the
+  rebuild: template, spans, extractions, validations, manifest, schedule, instructions reviews,
+  deployment logs) and `data/_prior_pilot/` (quarantined pilot artifacts, kept only for the
+  recorded sanity check).
+- `mimic-iv-ext-cardiac-disease-1.0.0/` — PhysioNet credentialed dataset: research use only, must
+  not be shared or leave the machine.
+- `out/` — scratch outputs.
+
+`.gitignore` enforces all three; `git status` must never show anything under `data/` staged.
+The provenance ceiling of the bank: medication orders (first 12 h) and the clinicians' new
+prescriptions come from the MAS markdown's CHART/TRUTH blocks, which are second-hand extracts of
+MIMIC-IV, because the public dataset carries no prescriptions table and no hospital course.
+
+## One-time setup
+
+1. **Sheet and backend**: create a Google Sheet → Extensions → Apps Script → paste
+   `apps_script/Code.gs` → run `setup()` once → Deploy → New deployment → Web app
+   (*Execute as* Me, *Who has access* Anyone) → copy the `/exec` URL into `docs/config.js`.
+2. **Page**: push this repo; Settings → Pages → deploy branch `main`, folder `/docs`.
+3. **Evaluators**: `python tools/schedule.py --init …`, push `docs/assignments.json`, paste codes
+   into the `evaluators` tab, send each person their link from `evaluators.csv`.
+4. **Test**: add `TEST-DEPLOY` to the `evaluators` tab, run
+   `python tools/check_deploy.py --live`, then delete the TEST rows from `responses`.
 
 ## Day to day
 
-**Add cases.** Put each case in `data/cases/` in the same format as `C01.json`: the case text plus both systems' outputs, split by domain. Then run:
-```bash
-export LLM_BASE_URL=https://api.openai.com/v1 LLM_API_KEY=... LLM_MODEL=...   # or your own endpoint
-python tools/make_items.py data/cases/*.json
-```
-Items are validated, and anything invalid is sent back to the LLM once with the errors. Spot-check the clinical content in `docs/items.json` before you push. To inspect the prompts without calling an LLM, use `--dry-run`, which writes them to `out/prompts/`.
-
-**Add evaluators** without changing anyone's existing assignment:
-```bash
-python tools/make_assignments.py --add 3 --per 10
-```
-Push, and add the new codes to the `evaluators` tab.
-
-**Preview locally:**
-```bash
-python -m http.server -d docs 8000      # then open http://localhost:8000/?r=DEMO
-```
-When `endpoint` is empty the page runs in demo mode: it shows every item, and the end screen lists the rows that would have been sent.
+- **Add evaluators** without touching existing queues: `python tools/schedule.py --add 2`
+  (`--per 15` for a shorter queue). Push, paste the new codes into the sheet. The command prints
+  the coverage plan and a budget line; keep the budget ≥ 90 if every case should reach 3 ratings
+  at 50 % completion (see `data/bank_v2/schedule/DESIGN.md`).
+- **Preview locally**: `python -m http.server -d docs 8000` → `http://localhost:8000/?r=DEMO`
+  (with `endpoint: ""` the page runs in demo mode and shows every case).
+- **Blocked networks**: hospital Wi-Fi often blocks `script.google.com`; the page stores answers
+  on the device and uploads them from the next network, or the evaluator sends the
+  "Download my answers" file and `tools/import_offline.py` converts it to sheet rows.
 
 ## Response columns (`responses` tab)
 
-| Column | Meaning |
-|---|---|
-| `evaluator`, `item_id`, `case_id`, `domain` | Who rated what |
-| `position` | Where the item fell in that evaluator's queue (for order effects) |
-| `left_system` | Which system was shown as Option 1 (`A` = multi-agent, `B` = baseline) |
-| `choice` | As clicked on screen: `strong_1` … `neutral` … `strong_2` |
-| `score_A` | Same answer from −2 to +2, where **+2 = strongly prefers system A**. Use this for analysis. |
-| `comment`, `seconds_on_item` | Free text; seconds the item was on screen |
-| `items_version`, `page_version`, `submitted_at`, `received_at` | Provenance |
-
-A second submission for the same item from the same evaluator adds a new row. For analysis, keep the latest row per `evaluator` + `item_id`.
+One row per domain per case. `choice` is as clicked (`strong_1` … `strong_2`); `score_A` maps it
+to −2…+2 where **+2 = strongly prefers system A (the MAS)** — use `score_A` for analysis.
+`safety_1/2` and `completeness_1/2` are per screen option; `safety_A/B` and `completeness_A/B`
+are the same values mapped to systems. `left_system` says which system was Option 1.
+`items_version` distinguishes question banks (bank v2 = `2026-10-28`). A resubmission adds new
+rows; keep the latest per `evaluator` + `item_id`.
 
 ## Notes
 
-- **Option B in `docs/items.json` and `data/cases/C01.json` is placeholder text.** Replace it with real baseline output and rerun `make_items.py`.
-- On a free GitHub account, Pages needs a **public** repo, so `items.json` will be publicly readable. Evaluator codes only gate who can submit; they don't hide content.
-- Don't change an item's text once it has ratings. Add a new item id instead, or bump `version` in `items.json`, which is recorded with every row.
-- After editing `Code.gs`, use Deploy → Manage deployments → Edit → Version: *New version*. That keeps the same URL. Creating a *New deployment* would produce a new URL.
+- Don't change a case's text once it has ratings; rebuild with a new `--version` instead, which
+  is recorded on every row as `items_version`.
+- Pages needs a public repo on a free account, so `docs/` content is publicly readable. Codes
+  gate submission, not reading; never publish `data/bank_v2/schedule/randomization_key.csv`.
+- Pilot artifacts and tools live in `data/_prior_pilot/` and `tools/_prior_pilot/` and are not
+  used by the v2 pipeline.

@@ -106,7 +106,8 @@ function doPost(e) {
   return out_({ ok: true, rows: rows.length });
 }
 
-// GET ?r=CODE  ->  {ok, done: [item ids already submitted by this evaluator]}
+// GET ?r=CODE  ->  {ok, columns, done: [item ids already submitted by this evaluator]}
+// `columns` = HEADERS.length, so a deployment check can tell whether this version is live.
 function doGet(e) {
   var code = String((e && e.parameter && e.parameter.r) || '').trim();
   if (!isEvaluator_(code)) return out_({ ok: false, error: 'unknown_evaluator' });
@@ -120,7 +121,7 @@ function doGet(e) {
       if (String(vals[i][0]) === code) done[vals[i][1]] = true;
     }
   }
-  return out_({ ok: true, done: Object.keys(done) });
+  return out_({ ok: true, columns: HEADERS.length, done: Object.keys(done) });
 }
 
 function isEvaluator_(code) {
