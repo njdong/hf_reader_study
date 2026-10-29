@@ -1,6 +1,6 @@
 {
  "study": "hf_reader_study",
- "version": "2026-10-28",
+ "version": "2026-10-28b",
  "mode": "case",
  "systems": {
   "A": "multi-agent system (current run, first-12 h chart)",
@@ -38,8 +38,8 @@
    "cohort": "I50_HF",
    "age_sex": "85M",
    "stem": {
-    "presentation": "An 85-year-old man with hypertension and paroxysmal AF, off warfarin since an admission this year for an INR of 18, began having dry mouth 4 days earlier after starting a BPH medication and called EMS. In the ED he developed irregular tachycardia to the 130-140s; the ECG showed AF. IV diltiazem 10 mg twice had little effect; IV diltiazem 20 mg plus oral diltiazem 30 mg brought the HR to 95-115, with SBP falling from 150 to 120. For mild acute renal failure (Cr 1.8, baseline 1.3) he received 1 L normal saline, with a second liter hung before transfer to the floor. There his rate stayed hard to control on nodal blockers; he became persistently tachycardic with increasing hypoxia, wheezing and confusion, responded minimally to IV furosemide 40 mg twice, and was transferred to the CCU for AF with RVR and worsening CHF.",
-    "home_meds": "Diltiazem 30 mg TID; a newly started BPH medication (not named).",
+    "presentation": "An 85-year-old man with hypertension and paroxysmal AF on home diltiazem 30 mg TID, off warfarin since an admission this year for an INR of 18, began having dry mouth 4 days earlier after starting an unnamed BPH medication and called EMS. In the ED he developed irregular tachycardia to the 130-140s (AF on ECG). IV diltiazem 10 mg twice had little effect; IV 20 mg plus oral 30 mg brought the HR to 95-115 and SBP from 150 to 120. For mild acute renal failure (Cr 1.8, baseline 1.3) he received 1 L normal saline, with a second hung before transfer to the floor. There his rate stayed hard to control on nodal blockers; he became persistently tachycardic with increasing hypoxia, wheezing and confusion, responded minimally to IV furosemide 40 mg twice, and was transferred to the CCU for AF with RVR and worsening CHF.",
+    "home_meds": "From first-12 h orders: fludrocortisone, aspirin 325 mg, omeprazole, diltiazem IV and PO, lactulose, citalopram, multivitamin, sodium chloride flush, influenza vaccine, metoprolol tartrate IV and PO, calcium carbonate, ipratropium nebulizer, furosemide 40 mg IV.",
     "vitals": "ED: T 98, HR 68, BP 148/113, RR 16, SpO2 96% RA. Exam: T 98.1, HR 120-140 falling to 100-120 after diltiazem and IV metoprolol, BP 138/96, RR 18, SpO2 98% RA.",
     "labs": "First available: Na 143 mEq/L, K 5.6 mEq/L, BUN 39 mg/dL, Cr 1.9 mg/dL, Hb 13.7 g/dL, WBC 7.9 K/uL, Plt 116 K/uL, troponin T 0.02 ng/mL, BNP 24117 pg/mL, INR 2.2, Mg 2.3 mg/dL.",
     "exam": [
@@ -200,8 +200,8 @@
    "cohort": "I50_HF",
    "age_sex": "83M",
    "stem": {
-    "presentation": "An 83-year-old man with chronic diastolic CHF (EF 50-55%), AF on warfarin, sick sinus syndrome and complete heart block with a pacemaker, hypertension, hyperlipidemia and diabetes presented with 1 week of exertional dyspnea and orthopnea. He denied chest pain or pressure and peripheral edema but felt his legs were heavier. He reported adherence to his diuretics and a low-sodium diet, although his nephrologist had recently reduced bumetanide from 2 mg PO BID to 2 mg PO daily. He called his PCP and was sent to the ED. There the ECG was at baseline, the initial CXR showed a moderate to large right pleural effusion, BNP was 9170 (baseline 6019) and TnT 0.06. He received no medications or interventions in the ED and was admitted to Cardiology for presumed CHF exacerbation.",
-    "home_meds": "Warfarin; bumetanide 2 mg PO daily (recently reduced from 2 mg BID).",
+    "presentation": "An 83-year-old man with chronic diastolic CHF (EF 50-55%), AF on warfarin, sick sinus syndrome and complete heart block with a pacemaker, hypertension, hyperlipidemia and diabetes presented with 1 week of exertional dyspnea and orthopnea. He denied chest pain or pressure and peripheral edema but felt his legs were heavier. He reported adherence to his diuretics and a low-sodium diet, although his nephrologist had recently reduced bumetanide from 2 mg PO BID to 2 mg PO daily. His PCP sent him to the ED. There the ECG was at baseline, the initial CXR showed a moderate to large right pleural effusion, BNP was 9170 (baseline 6019) and TnT 0.06. He received no medications or interventions in the ED and was admitted to Cardiology for presumed CHF exacerbation.",
+    "home_meds": "From first-12 h orders: metoprolol succinate, aspirin, multivitamin with minerals, ferrous sulfate, trandolapril, methimazole, folic acid, repaglinide, bumetanide 2 mg PO, fluticasone nasal, docusate, 1/2 NS 1000 mL IV, atorvastatin, sodium chloride flush, insulin SC, calcitriol, senna, dextrose 50% IV, furosemide 80 mg IV, glucagon IM, potassium chloride 40 mEq PO.",
     "vitals": "ED: T 99, HR 74, BP 129/57, RR 20, SpO2 100% on 2 L. Exam: T 98.4, BP 147/61, HR 72, RR 18, SpO2 100% on 2 L.",
     "labs": "First available: Na 141 mEq/L, K 4.2 mEq/L, BUN 28 mg/dL, Cr 1.0 mg/dL, Hb 9.0 g/dL, WBC 10.0 K/uL, Plt 316 K/uL, troponin T 0.04 ng/mL, INR 3.0, Mg 2.1 mg/dL.",
     "exam": [
@@ -360,8 +360,8 @@
    "cohort": "I50_HF",
    "age_sex": "75F",
    "stem": {
-    "presentation": "A 75-year-old woman with non-small cell lung cancer treated with chemotherapy and radiation, COPD and hypertension presented for the third time with dyspnea and hemoptysis. At her most recent discharge she had improved on an aggressive COPD regimen and went home on standing inhalers and a 5-day course of cefpodoxime and azithromycin for community-acquired pneumonia. After one day at home, following a large meal, she became much more dyspneic after walking to the bathroom. She denied chest pain, palpitations or diaphoresis; cough had improved but rusty sputum persisted, and left ankle edema and pain had improved with an arthritis pill. In the ED WBC was 15,000 with a left shift, Cr 1.7 (1.3 at discharge), troponin 0.14 without ECG changes, and BNP 3309 (2522 earlier); CXR showed increased right hilar and left lower lobe infiltrates and a left pleural effusion. She received bronchodilators, methylprednisolone, vancomycin, piperacillin-tazobactam, aspirin and fluids ahead of a planned CTA, and was sent to the floor.",
-    "home_meds": "Standing inhalers; 5-day course of cefpodoxime and azithromycin; an arthritis pill from her pulmonologist (not named).",
+    "presentation": "A 75-year-old woman with non-small cell lung cancer after chemotherapy and radiation, COPD and hypertension presented for the third time with dyspnea and hemoptysis. At her most recent discharge she had improved on an aggressive COPD regimen and went home on standing inhalers and a 5-day course of cefpodoxime and azithromycin for community-acquired pneumonia. One day later, after a large meal and a walk to the bathroom, she became much more dyspneic. She denied chest pain, palpitations or diaphoresis; cough had improved but rusty sputum persisted, and left ankle edema and pain had improved with an arthritis pill from her pulmonologist. In the ED WBC was 15,000, Cr 1.7 (1.3 at discharge), troponin 0.14 without ECG changes, and BNP 3309 (2522 earlier); CXR showed increased right hilar and left lower lobe infiltrates and a left pleural effusion. She received bronchodilators, methylprednisolone, vancomycin, piperacillin-tazobactam, aspirin and fluids ahead of a planned CTA, and was sent to the floor.",
+    "home_meds": "From first-12 h orders: sodium chloride flush, iso-osmotic dextrose IV, vancomycin IV, temazepam, senna, piperacillin-tazobactam 2.25 g IV, ipratropium nebulizer, albuterol nebulizer, pantoprazole, metoprolol tartrate 25 mg, heparin 5000 units SC, docusate, furosemide 20 mg IV, atorvastatin, cinacalcet, ferrous sulfate, SW 100 mL IV, magnesium sulfate IV.",
     "vitals": "ED: T 96.8, BP 135/64, HR 117, RR 20, SpO2 93% on 4 L NC. Exam: T 97.7, BP 108/56, RR 20, SpO2 99% on 3 L.",
     "labs": "First available: Na 143 mEq/L, K 3.8 mEq/L, BUN 29 mg/dL, Cr 1.5 mg/dL, Hb 8.4 g/dL, WBC 12.9 K/uL, Plt 203 K/uL, troponin T 0.1 ng/mL, INR 1.1, Mg 1.6 mg/dL.",
     "exam": [
@@ -2947,7 +2947,7 @@
    "age_sex": "77M",
    "stem": {
     "presentation": "A 77-year-old man with heart failure (EF 35%), atrial fibrillation on warfarin (INR 2.8 two days earlier), and a pacemaker for bradycardia presented from rehab with 4 days of left-sided chest pain and was found to have a pericardial effusion with tamponade physiology. He had recently been hospitalized for intractable cough, treated for healthcare-associated pneumonia and COPD exacerbation with vancomycin, ceftazidime and prednisone; CT then showed a bronchopulmonary process concerning for pneumonia versus neoplasm. The pain was dull, non-radiating, worse with exertion and relieved by rest, with mild dyspnea and without nausea, diaphoresis, palpitations or syncope. In the ED bedside ultrasound showed a large pericardial effusion; he was tachypneic and placed on 4 L oxygen. Labs showed K 5.7, BUN/Cr 61/1.8, INR 4.1 and troponin 0.08; chest x-ray showed severe cardiomegaly. He received an arterial line, 3 L normal saline and 2 units FFP. On the floor his chest discomfort had improved; he was wheelchair bound with baseline 45-degree orthopnea.",
-    "home_meds": "Warfarin for atrial fibrillation (last INR 2.8 two days before presentation).",
+    "home_meds": "From first-12 h orders: albuterol and ipratropium nebulizers, saline flush.",
     "vitals": "ED: T 97.6, HR 68, BP 97/51, RR 20, SpO2 100% on room air. Admission exam: T 96.5, BP 119/66, HR 65, RR 16, SpO2 100% on 4 L.",
     "labs": "First available: Na 141 mEq/L, K 4.6 mEq/L, BUN 55 mg/dL, Cr 1.4 mg/dL, Hb 8.3 g/dL, WBC 5.0 K/uL, Plt 293 K/uL, troponin T 0.07 ng/mL, INR 3.4, Mg 2.3 mg/dL.",
     "exam": [
