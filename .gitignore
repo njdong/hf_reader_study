@@ -1,2 +1,6 @@
 out/
 __pycache__/
+.DS_Store
+# Never commit anything under data/ (PHI-adjacent derivatives) or the PhysioNet dataset.
+data/
+mimic-iv-ext-cardiac-disease-1.0.0/
